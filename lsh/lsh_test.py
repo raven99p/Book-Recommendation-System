@@ -5,11 +5,23 @@ import math  # infinity
 import collections  # check if signature parts, contain same elements
 import mmh3
 from itertools import combinations
+import pandas as pd
+
+path = "C:\\Users\pauli\Work\Book Recommendation System\dataset\summaries.csv"
+
+df = pd.read_csv(path)
+
+# data = df.Summary.values[100:110]
+
+# print(data)
+data = ["""anew apartment begin boston century devastating discovers elegant kern life lindsey night original past personal prowling soul tormented town tragedy""",
+ """act better craft enchanted get halliwell mastered mean original powers prowling shape shifters sisters stumbled tie together tv warlocks"""
+        ]
 
 
 def main():
 
-    Doc_ready = 2
+    Doc_ready = len(data)
     shingle_size = 2
 
     # SHINGLES CREATION
@@ -21,9 +33,6 @@ def main():
     temp = fetch_20newsgroups(
         subset='train', categories=categories, shuffle=False, random_state=42)
     Doc = []
-
-    data = ['I am a man who hates politics and i love kicking doors down with force and killing insects',
-            'I am a man who hates kicking doors and i love politics and not killing insects']
 
     for i in range(Doc_ready):  # for every document
         File = data[i].replace('\n', '')
@@ -42,6 +51,7 @@ def main():
     #    [][]=Shingle of shingles of single document
     # first index is also the id of the document
 
+    print("Created Shingled")
     ###########################################
 
     def unique(list_arg):  # get unique elements from List
@@ -57,6 +67,7 @@ def main():
         U.extend(temp)
     U = unique(U)
 
+    print("Created Universe")
     ###########################################
 
     # Create Matrix
@@ -72,8 +83,8 @@ def main():
                 M[j][i] = 0
                 continue
 
-    print('\n'.join([''.join(['{:4}'.format(item) for item in row])
-                     for row in M]))
+    # print('\n'.join([''.join(['{:4}'.format(item) for item in row])
+    #                  for row in M]))
 
     # Getting actual Jaccard Sim value
     # Accessing Shingles Correlation Matrix and compairing all values
@@ -103,6 +114,7 @@ def main():
     print('\n'.join([''.join(['{:8}'.format(item) for item in row])
                      for row in JS]))
 
+    print("Created Matrix")
     ####################
 
     # Creating the Hash functions
@@ -149,6 +161,7 @@ def main():
             if h < sig[i][c]:
                 sig[i][c] = h
 
+    print("Created hash functions")
     ################################
 
     # Creating Signature Matrix
@@ -165,6 +178,7 @@ def main():
     print('\n'.join([''.join(['{:4}'.format(item) for item in row])
                      for row in Sig]))
 
+    print("Created Signature Matrix")
     #####################
 
     # LSH
