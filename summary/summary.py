@@ -4,7 +4,7 @@ import math
 import matplotlib.pyplot as plt
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize, wordpunct_tokenize
-path = "C:\\Users\pauli\Work\Book Recommendation System\dataset\summaries.csv"
+path = "C:\\Users\pauli\Work\Book Recommendation System\dataset\Preprocessed_data.csv"
 pd.options.display.max_colwidth = 400
 stopWordsEnglish = stopwords.words('english')
 punctuation = [".", ";", ":",  "?", "(", ")", "[", "]", "\"",
@@ -13,7 +13,7 @@ punctuation = [".", ";", ":",  "?", "(", ")", "[", "]", "\"",
 stopWordsEnglish.extend(punctuation)
 
 # nrows=1
-df = pd.read_csv(path, usecols=['isbn', 'Summary', ], dtype={'id': int})
+df = pd.read_csv(path, usecols=['isbn', 'Summary', 'Category'], dtype={'id': int})
 
 # print(wordpunct_tokenize(df.Summary[:1][0]))
 # sentence = sorted(df['Summary'].apply(wordpunct_tokenize).values[0])
@@ -31,7 +31,9 @@ df['Summary'] = df['Summary'].apply(lambda x: sorted(x))
 df['Summary'] = df['Summary'].apply(lambda x: ' '.join(x))
 
 
-# df = df.drop_duplicates()
+df = df.drop_duplicates()
+
+df = df[df.Category != '9']
 
 # df = df.sort_values(by=['isbn'])
 
@@ -39,4 +41,4 @@ print(df)
 
 
 df.to_csv(
-    "C:\\Users\pauli\Work\Book Recommendation System\dataset\summaries_v3_sorted.csv")
+    "C:\\Users\pauli\Work\Book Recommendation System\dataset\isbn_sum_cat.csv")
