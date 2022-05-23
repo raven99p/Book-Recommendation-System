@@ -1,27 +1,25 @@
-import React, { useState } from 'react';
-import Button from '@material-ui/core/Button';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import TextField from '@material-ui/core/TextField';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox';
-import Link from '@material-ui/core/Link';
-import Grid from '@material-ui/core/Grid';
-import Box from '@material-ui/core/Box';
-import Typography from '@material-ui/core/Typography';
-import Container from '@material-ui/core/Container';
-import axios from 'axios';
-import { useRouter } from 'next/router';
+import React, { useState } from "react";
+import Button from "@mui/material/Button";
+import CssBaseline from "@mui/material/CssBaseline";
+import TextField from "@mui/material/TextField";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import Checkbox from "@mui/material/Checkbox";
+import Link from "@mui/material/Link";
+import Grid from "@mui/material/Grid";
+import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
+import Container from "@mui/material/Container";
+import axios from "axios";
+import { useRouter } from "next/router";
 
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
-      {'Copyright © '}
+      {"Copyright © "}
       <Link color="inherit" href="https://material-ui.com/">
-        HarOnline
-      </Link>
-      {' '}
-      {new Date().getFullYear()}
-      .
+        Reader's Cove
+      </Link>{" "}
+      {new Date().getFullYear()}.
     </Typography>
   );
 }
@@ -37,9 +35,9 @@ export default function SignIn() {
     console.log(emailValue, password);
     let success;
     try {
-      success = await axios.post('/api/login', { email: emailValue, password });
-      if(success){
-        window.location = '/user/userHome';
+      success = await axios.post("/api/login", { email: emailValue, password });
+      if (success) {
+        window.location = "/user/userHome";
         // router.push('/user/userHome');
       }
     } catch (err) {
@@ -51,13 +49,13 @@ export default function SignIn() {
   return (
     <Container component="main" maxWidth="xs">
       <CssBaseline />
-      <div>
-        <Typography component="h1" variant="h5">
-          Sign in
+      <div style={{ textAlign: "center" }}>
+        <Typography component="h1" variant="h4">
+          Welcome
         </Typography>
         {wrongCreds && (
-          <Box style={{ display: 'flex', paddingLeft: '20%' }}>
-            <Typography variant="subtitle1" style={{ color: 'red' }}>
+          <Box style={{ display: "flex", paddingLeft: "20%" }}>
+            <Typography variant="subtitle1" style={{ color: "red" }}>
               Username or password Incorrect..
             </Typography>
           </Box>
@@ -87,16 +85,19 @@ export default function SignIn() {
             autoComplete="current-password"
             onChange={(e) => setPassword(e.target.value)}
           />
-          <FormControlLabel
-            control={<Checkbox value="remember" color="primary" />}
-            label="Remember me"
-          />
+
           <Button
             type="submit"
             fullWidth
             variant="contained"
             color="primary"
             onClick={handleSignIn}
+            sx={{
+              paddingTop: "1em",
+              borderRadius: "20px",
+              marginTop: "1em",
+              marginBottom: "1em",
+            }}
           >
             Sign In
           </Button>
