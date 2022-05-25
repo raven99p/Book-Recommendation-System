@@ -35,5 +35,5 @@ merged = merged[merged.rating >= 7.5]
 print('summaries', len(summaries))
 print('ratings', len(ratings))
 print('merged', len(merged))
-merged.to_csv(
-    "C:\\Users\pauli\Work\Book Recommendation System\dataset\\best_summaries.csv")
+merged.to_csv("C:\\Users\pauli\Work\Book Recommendation System\dataset\\best_summaries.csv")
+

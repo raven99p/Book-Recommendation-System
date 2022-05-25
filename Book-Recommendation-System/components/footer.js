@@ -1,27 +1,38 @@
-import React from 'react';
-import {
-  Box, Typography, Container,
-} from '@material-ui/core';
+import { Box, Grid, Typography } from "@mui/material";
+import React from "react";
+// import Image from 'material-ui-image'
 
-export default function AppFooter() {
+const pjson = require("../package.json");
+
+export default function appFooter() {
   return (
-    <footer>
-      <Box
-        style={{
-          backgroundColor: '#20613e',
-          bottom: 0,
-          position: 'static',
-          width: '100%',
-          marginTop: 'calc(45vh - 50px)',
-          padding: '2%',
-          textAlign: 'center',
-        }}
+    <Box
+      style={{
+        backgroundColor: "#112",
+        position: "fixed",
+        left: 0,
+        bottom: 0,
+        width: "100%",
+        textAlign: "center",
+      }}
+    >
+      <Grid
+        container
+        spacing={0}
+        direction="column"
+        alignItems="center"
+        justify="center"
+        style={{ minHeight: "4vh" }}
       >
-        <Container>
-          <Typography style={{ color: 'white' }}>Calorie Guess My Book</Typography>
-          <Typography style={{ color: 'white' }}>Designed & Developed by CEID Baybee</Typography>
-        </Container>
-      </Box>
-    </footer>
+        <Grid item xs={12}>
+          <Typography style={{ color: "white" }}>
+            Designed & Developed by CEID students
+          </Typography>
+          <Typography style={{ color: "white" }}>
+            {`Version ${pjson.version}`}
+          </Typography>
+        </Grid>
+      </Grid>
+    </Box>
   );
 }

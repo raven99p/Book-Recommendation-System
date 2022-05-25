@@ -1,24 +1,22 @@
-import React, { useState } from 'react';
-import Button from '@material-ui/core/Button';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import TextField from '@material-ui/core/TextField';
-import Link from '@material-ui/core/Link';
-import Box from '@material-ui/core/Box';
-import Typography from '@material-ui/core/Typography';
-import Container from '@material-ui/core/Container';
-import axios from 'axios';
-import { useRouter } from 'next/router';
+import React, { useState } from "react";
+import Button from "@mui/material/Button";
+import CssBaseline from "@mui/material/CssBaseline";
+import TextField from "@mui/material/TextField";
+import Link from "@mui/material/Link";
+import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
+import Container from "@mui/material/Container";
+import axios from "axios";
+import { useRouter } from "next/router";
 
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
-      {'Copyright © '}
-      <Link color="inherit" href="https://material-ui.com/">
+      {"Copyright © "}
+      <Link color="inherit" href="#">
         Your Website
-      </Link>
-      {' '}
-      {new Date().getFullYear()}
-      .
+      </Link>{" "}
+      {new Date().getFullYear()}.
     </Typography>
   );
 }
@@ -38,7 +36,7 @@ export default function SignIn() {
     console.log(emailValue, password, firstName, lastName, username);
     let result;
     try {
-      result = await axios.post('/api/createUser', {
+      result = await axios.post("/api/createUser", {
         email: emailValue,
         username,
         password,
@@ -46,7 +44,7 @@ export default function SignIn() {
         lastName,
       });
       if (result.status === 406) setUsernameError(true);
-      router.push('/user/userHome');
+      router.push("/user/userHome");
     } catch (err) {
       console.log(err);
       setUsernameError(true);
@@ -58,14 +56,14 @@ export default function SignIn() {
     console.log(passwordValue.length);
     console.log(
       passwordValue.match(
-        /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[#@$!%*?&])[A-Za-z\d#@$!%*?&]{8,}$/g,
-      ),
+        /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[#@$!%*?&])[A-Za-z\d#@$!%*?&]{8,}$/g
+      )
     );
     if (
       !passwordValue.match(
-        /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[#@$!%*?&])[A-Za-z\d#@$!%*?&]{8,}$/g,
-      )
-      && passwordValue.length !== 0
+        /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[#@$!%*?&])[A-Za-z\d#@$!%*?&]{8,}$/g
+      ) &&
+      passwordValue.length !== 0
     ) {
       setPasswordError(true);
     } else {
@@ -85,14 +83,14 @@ export default function SignIn() {
     <Container component="main" maxWidth="xs">
       <CssBaseline />
       <div>
-        <Typography component="h1" variant="h5" style={{ textAlign: 'center' }}>
+        <Typography component="h1" variant="h5" style={{ textAlign: "center" }}>
           Sign Up
         </Typography>
         {usernameError && (
           <Typography
             component="h1"
             variant="subtitle1"
-            style={{ textAlign: 'center', color: 'red' }}
+            style={{ textAlign: "center", color: "red" }}
           >
             Username already exists, try again..
           </Typography>
@@ -126,8 +124,8 @@ export default function SignIn() {
             error={!!passwordError}
             helperText={
               passwordError
-                ? 'Your password must be more than 8 characters and must contain at least one Capital letter, one number and a special character'
-                : ''
+                ? "Your password must be more than 8 characters and must contain at least one Capital letter, one number and a special character"
+                : ""
             }
             variant="outlined"
             margin="normal"

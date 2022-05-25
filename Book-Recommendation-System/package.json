@@ -7,19 +7,13 @@
     "@emotion/react": "latest",
     "@emotion/server": "latest",
     "@emotion/styled": "latest",
-    "@material-ui/core": "next",
-    "@material-ui/icons": "latest",
-    "@material-ui/lab": "latest",
-    "@material-ui/styles": "^4.11.4",
-    "@mui/x-data-grid": "^5.5.0",
+    "@mui/icons-material": "latest",
+    "@mui/material": "latest",
     "axios": "^0.21.1",
     "clsx": "latest",
     "cookies": "^0.8.0",
-    "date-fns": "^2.28.0",
     "eslint-cli": "^1.1.1",
-    "gps-distance": "0.0.4",
     "jose": "^3.15.4",
-    "js-cookie": "^3.0.1",
     "material-ui-dropzone": "^3.5.0",
     "moment": "^2.29.1",
     "mongodb": "^4.1.1",
@@ -28,19 +22,18 @@
     "prettier-eslint": "^13.0.0",
     "prop-types": "latest",
     "react": "latest",
-    "react-calendar": "^3.7.0",
-    "react-chat-widget": "^3.1.4",
     "react-d3-library": "^1.1.8",
     "react-dom": "latest",
-    "react-drag-drop-files": "^2.1.12",
-    "react-infinite-scroll-component": "^6.1.0",
-    "react-map-gl": "^6.1.16",
+    "react-swipeable-views": "^0.14.0",
     "recharts": "^2.1.2"
+  },
+  "engines": {
+    "node": "16.x"
   },
   "scripts": {
     "dev": "next",
     "build": "next build",
-    "start": "next start",
+    "start": "next start -p $PORT",
     "post-update": "echo \"codesandbox preview only, need an update\" && yarn upgrade --latest"
   },
   "devDependencies": {
@@ -50,5 +43,8 @@
     "eslint-plugin-jsx-a11y": "^6.4.1",
     "eslint-plugin-react": "^7.24.0",
     "eslint-plugin-react-hooks": "^4.2.0"
-  }
+  },
+  "cacheDirectories": [
+    ".next/cache"
+  ]
 }

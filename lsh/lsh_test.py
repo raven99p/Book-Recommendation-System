@@ -10,11 +10,13 @@ import pandas as pd
 from prettytable import PrettyTable
 import json
 path = "C:\\Users\pauli\Work\Book Recommendation System\dataset\summaries_v4.csv"
+
 df = pd.read_csv(path)
 
 number_of_summaries = 16
 data = df.Summary.values[:number_of_summaries]
 index_list = df.isbn.values[:number_of_summaries]
+
 print(data)
 # data = ["""anew apartment begin boston century devastating discovers elegant kern life lindsey night original past personal prowling soul tormented town tragedy""",
 #  """act better craft enchanted get halliwell mastered mean original powers prowling shape shifters sisters stumbled tie together tv warlocks"""
@@ -75,15 +77,21 @@ def main():
     # Create Matrix
 
     M = [[0 for x in range(Doc_ready)] for y in range(len(U))]
-
+    # counter = 0
     for i in range(Doc_ready):
         for j in range(len(U)):
             if U[j] in Doc[i]:
                 M[j][i] = 1
+                # counter+=1
+                # print(counter)
                 continue
             else:
                 M[j][i] = 0
+                # counter+=1
+                # print(counter)
                 continue
+            
+
 
     # print('\n'.join([''.join(['{:4}'.format(item) for item in row])
     #                  for row in M]))
@@ -112,9 +120,9 @@ def main():
             JS[i][start] = comp_shingles(i, start, M)
             start = start+1
 
-    print("\nJaccard Similarity Matrix \n")
-    print('\n'.join([''.join(['{:8}'.format(item) for item in row])
-                     for row in JS]))
+    # print("\nJaccard Similarity Matrix \n")
+    # print('\n'.join([''.join(['{:8}'.format(item) for item in row])
+    #                  for row in JS]))
 
     print("Created Matrix")
     ####################
@@ -177,8 +185,8 @@ def main():
             if M[j][i] == 1:
                 hashF(j, i, Sig)
 
-    print('\n'.join([''.join(['{:4}'.format(item) for item in row])
-                     for row in Sig]))
+    # print('\n'.join([''.join(['{:4}'.format(item) for item in row])
+    #                  for row in Sig]))
 
     print("Created Signature Matrix")
     #####################
@@ -219,8 +227,8 @@ def main():
     #print("\nCorrelation Matrix\n")
     # K buckets filled with 1 at row=bucket column = Document id
 
-    print('\n'.join([''.join(['{:4}'.format(item) for item in row])
-                     for row in k]))
+    # print('\n'.join([''.join(['{:4}'.format(item) for item in row])
+    #                  for row in k]))
 
     Sim = [[math.inf for x in range(Doc_ready)] for y in range(Doc_ready)]
 
@@ -231,7 +239,7 @@ def main():
         for i in range(hash_number):
             if Sig[i][a] == Sig[i][b]:
                 same += 1
-        return "%.3f" % (same/hash_number)
+        return float("%.3f" % (same/hash_number))
 
     # Reading CM
     for i in range(buckets):
@@ -246,6 +254,7 @@ def main():
                     Sim[c[0]][c[1]] = comp(c[0], c[1])
 
     print("\nLSH Similarity Matrix\n")
+
     print('\n'.join([''.join(['{:10}'.format(item)
           for item in row]) for row in Sim]))
     # print('\n'.join([''.join(['{:10}'.format(item)
@@ -264,22 +273,26 @@ def main():
     grouped_by = []
     group_to_sort = []
     temp_sim_books = []
+
     for pivot_index, book in enumerate(Sim):
         # get first book as pivot
         pivot = book[0]
         # books after the pivot
         for index, similarity in enumerate(book[i:]):
+
             print('pivot ::', pivot_index)
             print('index ::', index+1)
             print('similarity ::', similarity)
             obj = {"pivot": pivot_index, "index": index +
                    i, "similarity": similarity}
+
             group_to_sort.append(obj)
         # sorted list of similarities
         group_to_sort.sort(key=lambda x: x['similarity'], reverse=True)
         group.append(group_to_sort[:3])
         i += 1
         group_to_sort = []
+
     group = group[:len(group)-1]
 
     for book_index in group:
@@ -293,6 +306,7 @@ def main():
 
     with open("C:\\Users\pauli\Work\Book Recommendation System\dataset\similarities.json", 'w') as f:
             json.dump(grouped_by, f)
+
     return Sim
 
 
