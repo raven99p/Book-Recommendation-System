@@ -15,6 +15,7 @@ stopWordsEnglish.extend(punctuation)
 # nrows=1
 df = pd.read_csv(path, usecols=['isbn', 'Summary', 'Category'], dtype={'id': int})
 
+
 # print(wordpunct_tokenize(df.Summary[:1][0]))
 # sentence = sorted(df['Summary'].apply(wordpunct_tokenize).values[0])
 # print(" ".join(sentence))
@@ -36,8 +37,6 @@ df = df.drop_duplicates()
 df = df[df.Category != '9']
 
 # df = df.sort_values(by=['isbn'])
-
-print(df)
 
 
 df.to_csv(

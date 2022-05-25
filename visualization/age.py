@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 import math
 import matplotlib.pyplot as plt
-path = "C:\\Users\pauli\Work\Book Recommendation System\dataset\Preprocessed_data.csv"
+path = "C:\\Users\pauli\Work\Book Recommendation System\dataset\\ratings_v1.csv"
 pd.options.display.max_colwidth = 400
 
 df = pd.read_csv(path, usecols=['user_id',
@@ -36,7 +36,7 @@ unique_age = df.age.values
 #         print(x)
 
 fig, ax = plt.subplots(1, 1)
-ax.hist(unique_age, bins=20, rwidth=0.5)
+ax.hist(unique_age,  rwidth=0.5)
 
 ax.set_title("Age")
 
