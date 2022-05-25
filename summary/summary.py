@@ -13,7 +13,11 @@ punctuation = [".", ";", ":",  "?", "(", ")", "[", "]", "\"",
 stopWordsEnglish.extend(punctuation)
 
 # nrows=1
+<<<<<<< Updated upstream
 df = pd.read_csv(path, usecols=['isbn', 'Summary', ], dtype={'id': int})
+=======
+df = pd.read_csv(path, dtype={'id': int})
+>>>>>>> Stashed changes
 
 # print(wordpunct_tokenize(df.Summary[:1][0]))
 # sentence = sorted(df['Summary'].apply(wordpunct_tokenize).values[0])
@@ -34,8 +38,6 @@ df['Summary'] = df['Summary'].apply(lambda x: ' '.join(x))
 # df = df.drop_duplicates()
 
 # df = df.sort_values(by=['isbn'])
-
-print(df)
 
 
 df.to_csv(
