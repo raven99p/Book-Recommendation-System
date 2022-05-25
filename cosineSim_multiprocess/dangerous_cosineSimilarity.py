@@ -33,7 +33,7 @@ if __name__ == '__main__':
     path = "C:\\Users\pauli\Work\Book Recommendation System\dataset\summaries.csv"
     df = pd.read_csv(path)
 
-    number_of_summaries = 5000
+    number_of_summaries = 200
     data = df.Summary.values[:number_of_summaries]
     index_list = df.isbn.values[:number_of_summaries]
 
@@ -66,37 +66,38 @@ if __name__ == '__main__':
 
 
 
-# print(cosine_similarity(doc_term_matrix,doc_term_matrix))
-# Sim = cosine_similarity(doc_term_matrix,doc_term_matrix)
+    print(cosine_similarity(doc_term_matrix,doc_term_matrix))
+    Sim = cosine_similarity(doc_term_matrix,doc_term_matrix)
 
-# i = 1
-# group = []
-# grouped_by = []
-# group_to_sort = []
-# temp_sim_books = []
-# for pivot_index, book in enumerate(Sim):
-#     # get first book as pivot
-#     pivot = book[0]
-#     # books after the pivot
-#     for index, similarity in enumerate(book[i:]):
-#         print('pivot ::', pivot_index)
-#         print('index ::', index+1)
-#         print('similarity ::', similarity)
-#         obj = {"pivot": pivot_index, "index": index +
-#                 i, "similarity": similarity}
-#         group_to_sort.append(obj)
-#     # sorted list of similarities
-#     group_to_sort.sort(key=lambda x: x['similarity'], reverse=True)
-#     group.append(group_to_sort[:3])
-#     i += 1
-#     group_to_sort = []
-# group = group[:len(group)-1]
+    i = 1
+    group = []
+    grouped_by = []
+    group_to_sort = []
+    temp_sim_books = []
+    for pivot_index, book in enumerate(Sim):
+        print(book)
+        # get first book as pivot
+        # pivot = book[0]
+        # books after the pivot
+        for index, similarity in enumerate(book[i:]):
+            print('pivot ::', pivot_index)
+            print('index ::', index+1)
+            print('similarity ::', similarity)
+            obj = {"pivot": pivot_index, "index": index +
+                    i, "similarity": similarity}
+            group_to_sort.append(obj)
+        # sorted list of similarities
+        group_to_sort.sort(key=lambda x: x['similarity'], reverse=True)
+        group.append(group_to_sort[:3])
+        i += 1
+        group_to_sort = []
+    group = group[:len(group)-1]
 
-# for book_index in group:
-#     pivot = book_index[0]["pivot"]
-#     for sim in book_index:
-#         temp_sim_books.append(
-#             {"index": index_list[sim["index"]], "similarity": sim["similarity"]})
-#     grouped_by.append({"book_id": index_list[pivot], "most_similar": temp_sim_books})
-#     temp_sim_books = []
-# print(grouped_by)
+    # for book_index in group:
+    #     pivot = book_index[0]["pivot"]
+    #     for sim in book_index:
+    #         temp_sim_books.append(
+    #             {"index": index_list[sim["index"]], "similarity": sim["similarity"]})
+    #     grouped_by.append({"book_id": index_list[pivot], "most_similar": temp_sim_books})
+    #     temp_sim_books = []
+    print(group)
