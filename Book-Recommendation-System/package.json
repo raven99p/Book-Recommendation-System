@@ -24,6 +24,7 @@
     "react": "latest",
     "react-d3-library": "^1.1.8",
     "react-dom": "latest",
+    "react-responsive-carousel": "^3.2.23",
     "react-swipeable-views": "^0.14.0",
     "recharts": "^2.1.2"
   },

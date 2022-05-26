@@ -35,9 +35,14 @@ export default function SignIn() {
     console.log(emailValue, password);
     let success;
     try {
-      success = await axios.post("/api/login", { email: emailValue, password });
+      success = await axios.post(
+        "http://localhost:3000/api/login",
+        { email: emailValue, password },
+        { withCredentials: true }
+      );
       if (success) {
-        window.location = "/user/userHome";
+        console.log(success.status);
+        window.location = `/user/${success.data.username}`;
         // router.push('/user/userHome');
       }
     } catch (err) {
