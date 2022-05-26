@@ -1,3 +1,4 @@
+from itertools import groupby
 from sklearn.datasets import fetch_20newsgroups
 import numpy as np  # to get unique shhingles of list
 import random  # to get permutations of Matrix
@@ -12,7 +13,9 @@ path = "C:\\Users\pauli\Work\Book Recommendation System\dataset\summaries_v4.csv
 
 df = pd.read_csv(path)
 
-data = df.Summary.values[:7]
+number_of_summaries = 5
+data = df.Summary.values[:number_of_summaries]
+index_list = df.isbn.values[:number_of_summaries]
 
 print(data)
 # data = ["""anew apartment begin boston century devastating discovers elegant kern life lindsey night original past personal prowling soul tormented town tragedy""",
@@ -23,7 +26,7 @@ print(data)
 def main():
 
     Doc_ready = len(data)
-    shingle_size = 2
+    shingle_size = 3
 
     # SHINGLES CREATION
     # , 'soc.religion.christian','comp.graphics', 'sci.med']
@@ -251,35 +254,59 @@ def main():
                     Sim[c[0]][c[1]] = comp(c[0], c[1])
 
     print("\nLSH Similarity Matrix\n")
+
+    print('\n'.join([''.join(['{:10}'.format(item)
+          for item in row]) for row in Sim]))
     # print('\n'.join([''.join(['{:10}'.format(item)
     #       for item in row]) for row in Sim]))
     print(Sim)
-    table = PrettyTable(
-    ['book0','book1', 'book2', 'book3', 'book4', 'book5', 'book6'])
+    # table = PrettyTable(
+    #     ['book0', 'book1', 'book2', 'book3', 'book4', 'book5', 'book6'])
 
-    for rec in Sim:
-        table.add_row(rec)
+    # for rec in Sim:
+    #     table.add_row(rec)
 
-    print(table)
+    # print(table)
 
     i = 1
     group = []
+    grouped_by = []
     group_to_sort = []
+    temp_sim_books = []
+
     for pivot_index, book in enumerate(Sim):
         # get first book as pivot
         pivot = book[0]
         # books after the pivot
         for index, similarity in enumerate(book[i:]):
-            obj = {"pivot": pivot_index,"index": index+1, "similarity": similarity}
+
+            print('pivot ::', pivot_index)
+            print('index ::', index+1)
+            print('similarity ::', similarity)
+            obj = {"pivot": pivot_index, "index": index +
+                   i, "similarity": similarity}
+
             group_to_sort.append(obj)
         # sorted list of similarities
         group_to_sort.sort(key=lambda x: x['similarity'], reverse=True)
         group.append(group_to_sort[:3])
         i += 1
         group_to_sort = []
-    print(group)
+
+    group = group[:len(group)-1]
+
+    for book_index in group:
+        pivot = book_index[0]["pivot"]
+        for sim in book_index:
+            temp_sim_books.append(
+                {"index": index_list[sim["index"]], "similarity": sim["similarity"]})
+        grouped_by.append({"book_id": index_list[pivot], "most_similar": temp_sim_books})
+        temp_sim_books = []
+    print(grouped_by)
+
     with open("C:\\Users\pauli\Work\Book Recommendation System\dataset\similarities.json", 'w') as f:
-            json.dump(group, f)
+            json.dump(grouped_by, f)
+
     return Sim
 
 

@@ -1,90 +1,5102 @@
 [
-    [
-        {
-            "pivot": 0,
-            "index": 1,
-            "similarity": 0.35
-        },
-        {
-            "pivot": 0,
-            "index": 4,
-            "similarity": 0.15
-        },
-        {
-            "pivot": 0,
-            "index": 6,
-            "similarity": 0.15
-        }
-    ],
-    [
-        {
-            "pivot": 1,
-            "index": 2,
-            "similarity": 0.2
-        },
-        {
-            "pivot": 1,
-            "index": 3,
-            "similarity": 0.2
-        },
-        {
-            "pivot": 1,
-            "index": 5,
-            "similarity": 0.2
-        }
-    ],
-    [
-        {
-            "pivot": 2,
-            "index": 1,
-            "similarity": 0.3
-        },
-        {
-            "pivot": 2,
-            "index": 4,
-            "similarity": 0.3
-        },
-        {
-            "pivot": 2,
-            "index": 3,
-            "similarity": 0.1
-        }
-    ],
-    [
-        {
-            "pivot": 3,
-            "index": 3,
-            "similarity": 0.3
-        },
-        {
-            "pivot": 3,
-            "index": 1,
-            "similarity": 0.1
-        },
-        {
-            "pivot": 3,
-            "index": 2,
-            "similarity": 0.1
-        }
-    ],
-    [
-        {
-            "pivot": 4,
-            "index": 2,
-            "similarity": 0.15
-        },
-        {
-            "pivot": 4,
-            "index": 1,
-            "similarity": 0.0
-        }
-    ],
-    [
-        {
-            "pivot": 5,
-            "index": 1,
-            "similarity": 0.05
-        }
-    ],
-    []
+    {
+        "book_id": "0000913154",
+        "most_similar": [
+            {
+                "index": "0004705408",
+                "similarity": 0.5376
+            },
+            {
+                "index": "0002199793",
+                "similarity": 0.5026
+            },
+            {
+                "index": "0004125576",
+                "similarity": 0.5015
+            }
+        ]
+    },
+    {
+        "book_id": "0001055607",
+        "most_similar": [
+            {
+                "index": "0002199009",
+                "similarity": 0.4613
+            },
+            {
+                "index": "0006547168",
+                "similarity": 0.4382
+            },
+            {
+                "index": "000638692X",
+                "similarity": 0.4253
+            }
+        ]
+    },
+    {
+        "book_id": "0001061127",
+        "most_similar": [
+            {
+                "index": "0004133412",
+                "similarity": 0.4114
+            },
+            {
+                "index": "0006514588",
+                "similarity": 0.2162
+            },
+            {
+                "index": "0002740230",
+                "similarity": 0.201
+            }
+        ]
+    },
+    {
+        "book_id": "0001374362",
+        "most_similar": [
+            {
+                "index": "0002740958",
+                "similarity": 0.3492
+            },
+            {
+                "index": "0006278574",
+                "similarity": 0.2637
+            },
+            {
+                "index": "0006513549",
+                "similarity": 0.2599
+            }
+        ]
+    },
+    {
+        "book_id": "0001711253",
+        "most_similar": [
+            {
+                "index": "0006392776",
+                "similarity": 0.1655
+            },
+            {
+                "index": "0004701674",
+                "similarity": 0.1546
+            },
+            {
+                "index": "0001850121",
+                "similarity": 0.1529
+            }
+        ]
+    },
+    {
+        "book_id": "000171421X",
+        "most_similar": [
+            {
+                "index": "0006386601",
+                "similarity": 0.1825
+            },
+            {
+                "index": "0002554232",
+                "similarity": 0.0962
+            },
+            {
+                "index": "0006530540",
+                "similarity": 0.0833
+            }
+        ]
+    },
+    {
+        "book_id": "000184251X",
+        "most_similar": [
+            {
+                "index": "0006385583",
+                "similarity": 0.4946
+            },
+            {
+                "index": "0006552196",
+                "similarity": 0.4724
+            },
+            {
+                "index": "0002326833",
+                "similarity": 0.4574
+            }
+        ]
+    },
+    {
+        "book_id": "0001850121",
+        "most_similar": [
+            {
+                "index": "0002257378",
+                "similarity": 0.4291
+            },
+            {
+                "index": "0006550258",
+                "similarity": 0.3939
+            },
+            {
+                "index": "0002551195",
+                "similarity": 0.3726
+            }
+        ]
+    },
+    {
+        "book_id": "0001856367",
+        "most_similar": [
+            {
+                "index": "0006386725",
+                "similarity": 0.4879
+            },
+            {
+                "index": "0006552447",
+                "similarity": 0.4706
+            },
+            {
+                "index": "0002199009",
+                "similarity": 0.4596
+            }
+        ]
+    },
+    {
+        "book_id": "0001935968",
+        "most_similar": [
+            {
+                "index": "0006135889",
+                "similarity": 0.5175
+            },
+            {
+                "index": "0006273637",
+                "similarity": 0.5041
+            },
+            {
+                "index": "0006470033",
+                "similarity": 0.4694
+            }
+        ]
+    },
+    {
+        "book_id": "0001981307",
+        "most_similar": [
+            {
+                "index": "0006547168",
+                "similarity": 0.4773
+            },
+            {
+                "index": "0006385583",
+                "similarity": 0.4086
+            },
+            {
+                "index": "0002006502",
+                "similarity": 0.4061
+            }
+        ]
+    },
+    {
+        "book_id": "0001981625",
+        "most_similar": [
+            {
+                "index": "0006379834",
+                "similarity": 0.5605
+            },
+            {
+                "index": "0002326833",
+                "similarity": 0.4951
+            },
+            {
+                "index": "0006470033",
+                "similarity": 0.4877
+            }
+        ]
+    },
+    {
+        "book_id": "0002000202",
+        "most_similar": [
+            {
+                "index": "0006547486",
+                "similarity": 0.4348
+            },
+            {
+                "index": "0002211890",
+                "similarity": 0.4242
+            },
+            {
+                "index": "0002199009",
+                "similarity": 0.4128
+            }
+        ]
+    },
+    {
+        "book_id": "0002000288",
+        "most_similar": [
+            {
+                "index": "0002201410",
+                "similarity": 0.2357
+            },
+            {
+                "index": "0003701387",
+                "similarity": 0.2309
+            },
+            {
+                "index": "0004703723",
+                "similarity": 0.2231
+            }
+        ]
+    },
+    {
+        "book_id": "0002005018",
+        "most_similar": [
+            {
+                "index": "0006480985",
+                "similarity": 0.3807
+            },
+            {
+                "index": "000649840x",
+                "similarity": 0.3109
+            },
+            {
+                "index": "0002226162",
+                "similarity": 0.3015
+            }
+        ]
+    },
+    {
+        "book_id": "0002005050",
+        "most_similar": [
+            {
+                "index": "0002251485",
+                "similarity": 0.3396
+            },
+            {
+                "index": "0006379702",
+                "similarity": 0.2702
+            },
+            {
+                "index": "0006481078",
+                "similarity": 0.268
+            }
+        ]
+    },
+    {
+        "book_id": "0002005395",
+        "most_similar": [
+            {
+                "index": "0006356702",
+                "similarity": 0.2768
+            },
+            {
+                "index": "0004588177",
+                "similarity": 0.2659
+            },
+            {
+                "index": "0002199009",
+                "similarity": 0.2644
+            }
+        ]
+    },
+    {
+        "book_id": "0002006502",
+        "most_similar": [
+            {
+                "index": "0006547168",
+                "similarity": 0.5292
+            },
+            {
+                "index": "0006485200",
+                "similarity": 0.5003
+            },
+            {
+                "index": "0006276199",
+                "similarity": 0.4763
+            }
+        ]
+    },
+    {
+        "book_id": "0002006588",
+        "most_similar": [
+            {
+                "index": "0002257378",
+                "similarity": 0.6196
+            },
+            {
+                "index": "0002326833",
+                "similarity": 0.6085
+            },
+            {
+                "index": "0006550258",
+                "similarity": 0.5753
+            }
+        ]
+    },
+    {
+        "book_id": "0002118572",
+        "most_similar": [
+            {
+                "index": "0006380964",
+                "similarity": 0.4595
+            },
+            {
+                "index": "0002199009",
+                "similarity": 0.4549
+            },
+            {
+                "index": "0004588177",
+                "similarity": 0.4339
+            }
+        ]
+    },
+    {
+        "book_id": "0002118580",
+        "most_similar": [
+            {
+                "index": "0006254187",
+                "similarity": 1.0
+            },
+            {
+                "index": "0006550258",
+                "similarity": 0.5462
+            },
+            {
+                "index": "0002199009",
+                "similarity": 0.5431
+            }
+        ]
+    },
+    {
+        "book_id": "0002154064",
+        "most_similar": [
+            {
+                "index": "0002257378",
+                "similarity": 0.6886
+            },
+            {
+                "index": "0006470033",
+                "similarity": 0.6141
+            },
+            {
+                "index": "0002326833",
+                "similarity": 0.6046
+            }
+        ]
+    },
+    {
+        "book_id": "0002154390",
+        "most_similar": [
+            {
+                "index": "0002179695",
+                "similarity": 0.2777
+            },
+            {
+                "index": "0006544959",
+                "similarity": 0.2581
+            },
+            {
+                "index": "0004705408",
+                "similarity": 0.1848
+            }
+        ]
+    },
+    {
+        "book_id": "0002156601",
+        "most_similar": [
+            {
+                "index": "0006531520",
+                "similarity": 0.1622
+            },
+            {
+                "index": "0005128412",
+                "similarity": 0.0912
+            },
+            {
+                "index": "0004702816",
+                "similarity": 0.078
+            }
+        ]
+    },
+    {
+        "book_id": "0002156970",
+        "most_similar": [
+            {
+                "index": "0002199793",
+                "similarity": 0.436
+            },
+            {
+                "index": "0006548253",
+                "similarity": 0.4276
+            },
+            {
+                "index": "0002199009",
+                "similarity": 0.4245
+            }
+        ]
+    },
+    {
+        "book_id": "0002157411",
+        "most_similar": [
+            {
+                "index": "0002257378",
+                "similarity": 0.6075
+            },
+            {
+                "index": "0002199009",
+                "similarity": 0.5968
+            },
+            {
+                "index": "0006470033",
+                "similarity": 0.5899
+            }
+        ]
+    },
+    {
+        "book_id": "000215787X",
+        "most_similar": [
+            {
+                "index": "0002261820",
+                "similarity": 0.4642
+            },
+            {
+                "index": "0002551675",
+                "similarity": 0.4285
+            },
+            {
+                "index": "0002326833",
+                "similarity": 0.4166
+            }
+        ]
+    },
+    {
+        "book_id": "0002163578",
+        "most_similar": [
+            {
+                "index": "0006550258",
+                "similarity": 0.528
+            },
+            {
+                "index": "0002199793",
+                "similarity": 0.5249
+            },
+            {
+                "index": "0006547168",
+                "similarity": 0.5066
+            }
+        ]
+    },
+    {
+        "book_id": "0002179687",
+        "most_similar": [
+            {
+                "index": "0002326833",
+                "similarity": 0.6077
+            },
+            {
+                "index": "0006470033",
+                "similarity": 0.5746
+            },
+            {
+                "index": "0002551195",
+                "similarity": 0.5707
+            }
+        ]
+    },
+    {
+        "book_id": "0002179695",
+        "most_similar": [
+            {
+                "index": "0002199793",
+                "similarity": 0.4635
+            },
+            {
+                "index": "0006498159",
+                "similarity": 0.4493
+            },
+            {
+                "index": "000638692X",
+                "similarity": 0.4333
+            }
+        ]
+    },
+    {
+        "book_id": "0002187272",
+        "most_similar": [
+            {
+                "index": "0002199009",
+                "similarity": 0.3216
+            },
+            {
+                "index": "0006479383",
+                "similarity": 0.3211
+            },
+            {
+                "index": "0006497780",
+                "similarity": 0.315
+            }
+        ]
+    },
+    {
+        "book_id": "0002189569",
+        "most_similar": [
+            {
+                "index": "0002326833",
+                "similarity": 0.5532
+            },
+            {
+                "index": "0002551195",
+                "similarity": 0.5486
+            },
+            {
+                "index": "0002257378",
+                "similarity": 0.5405
+            }
+        ]
+    },
+    {
+        "book_id": "0002192152",
+        "most_similar": [
+            {
+                "index": "0004705408",
+                "similarity": 0.5484
+            },
+            {
+                "index": "0002199793",
+                "similarity": 0.5058
+            },
+            {
+                "index": "0004125576",
+                "similarity": 0.4845
+            }
+        ]
+    },
+    {
+        "book_id": "0002197154",
+        "most_similar": [
+            {
+                "index": "0004125576",
+                "similarity": 0.5419
+            },
+            {
+                "index": "0002199009",
+                "similarity": 0.5267
+            },
+            {
+                "index": "0004705408",
+                "similarity": 0.4841
+            }
+        ]
+    },
+    {
+        "book_id": "0002198274",
+        "most_similar": [
+            {
+                "index": "0002214067",
+                "similarity": 0.1336
+            },
+            {
+                "index": "0006374999",
+                "similarity": 0.1336
+            },
+            {
+                "index": "0006275192",
+                "similarity": 0.1313
+            }
+        ]
+    },
+    {
+        "book_id": "0002199009",
+        "most_similar": [
+            {
+                "index": "0006550258",
+                "similarity": 0.6856
+            },
+            {
+                "index": "0006470033",
+                "similarity": 0.6833
+            },
+            {
+                "index": "0002551195",
+                "similarity": 0.6766
+            }
+        ]
+    },
+    {
+        "book_id": "0002199793",
+        "most_similar": [
+            {
+                "index": "0004588177",
+                "similarity": 0.672
+            },
+            {
+                "index": "0002199009",
+                "similarity": 0.667
+            },
+            {
+                "index": "0004722639",
+                "similarity": 0.6421
+            }
+        ]
+    },
+    {
+        "book_id": "0002200309",
+        "most_similar": [
+            {
+                "index": "0006380964",
+                "similarity": 0.5802
+            },
+            {
+                "index": "0002201410",
+                "similarity": 0.5443
+            },
+            {
+                "index": "0002199009",
+                "similarity": 0.5244
+            }
+        ]
+    },
+    {
+        "book_id": "0002200813",
+        "most_similar": [
+            {
+                "index": "0002200821",
+                "similarity": 0.9999
+            },
+            {
+                "index": "0004701674",
+                "similarity": 0.402
+            },
+            {
+                "index": "0004705408",
+                "similarity": 0.4008
+            }
+        ]
+    },
+    {
+        "book_id": "0002200821",
+        "most_similar": [
+            {
+                "index": "0002200813",
+                "similarity": 0.9999
+            },
+            {
+                "index": "0004701674",
+                "similarity": 0.402
+            },
+            {
+                "index": "0004705408",
+                "similarity": 0.4008
+            }
+        ]
+    },
+    {
+        "book_id": "0002201402",
+        "most_similar": [
+            {
+                "index": "0006530540",
+                "similarity": 0.4124
+            },
+            {
+                "index": "0002192152",
+                "similarity": 0.3636
+            },
+            {
+                "index": "0004705408",
+                "similarity": 0.3326
+            }
+        ]
+    },
+    {
+        "book_id": "0002201410",
+        "most_similar": [
+            {
+                "index": "0002199009",
+                "similarity": 0.5481
+            },
+            {
+                "index": "0002200309",
+                "similarity": 0.5443
+            },
+            {
+                "index": "0006550258",
+                "similarity": 0.5306
+            }
+        ]
+    },
+    {
+        "book_id": "0002201453",
+        "most_similar": [
+            {
+                "index": "0002558661",
+                "similarity": 0.2735
+            },
+            {
+                "index": "0006176550",
+                "similarity": 0.2185
+            },
+            {
+                "index": "0006377157",
+                "similarity": 0.1849
+            }
+        ]
+    },
+    {
+        "book_id": "0002202107",
+        "most_similar": [
+            {
+                "index": "0006531407",
+                "similarity": 0.4137
+            },
+            {
+                "index": "0002214067",
+                "similarity": 0.3649
+            },
+            {
+                "index": "0006514278",
+                "similarity": 0.3635
+            }
+        ]
+    },
+    {
+        "book_id": "0002210967",
+        "most_similar": [
+            {
+                "index": "0006470033",
+                "similarity": 0.495
+            },
+            {
+                "index": "0002261820",
+                "similarity": 0.494
+            },
+            {
+                "index": "0004705408",
+                "similarity": 0.484
+            }
+        ]
+    },
+    {
+        "book_id": "0002211890",
+        "most_similar": [
+            {
+                "index": "0002199009",
+                "similarity": 0.6368
+            },
+            {
+                "index": "0006550258",
+                "similarity": 0.5872
+            },
+            {
+                "index": "0006470033",
+                "similarity": 0.5646
+            }
+        ]
+    },
+    {
+        "book_id": "0002214067",
+        "most_similar": [
+            {
+                "index": "0006550258",
+                "similarity": 0.6035
+            },
+            {
+                "index": "0006374999",
+                "similarity": 0.5937
+            },
+            {
+                "index": "0006531407",
+                "similarity": 0.5669
+            }
+        ]
+    },
+    {
+        "book_id": "0002216485",
+        "most_similar": [
+            {
+                "index": "0004708105",
+                "similarity": 0.4434
+            },
+            {
+                "index": "0006273637",
+                "similarity": 0.4346
+            },
+            {
+                "index": "0006552447",
+                "similarity": 0.4296
+            }
+        ]
+    },
+    {
+        "book_id": "0002219476",
+        "most_similar": [
+            {
+                "index": "0006511309",
+                "similarity": 0.4221
+            },
+            {
+                "index": "0006514278",
+                "similarity": 0.3965
+            },
+            {
+                "index": "0006550258",
+                "similarity": 0.3959
+            }
+        ]
+    },
+    {
+        "book_id": "0002222752",
+        "most_similar": [
+            {
+                "index": "0002712180",
+                "similarity": 0.3854
+            },
+            {
+                "index": "0002551675",
+                "similarity": 0.3595
+            },
+            {
+                "index": "0002261820",
+                "similarity": 0.3443
+            }
+        ]
+    },
+    {
+        "book_id": "0002224216",
+        "most_similar": [
+            {
+                "index": "0002257378",
+                "similarity": 0.5963
+            },
+            {
+                "index": "0006470033",
+                "similarity": 0.5947
+            },
+            {
+                "index": "0006550258",
+                "similarity": 0.5798
+            }
+        ]
+    },
+    {
+        "book_id": "0002226162",
+        "most_similar": [
+            {
+                "index": "0006547168",
+                "similarity": 0.5666
+            },
+            {
+                "index": "0006511309",
+                "similarity": 0.5656
+            },
+            {
+                "index": "0006385583",
+                "similarity": 0.5421
+            }
+        ]
+    },
+    {
+        "book_id": "000222674X",
+        "most_similar": [
+            {
+                "index": "0006176550",
+                "similarity": 0.4267
+            },
+            {
+                "index": "0002326833",
+                "similarity": 0.4166
+            },
+            {
+                "index": "0006497780",
+                "similarity": 0.412
+            }
+        ]
+    },
+    {
+        "book_id": "0002228424",
+        "most_similar": [
+            {
+                "index": "0006514278",
+                "similarity": 0.4698
+            },
+            {
+                "index": "0002214067",
+                "similarity": 0.469
+            },
+            {
+                "index": "0006374999",
+                "similarity": 0.469
+            }
+        ]
+    },
+    {
+        "book_id": "0002233495",
+        "most_similar": [
+            {
+                "index": "0002261820",
+                "similarity": 0.5854
+            },
+            {
+                "index": "0002257378",
+                "similarity": 0.5109
+            },
+            {
+                "index": "0006550258",
+                "similarity": 0.5095
+            }
+        ]
+    },
+    {
+        "book_id": "0002233509",
+        "most_similar": [
+            {
+                "index": "0002326833",
+                "similarity": 0.557
+            },
+            {
+                "index": "0006470033",
+                "similarity": 0.5252
+            },
+            {
+                "index": "0006498159",
+                "similarity": 0.5101
+            }
+        ]
+    },
+    {
+        "book_id": "0002234947",
+        "most_similar": [
+            {
+                "index": "0006470033",
+                "similarity": 0.5483
+            },
+            {
+                "index": "0006273637",
+                "similarity": 0.5113
+            },
+            {
+                "index": "0002251892",
+                "similarity": 0.4969
+            }
+        ]
+    },
+    {
+        "book_id": "0002237857",
+        "most_similar": [
+            {
+                "index": "0002261820",
+                "similarity": 0.4267
+            },
+            {
+                "index": "0006550258",
+                "similarity": 0.4178
+            },
+            {
+                "index": "0002257378",
+                "similarity": 0.3931
+            }
+        ]
+    },
+    {
+        "book_id": "0002239183",
+        "most_similar": [
+            {
+                "index": "0002233495",
+                "similarity": 0.4287
+            },
+            {
+                "index": "0002261804",
+                "similarity": 0.3312
+            },
+            {
+                "index": "0002261820",
+                "similarity": 0.3282
+            }
+        ]
+    },
+    {
+        "book_id": "0002239213",
+        "most_similar": [
+            {
+                "index": "0001856367",
+                "similarity": 0.4303
+            },
+            {
+                "index": "0002257378",
+                "similarity": 0.4291
+            },
+            {
+                "index": "0002154064",
+                "similarity": 0.3922
+            }
+        ]
+    },
+    {
+        "book_id": "0002240009",
+        "most_similar": [
+            {
+                "index": "0006550258",
+                "similarity": 0.4819
+            },
+            {
+                "index": "0002257378",
+                "similarity": 0.4564
+            },
+            {
+                "index": "0006514278",
+                "similarity": 0.4525
+            }
+        ]
+    },
+    {
+        "book_id": "0002240114",
+        "most_similar": [
+            {
+                "index": "0002326833",
+                "similarity": 0.433
+            },
+            {
+                "index": "0006513395",
+                "similarity": 0.4296
+            },
+            {
+                "index": "0002250780",
+                "similarity": 0.4243
+            }
+        ]
+    },
+    {
+        "book_id": "0002241358",
+        "most_similar": [
+            {
+                "index": "0006552447",
+                "similarity": 0.3375
+            },
+            {
+                "index": "0002118572",
+                "similarity": 0.3142
+            },
+            {
+                "index": "0004588177",
+                "similarity": 0.3068
+            }
+        ]
+    },
+    {
+        "book_id": "0002243792",
+        "most_similar": [
+            {
+                "index": "0006485200",
+                "similarity": 0.5148
+            },
+            {
+                "index": "0006547168",
+                "similarity": 0.4926
+            },
+            {
+                "index": "0006385583",
+                "similarity": 0.4373
+            }
+        ]
+    },
+    {
+        "book_id": "0002243806",
+        "most_similar": [
+            {
+                "index": "0006374603",
+                "similarity": 0.3892
+            },
+            {
+                "index": "0002118580",
+                "similarity": 0.3862
+            },
+            {
+                "index": "0006254187",
+                "similarity": 0.3862
+            }
+        ]
+    },
+    {
+        "book_id": "0002244705",
+        "most_similar": [
+            {
+                "index": "0006550258",
+                "similarity": 0.4759
+            },
+            {
+                "index": "0006497780",
+                "similarity": 0.4685
+            },
+            {
+                "index": "0002214067",
+                "similarity": 0.4522
+            }
+        ]
+    },
+    {
+        "book_id": "000224554X",
+        "most_similar": [
+            {
+                "index": "000649613X",
+                "similarity": 0.1601
+            },
+            {
+                "index": "0002239213",
+                "similarity": 0.136
+            },
+            {
+                "index": "0006545726",
+                "similarity": 0.123
+            }
+        ]
+    },
+    {
+        "book_id": "0002245663",
+        "most_similar": [
+            {
+                "index": "0006545262",
+                "similarity": 0.3768
+            },
+            {
+                "index": "0002251760",
+                "similarity": 0.3654
+            },
+            {
+                "index": "0006280323",
+                "similarity": 0.3636
+            }
+        ]
+    },
+    {
+        "book_id": "000225056X",
+        "most_similar": [
+            {
+                "index": "0006514588",
+                "similarity": 0.2445
+            },
+            {
+                "index": "0002558661",
+                "similarity": 0.1982
+            },
+            {
+                "index": "000599134X",
+                "similarity": 0.1973
+            }
+        ]
+    },
+    {
+        "book_id": "0002250780",
+        "most_similar": [
+            {
+                "index": "0002326833",
+                "similarity": 0.6681
+            },
+            {
+                "index": "0002257378",
+                "similarity": 0.6099
+            },
+            {
+                "index": "0006470033",
+                "similarity": 0.6074
+            }
+        ]
+    },
+    {
+        "book_id": "0002250810",
+        "most_similar": [
+            {
+                "index": "0006550258",
+                "similarity": 0.4213
+            },
+            {
+                "index": "0004589777",
+                "similarity": 0.4002
+            },
+            {
+                "index": "0002199009",
+                "similarity": 0.3981
+            }
+        ]
+    },
+    {
+        "book_id": "0002250985",
+        "most_similar": [
+            {
+                "index": "0004708105",
+                "similarity": 0.3588
+            },
+            {
+                "index": "0006552196",
+                "similarity": 0.3578
+            },
+            {
+                "index": "0002251213",
+                "similarity": 0.3198
+            }
+        ]
+    },
+    {
+        "book_id": "0002251000",
+        "most_similar": [
+            {
+                "index": "0002199009",
+                "similarity": 0.5816
+            },
+            {
+                "index": "0006382797",
+                "similarity": 0.578
+            },
+            {
+                "index": "0006470033",
+                "similarity": 0.5753
+            }
+        ]
+    },
+    {
+        "book_id": "0002251183",
+        "most_similar": [
+            {
+                "index": "0002326833",
+                "similarity": 0.4383
+            },
+            {
+                "index": "0002179687",
+                "similarity": 0.4316
+            },
+            {
+                "index": "0002740060",
+                "similarity": 0.4143
+            }
+        ]
+    },
+    {
+        "book_id": "0002251213",
+        "most_similar": [
+            {
+                "index": "0004708105",
+                "similarity": 0.495
+            },
+            {
+                "index": "0006273637",
+                "similarity": 0.4609
+            },
+            {
+                "index": "0006485200",
+                "similarity": 0.4596
+            }
+        ]
+    },
+    {
+        "book_id": "0002251485",
+        "most_similar": [
+            {
+                "index": "0006543936",
+                "similarity": 0.4853
+            },
+            {
+                "index": "0006379702",
+                "similarity": 0.482
+            },
+            {
+                "index": "0006385389",
+                "similarity": 0.4595
+            }
+        ]
+    },
+    {
+        "book_id": "0002251760",
+        "most_similar": [
+            {
+                "index": "0006511309",
+                "similarity": 0.4857
+            },
+            {
+                "index": "0002226162",
+                "similarity": 0.4646
+            },
+            {
+                "index": "0002199793",
+                "similarity": 0.4588
+            }
+        ]
+    },
+    {
+        "book_id": "0002251892",
+        "most_similar": [
+            {
+                "index": "0002326833",
+                "similarity": 0.6588
+            },
+            {
+                "index": "0006273637",
+                "similarity": 0.6173
+            },
+            {
+                "index": "0002257378",
+                "similarity": 0.6106
+            }
+        ]
+    },
+    {
+        "book_id": "0002251930",
+        "most_similar": [
+            {
+                "index": "0006379702",
+                "similarity": 0.4204
+            },
+            {
+                "index": "0006273637",
+                "similarity": 0.409
+            },
+            {
+                "index": "0006481078",
+                "similarity": 0.4002
+            }
+        ]
+    },
+    {
+        "book_id": "0002252066",
+        "most_similar": [
+            {
+                "index": "0002551675",
+                "similarity": 0.4199
+            },
+            {
+                "index": "0002552574",
+                "similarity": 0.3711
+            },
+            {
+                "index": "0002740958",
+                "similarity": 0.3541
+            }
+        ]
+    },
+    {
+        "book_id": "000225218X",
+        "most_similar": [
+            {
+                "index": "0002326833",
+                "similarity": 0.5172
+            },
+            {
+                "index": "0002257378",
+                "similarity": 0.4899
+            },
+            {
+                "index": "0006470033",
+                "similarity": 0.4665
+            }
+        ]
+    },
+    {
+        "book_id": "0002253178",
+        "most_similar": [
+            {
+                "index": "0002199009",
+                "similarity": 0.5053
+            },
+            {
+                "index": "0002326833",
+                "similarity": 0.4693
+            },
+            {
+                "index": "0006470033",
+                "similarity": 0.4578
+            }
+        ]
+    },
+    {
+        "book_id": "0002253305",
+        "most_similar": [
+            {
+                "index": "0006370039",
+                "similarity": 0.3504
+            },
+            {
+                "index": "0002199009",
+                "similarity": 0.3356
+            },
+            {
+                "index": "0006380964",
+                "similarity": 0.3249
+            }
+        ]
+    },
+    {
+        "book_id": "0002253402",
+        "most_similar": [
+            {
+                "index": "0006547613",
+                "similarity": 0.4615
+            },
+            {
+                "index": "0002233495",
+                "similarity": 0.4036
+            },
+            {
+                "index": "0006550258",
+                "similarity": 0.4005
+            }
+        ]
+    },
+    {
+        "book_id": "0002253984",
+        "most_similar": [
+            {
+                "index": "0002326833",
+                "similarity": 0.5838
+            },
+            {
+                "index": "0006550258",
+                "similarity": 0.548
+            },
+            {
+                "index": "0002199009",
+                "similarity": 0.5307
+            }
+        ]
+    },
+    {
+        "book_id": "0002255553",
+        "most_similar": [
+            {
+                "index": "0006511309",
+                "similarity": 0.3618
+            },
+            {
+                "index": "0002251760",
+                "similarity": 0.3445
+            },
+            {
+                "index": "0002226162",
+                "similarity": 0.3411
+            }
+        ]
+    },
+    {
+        "book_id": "0002255731",
+        "most_similar": [
+            {
+                "index": "0002257378",
+                "similarity": 0.5181
+            },
+            {
+                "index": "0006273637",
+                "similarity": 0.4973
+            },
+            {
+                "index": "0006552447",
+                "similarity": 0.494
+            }
+        ]
+    },
+    {
+        "book_id": "000225669X",
+        "most_similar": [
+            {
+                "index": "000225669x",
+                "similarity": 1.0
+            },
+            {
+                "index": "0006552447",
+                "similarity": 0.5212
+            },
+            {
+                "index": "0004708105",
+                "similarity": 0.4998
+            }
+        ]
+    },
+    {
+        "book_id": "000225669x",
+        "most_similar": [
+            {
+                "index": "000225669X",
+                "similarity": 1.0
+            },
+            {
+                "index": "0006552447",
+                "similarity": 0.5212
+            },
+            {
+                "index": "0004708105",
+                "similarity": 0.4998
+            }
+        ]
+    },
+    {
+        "book_id": "0002256886",
+        "most_similar": [
+            {
+                "index": "0002243792",
+                "similarity": 0.2724
+            },
+            {
+                "index": "0006552390",
+                "similarity": 0.2175
+            },
+            {
+                "index": "0002712172",
+                "similarity": 0.2073
+            }
+        ]
+    },
+    {
+        "book_id": "0002256967",
+        "most_similar": [
+            {
+                "index": "0002005395",
+                "similarity": 0.1174
+            },
+            {
+                "index": "0006541593",
+                "similarity": 0.1135
+            },
+            {
+                "index": "0002005050",
+                "similarity": 0.0912
+            }
+        ]
+    },
+    {
+        "book_id": "0002257122",
+        "most_similar": [
+            {
+                "index": "0006383963",
+                "similarity": 0.3784
+            },
+            {
+                "index": "000648185X",
+                "similarity": 0.3784
+            },
+            {
+                "index": "0006384684",
+                "similarity": 0.3699
+            }
+        ]
+    },
+    {
+        "book_id": "0002257378",
+        "most_similar": [
+            {
+                "index": "0002326833",
+                "similarity": 0.7315
+            },
+            {
+                "index": "0006550258",
+                "similarity": 0.6915
+            },
+            {
+                "index": "0002154064",
+                "similarity": 0.6886
+            }
+        ]
+    },
+    {
+        "book_id": "0002258560",
+        "most_similar": [
+            {
+                "index": "0002226162",
+                "similarity": 0.4618
+            },
+            {
+                "index": "0006374603",
+                "similarity": 0.4462
+            },
+            {
+                "index": "0002199009",
+                "similarity": 0.436
+            }
+        ]
+    },
+    {
+        "book_id": "0002258579",
+        "most_similar": [
+            {
+                "index": "0006552196",
+                "similarity": 0.2931
+            },
+            {
+                "index": "0006176550",
+                "similarity": 0.2343
+            },
+            {
+                "index": "0006380905",
+                "similarity": 0.2249
+            }
+        ]
+    },
+    {
+        "book_id": "0002258587",
+        "most_similar": [
+            {
+                "index": "0006470033",
+                "similarity": 0.6074
+            },
+            {
+                "index": "0002326833",
+                "similarity": 0.579
+            },
+            {
+                "index": "0006498159",
+                "similarity": 0.569
+            }
+        ]
+    },
+    {
+        "book_id": "000225929X",
+        "most_similar": [
+            {
+                "index": "000649840x",
+                "similarity": 0.3462
+            },
+            {
+                "index": "0006514278",
+                "similarity": 0.3301
+            },
+            {
+                "index": "0002118580",
+                "similarity": 0.3291
+            }
+        ]
+    },
+    {
+        "book_id": "0002259877",
+        "most_similar": [
+            {
+                "index": "0006550576",
+                "similarity": 0.2998
+            },
+            {
+                "index": "0006497993",
+                "similarity": 0.286
+            },
+            {
+                "index": "0006497780",
+                "similarity": 0.2665
+            }
+        ]
+    },
+    {
+        "book_id": "0002261022",
+        "most_similar": [
+            {
+                "index": "0002326833",
+                "similarity": 0.5341
+            },
+            {
+                "index": "0006497780",
+                "similarity": 0.5323
+            },
+            {
+                "index": "0006550258",
+                "similarity": 0.5089
+            }
+        ]
+    },
+    {
+        "book_id": "0002261189",
+        "most_similar": [
+            {
+                "index": "0002326833",
+                "similarity": 0.5002
+            },
+            {
+                "index": "0006497780",
+                "similarity": 0.4711
+            },
+            {
+                "index": "0002257378",
+                "similarity": 0.4616
+            }
+        ]
+    },
+    {
+        "book_id": "0002261529",
+        "most_similar": [
+            {
+                "index": "0006273637",
+                "similarity": 0.4157
+            },
+            {
+                "index": "0006485200",
+                "similarity": 0.4006
+            },
+            {
+                "index": "000225669X",
+                "similarity": 0.3771
+            }
+        ]
+    },
+    {
+        "book_id": "0002261804",
+        "most_similar": [
+            {
+                "index": "0006550835",
+                "similarity": 0.4959
+            },
+            {
+                "index": "0006470033",
+                "similarity": 0.489
+            },
+            {
+                "index": "0002257378",
+                "similarity": 0.4752
+            }
+        ]
+    },
+    {
+        "book_id": "0002261820",
+        "most_similar": [
+            {
+                "index": "0006498159",
+                "similarity": 0.6376
+            },
+            {
+                "index": "0006550258",
+                "similarity": 0.6339
+            },
+            {
+                "index": "0002257378",
+                "similarity": 0.6302
+            }
+        ]
+    },
+    {
+        "book_id": "0002310694",
+        "most_similar": [
+            {
+                "index": "0000913154",
+                "similarity": 0.0
+            },
+            {
+                "index": "0001055607",
+                "similarity": 0.0
+            },
+            {
+                "index": "0001061127",
+                "similarity": 0.0
+            }
+        ]
+    },
+    {
+        "book_id": "0002316196",
+        "most_similar": [
+            {
+                "index": "0006380964",
+                "similarity": 0.402
+            },
+            {
+                "index": "0006370039",
+                "similarity": 0.3735
+            },
+            {
+                "index": "0006514588",
+                "similarity": 0.3642
+            }
+        ]
+    },
+    {
+        "book_id": "0002326833",
+        "most_similar": [
+            {
+                "index": "0006470033",
+                "similarity": 0.7323
+            },
+            {
+                "index": "0002257378",
+                "similarity": 0.7315
+            },
+            {
+                "index": "0006498159",
+                "similarity": 0.7211
+            }
+        ]
+    },
+    {
+        "book_id": "0002550156",
+        "most_similar": [
+            {
+                "index": "0006511309",
+                "similarity": 0.04
+            },
+            {
+                "index": "0002250810",
+                "similarity": 0.0291
+            },
+            {
+                "index": "0000913154",
+                "similarity": 0.0
+            }
+        ]
+    },
+    {
+        "book_id": "0002550555",
+        "most_similar": [
+            {
+                "index": "0002551195",
+                "similarity": 0.4352
+            },
+            {
+                "index": "0004588177",
+                "similarity": 0.4223
+            },
+            {
+                "index": "0006470033",
+                "similarity": 0.4096
+            }
+        ]
+    },
+    {
+        "book_id": "0002550563",
+        "most_similar": [
+            {
+                "index": "0002199009",
+                "similarity": 0.5353
+            },
+            {
+                "index": "0006550258",
+                "similarity": 0.515
+            },
+            {
+                "index": "0002257378",
+                "similarity": 0.5049
+            }
+        ]
+    },
+    {
+        "book_id": "0002551195",
+        "most_similar": [
+            {
+                "index": "0002326833",
+                "similarity": 0.6987
+            },
+            {
+                "index": "0006470033",
+                "similarity": 0.6889
+            },
+            {
+                "index": "0002257378",
+                "similarity": 0.6804
+            }
+        ]
+    },
+    {
+        "book_id": "0002551675",
+        "most_similar": [
+            {
+                "index": "0002261820",
+                "similarity": 0.5305
+            },
+            {
+                "index": "0002552574",
+                "similarity": 0.5069
+            },
+            {
+                "index": "0006498159",
+                "similarity": 0.4905
+            }
+        ]
+    },
+    {
+        "book_id": "0002552256",
+        "most_similar": [
+            {
+                "index": "0006485200",
+                "similarity": 0.45
+            },
+            {
+                "index": "000638692X",
+                "similarity": 0.4448
+            },
+            {
+                "index": "0002326833",
+                "similarity": 0.4272
+            }
+        ]
+    },
+    {
+        "book_id": "0002552574",
+        "most_similar": [
+            {
+                "index": "0002551675",
+                "similarity": 0.5069
+            },
+            {
+                "index": "0002326833",
+                "similarity": 0.4886
+            },
+            {
+                "index": "0002261820",
+                "similarity": 0.4871
+            }
+        ]
+    },
+    {
+        "book_id": "0002554151",
+        "most_similar": [
+            {
+                "index": "0006385753",
+                "similarity": 0.4372
+            },
+            {
+                "index": "000225669X",
+                "similarity": 0.2533
+            },
+            {
+                "index": "000225669x",
+                "similarity": 0.2533
+            }
+        ]
+    },
+    {
+        "book_id": "0002554232",
+        "most_similar": [
+            {
+                "index": "0002199009",
+                "similarity": 0.5035
+            },
+            {
+                "index": "000225669X",
+                "similarity": 0.4923
+            },
+            {
+                "index": "000225669x",
+                "similarity": 0.4923
+            }
+        ]
+    },
+    {
+        "book_id": "0002555107",
+        "most_similar": [
+            {
+                "index": "0006551009",
+                "similarity": 0.382
+            },
+            {
+                "index": "0002156970",
+                "similarity": 0.3726
+            },
+            {
+                "index": "000470763X",
+                "similarity": 0.3595
+            }
+        ]
+    },
+    {
+        "book_id": "0002557029",
+        "most_similar": [
+            {
+                "index": "0002326833",
+                "similarity": 0.4596
+            },
+            {
+                "index": "0006498159",
+                "similarity": 0.4504
+            },
+            {
+                "index": "0002199009",
+                "similarity": 0.4422
+            }
+        ]
+    },
+    {
+        "book_id": "000255710X",
+        "most_similar": [
+            {
+                "index": "0002326833",
+                "similarity": 0.6032
+            },
+            {
+                "index": "0006498159",
+                "similarity": 0.5582
+            },
+            {
+                "index": "0006470033",
+                "similarity": 0.5516
+            }
+        ]
+    },
+    {
+        "book_id": "0002557290",
+        "most_similar": [
+            {
+                "index": "0006514278",
+                "similarity": 0.2739
+            },
+            {
+                "index": "0002251760",
+                "similarity": 0.238
+            },
+            {
+                "index": "0002214067",
+                "similarity": 0.2357
+            }
+        ]
+    },
+    {
+        "book_id": "000255755X",
+        "most_similar": [
+            {
+                "index": "0006279252",
+                "similarity": 1.0
+            },
+            {
+                "index": "0006473024",
+                "similarity": 1.0
+            },
+            {
+                "index": "0006543413",
+                "similarity": 1.0
+            }
+        ]
+    },
+    {
+        "book_id": "0002558033",
+        "most_similar": [
+            {
+                "index": "0006470033",
+                "similarity": 0.4009
+            },
+            {
+                "index": "0002326833",
+                "similarity": 0.3721
+            },
+            {
+                "index": "0006176550",
+                "similarity": 0.342
+            }
+        ]
+    },
+    {
+        "book_id": "0002558386",
+        "most_similar": [
+            {
+                "index": "0002163578",
+                "similarity": 0.3379
+            },
+            {
+                "index": "0006385583",
+                "similarity": 0.3336
+            },
+            {
+                "index": "0002192152",
+                "similarity": 0.3289
+            }
+        ]
+    },
+    {
+        "book_id": "0002558661",
+        "most_similar": [
+            {
+                "index": "000649840x",
+                "similarity": 0.3357
+            },
+            {
+                "index": "0006374603",
+                "similarity": 0.3185
+            },
+            {
+                "index": "0003277585",
+                "similarity": 0.3085
+            }
+        ]
+    },
+    {
+        "book_id": "0002570130",
+        "most_similar": [
+            {
+                "index": "0006550258",
+                "similarity": 0.5106
+            },
+            {
+                "index": "0002199009",
+                "similarity": 0.4615
+            },
+            {
+                "index": "0006273637",
+                "similarity": 0.4601
+            }
+        ]
+    },
+    {
+        "book_id": "0002712172",
+        "most_similar": [
+            {
+                "index": "0002740958",
+                "similarity": 0.4165
+            },
+            {
+                "index": "0006547168",
+                "similarity": 0.4021
+            },
+            {
+                "index": "0002226162",
+                "similarity": 0.381
+            }
+        ]
+    },
+    {
+        "book_id": "0002712180",
+        "most_similar": [
+            {
+                "index": "0006470033",
+                "similarity": 0.6247
+            },
+            {
+                "index": "0002326833",
+                "similarity": 0.576
+            },
+            {
+                "index": "0006498159",
+                "similarity": 0.533
+            }
+        ]
+    },
+    {
+        "book_id": "0002720310",
+        "most_similar": [
+            {
+                "index": "0006552447",
+                "similarity": 0.3037
+            },
+            {
+                "index": "0006175473",
+                "similarity": 0.2475
+            },
+            {
+                "index": "000225669X",
+                "similarity": 0.2321
+            }
+        ]
+    },
+    {
+        "book_id": "0002726874",
+        "most_similar": [
+            {
+                "index": "0002214067",
+                "similarity": 0.4472
+            },
+            {
+                "index": "0006514278",
+                "similarity": 0.4159
+            },
+            {
+                "index": "0006550258",
+                "similarity": 0.4152
+            }
+        ]
+    },
+    {
+        "book_id": "0002740060",
+        "most_similar": [
+            {
+                "index": "0002326833",
+                "similarity": 0.5251
+            },
+            {
+                "index": "0006470033",
+                "similarity": 0.4667
+            },
+            {
+                "index": "000255710X",
+                "similarity": 0.4623
+            }
+        ]
+    },
+    {
+        "book_id": "0002740230",
+        "most_similar": [
+            {
+                "index": "0004133412",
+                "similarity": 0.3256
+            },
+            {
+                "index": "0006281443",
+                "similarity": 0.3143
+            },
+            {
+                "index": "0002197154",
+                "similarity": 0.2974
+            }
+        ]
+    },
+    {
+        "book_id": "0002740958",
+        "most_similar": [
+            {
+                "index": "0006379834",
+                "similarity": 0.5062
+            },
+            {
+                "index": "0006276199",
+                "similarity": 0.4793
+            },
+            {
+                "index": "0006374603",
+                "similarity": 0.4774
+            }
+        ]
+    },
+    {
+        "book_id": "0003277585",
+        "most_similar": [
+            {
+                "index": "0006281443",
+                "similarity": 0.4782
+            },
+            {
+                "index": "0002199009",
+                "similarity": 0.3959
+            },
+            {
+                "index": "0004703723",
+                "similarity": 0.3907
+            }
+        ]
+    },
+    {
+        "book_id": "0003701387",
+        "most_similar": [
+            {
+                "index": "000470763X",
+                "similarity": 0.4576
+            },
+            {
+                "index": "0002199793",
+                "similarity": 0.4542
+            },
+            {
+                "index": "0006548105",
+                "similarity": 0.4427
+            }
+        ]
+    },
+    {
+        "book_id": "0003701581",
+        "most_similar": [
+            {
+                "index": "0006379834",
+                "similarity": 0.3689
+            },
+            {
+                "index": "0006548830",
+                "similarity": 0.3628
+            },
+            {
+                "index": "0006391702",
+                "similarity": 0.3187
+            }
+        ]
+    },
+    {
+        "book_id": "0004105028",
+        "most_similar": [
+            {
+                "index": "0004356373",
+                "similarity": 0.9999
+            },
+            {
+                "index": "0002551675",
+                "similarity": 0.4065
+            },
+            {
+                "index": "0002552574",
+                "similarity": 0.3903
+            }
+        ]
+    },
+    {
+        "book_id": "0004125576",
+        "most_similar": [
+            {
+                "index": "0004705408",
+                "similarity": 0.5803
+            },
+            {
+                "index": "0002197154",
+                "similarity": 0.5419
+            },
+            {
+                "index": "0006470033",
+                "similarity": 0.5272
+            }
+        ]
+    },
+    {
+        "book_id": "0004127382",
+        "most_similar": [
+            {
+                "index": "0006385583",
+                "similarity": 0.4919
+            },
+            {
+                "index": "0004125576",
+                "similarity": 0.4296
+            },
+            {
+                "index": "0004705408",
+                "similarity": 0.4271
+            }
+        ]
+    },
+    {
+        "book_id": "0004133412",
+        "most_similar": [
+            {
+                "index": "0002197154",
+                "similarity": 0.4312
+            },
+            {
+                "index": "0006281443",
+                "similarity": 0.4182
+            },
+            {
+                "index": "0002226162",
+                "similarity": 0.4146
+            }
+        ]
+    },
+    {
+        "book_id": "0004356373",
+        "most_similar": [
+            {
+                "index": "0004105028",
+                "similarity": 0.9999
+            },
+            {
+                "index": "0002551675",
+                "similarity": 0.4065
+            },
+            {
+                "index": "0002552574",
+                "similarity": 0.3903
+            }
+        ]
+    },
+    {
+        "book_id": "0004489640",
+        "most_similar": [
+            {
+                "index": "0002199009",
+                "similarity": 0.52
+            },
+            {
+                "index": "0004588177",
+                "similarity": 0.4753
+            },
+            {
+                "index": "0006273637",
+                "similarity": 0.4752
+            }
+        ]
+    },
+    {
+        "book_id": "0004588177",
+        "most_similar": [
+            {
+                "index": "0004722639",
+                "similarity": 0.7118
+            },
+            {
+                "index": "0004723708",
+                "similarity": 0.7118
+            },
+            {
+                "index": "0002199793",
+                "similarity": 0.672
+            }
+        ]
+    },
+    {
+        "book_id": "0004589777",
+        "most_similar": [
+            {
+                "index": "0002199009",
+                "similarity": 0.6105
+            },
+            {
+                "index": "0006550258",
+                "similarity": 0.608
+            },
+            {
+                "index": "0006514278",
+                "similarity": 0.5638
+            }
+        ]
+    },
+    {
+        "book_id": "0004701674",
+        "most_similar": [
+            {
+                "index": "0006531407",
+                "similarity": 0.4324
+            },
+            {
+                "index": "0002200813",
+                "similarity": 0.402
+            },
+            {
+                "index": "0002200821",
+                "similarity": 0.402
+            }
+        ]
+    },
+    {
+        "book_id": "0004702816",
+        "most_similar": [
+            {
+                "index": "0006470033",
+                "similarity": 0.5521
+            },
+            {
+                "index": "0002199009",
+                "similarity": 0.5374
+            },
+            {
+                "index": "0006550258",
+                "similarity": 0.5126
+            }
+        ]
+    },
+    {
+        "book_id": "0004703723",
+        "most_similar": [
+            {
+                "index": "0003277585",
+                "similarity": 0.3907
+            },
+            {
+                "index": "0006281443",
+                "similarity": 0.3582
+            },
+            {
+                "index": "0002226162",
+                "similarity": 0.3312
+            }
+        ]
+    },
+    {
+        "book_id": "0004705408",
+        "most_similar": [
+            {
+                "index": "0004125576",
+                "similarity": 0.5803
+            },
+            {
+                "index": "0002199793",
+                "similarity": 0.558
+            },
+            {
+                "index": "0002192152",
+                "similarity": 0.5484
+            }
+        ]
+    },
+    {
+        "book_id": "0004707532",
+        "most_similar": [
+            {
+                "index": "0002250780",
+                "similarity": 0.3118
+            },
+            {
+                "index": "0002326833",
+                "similarity": 0.3055
+            },
+            {
+                "index": "0000913154",
+                "similarity": 0.3042
+            }
+        ]
+    },
+    {
+        "book_id": "000470763X",
+        "most_similar": [
+            {
+                "index": "0004722639",
+                "similarity": 0.4739
+            },
+            {
+                "index": "0004723708",
+                "similarity": 0.4739
+            },
+            {
+                "index": "0002199793",
+                "similarity": 0.464
+            }
+        ]
+    },
+    {
+        "book_id": "0004708105",
+        "most_similar": [
+            {
+                "index": "0006485200",
+                "similarity": 0.6021
+            },
+            {
+                "index": "0002199009",
+                "similarity": 0.5875
+            },
+            {
+                "index": "0006382797",
+                "similarity": 0.5833
+            }
+        ]
+    },
+    {
+        "book_id": "0004709950",
+        "most_similar": [
+            {
+                "index": "0002226162",
+                "similarity": 0.3064
+            },
+            {
+                "index": "0006281443",
+                "similarity": 0.278
+            },
+            {
+                "index": "0004133412",
+                "similarity": 0.2571
+            }
+        ]
+    },
+    {
+        "book_id": "0004720601",
+        "most_similar": [
+            {
+                "index": "0002257378",
+                "similarity": 0.5736
+            },
+            {
+                "index": "0002199009",
+                "similarity": 0.5629
+            },
+            {
+                "index": "0006273637",
+                "similarity": 0.5487
+            }
+        ]
+    },
+    {
+        "book_id": "0004720695",
+        "most_similar": [
+            {
+                "index": "0004133412",
+                "similarity": 0.2891
+            },
+            {
+                "index": "0002226162",
+                "similarity": 0.2871
+            },
+            {
+                "index": "0002197154",
+                "similarity": 0.2824
+            }
+        ]
+    },
+    {
+        "book_id": "0004720741",
+        "most_similar": [
+            {
+                "index": "0006278574",
+                "similarity": 0.2407
+            },
+            {
+                "index": "000470763X",
+                "similarity": 0.2335
+            },
+            {
+                "index": "0004720695",
+                "similarity": 0.2254
+            }
+        ]
+    },
+    {
+        "book_id": "0004722639",
+        "most_similar": [
+            {
+                "index": "0004723708",
+                "similarity": 1.0
+            },
+            {
+                "index": "0004588177",
+                "similarity": 0.7118
+            },
+            {
+                "index": "0002199793",
+                "similarity": 0.6421
+            }
+        ]
+    },
+    {
+        "book_id": "0004722647",
+        "most_similar": [
+            {
+                "index": "0006385583",
+                "similarity": 0.4128
+            },
+            {
+                "index": "0002326833",
+                "similarity": 0.3833
+            },
+            {
+                "index": "0006550258",
+                "similarity": 0.3676
+            }
+        ]
+    },
+    {
+        "book_id": "0004723023",
+        "most_similar": [
+            {
+                "index": "0006550789",
+                "similarity": 0.401
+            },
+            {
+                "index": "0002197154",
+                "similarity": 0.2935
+            },
+            {
+                "index": "0006618790",
+                "similarity": 0.2786
+            }
+        ]
+    },
+    {
+        "book_id": "0004723708",
+        "most_similar": [
+            {
+                "index": "0004722639",
+                "similarity": 1.0
+            },
+            {
+                "index": "0004588177",
+                "similarity": 0.7118
+            },
+            {
+                "index": "0002199793",
+                "similarity": 0.6421
+            }
+        ]
+    },
+    {
+        "book_id": "0004725042",
+        "most_similar": [
+            {
+                "index": "0002199009",
+                "similarity": 0.4123
+            },
+            {
+                "index": "0004708105",
+                "similarity": 0.3969
+            },
+            {
+                "index": "0006514278",
+                "similarity": 0.3954
+            }
+        ]
+    },
+    {
+        "book_id": "0005128412",
+        "most_similar": [
+            {
+                "index": "0002257378",
+                "similarity": 0.4701
+            },
+            {
+                "index": "0006485294",
+                "similarity": 0.4336
+            },
+            {
+                "index": "0002154064",
+                "similarity": 0.4296
+            }
+        ]
+    },
+    {
+        "book_id": "000599134X",
+        "most_similar": [
+            {
+                "index": "0002199009",
+                "similarity": 0.3884
+            },
+            {
+                "index": "0006380964",
+                "similarity": 0.3724
+            },
+            {
+                "index": "0006514278",
+                "similarity": 0.3587
+            }
+        ]
+    },
+    {
+        "book_id": "0006135889",
+        "most_similar": [
+            {
+                "index": "0006547168",
+                "similarity": 0.5197
+            },
+            {
+                "index": "0001935968",
+                "similarity": 0.5175
+            },
+            {
+                "index": "0006530826",
+                "similarity": 0.4629
+            }
+        ]
+    },
+    {
+        "book_id": "0006140823",
+        "most_similar": [
+            {
+                "index": "0006514588",
+                "similarity": 0.2977
+            },
+            {
+                "index": "0002316196",
+                "similarity": 0.2809
+            },
+            {
+                "index": "0006513549",
+                "similarity": 0.264
+            }
+        ]
+    },
+    {
+        "book_id": "0006157629",
+        "most_similar": [
+            {
+                "index": "0006170056",
+                "similarity": 0.5228
+            },
+            {
+                "index": "0006375952",
+                "similarity": 0.3334
+            },
+            {
+                "index": "0006531520",
+                "similarity": 0.3216
+            }
+        ]
+    },
+    {
+        "book_id": "0006163831",
+        "most_similar": [
+            {
+                "index": "0006179983",
+                "similarity": 0.3015
+            },
+            {
+                "index": "0006548253",
+                "similarity": 0.2988
+            },
+            {
+                "index": "0006273637",
+                "similarity": 0.2982
+            }
+        ]
+    },
+    {
+        "book_id": "0006170056",
+        "most_similar": [
+            {
+                "index": "0006157629",
+                "similarity": 0.5228
+            },
+            {
+                "index": "0006384803",
+                "similarity": 0.3367
+            },
+            {
+                "index": "000649840x",
+                "similarity": 0.3334
+            }
+        ]
+    },
+    {
+        "book_id": "0006171966",
+        "most_similar": [
+            {
+                "index": "0002326833",
+                "similarity": 0.5666
+            },
+            {
+                "index": "0006470033",
+                "similarity": 0.5252
+            },
+            {
+                "index": "0006380964",
+                "similarity": 0.5252
+            }
+        ]
+    },
+    {
+        "book_id": "0006171982",
+        "most_similar": [
+            {
+                "index": "0004705408",
+                "similarity": 0.2975
+            },
+            {
+                "index": "0002197154",
+                "similarity": 0.2971
+            },
+            {
+                "index": "0006513549",
+                "similarity": 0.2971
+            }
+        ]
+    },
+    {
+        "book_id": "0006175473",
+        "most_similar": [
+            {
+                "index": "0006550258",
+                "similarity": 0.4876
+            },
+            {
+                "index": "0006498159",
+                "similarity": 0.4591
+            },
+            {
+                "index": "0002257378",
+                "similarity": 0.4564
+            }
+        ]
+    },
+    {
+        "book_id": "0006176550",
+        "most_similar": [
+            {
+                "index": "0006470033",
+                "similarity": 0.5836
+            },
+            {
+                "index": "0002326833",
+                "similarity": 0.558
+            },
+            {
+                "index": "0006374999",
+                "similarity": 0.557
+            }
+        ]
+    },
+    {
+        "book_id": "0006176909",
+        "most_similar": [
+            {
+                "index": "0002199009",
+                "similarity": 0.437
+            },
+            {
+                "index": "0006485200",
+                "similarity": 0.4302
+            },
+            {
+                "index": "0004588177",
+                "similarity": 0.4169
+            }
+        ]
+    },
+    {
+        "book_id": "0006179983",
+        "most_similar": [
+            {
+                "index": "0006485200",
+                "similarity": 0.4264
+            },
+            {
+                "index": "0002257378",
+                "similarity": 0.4234
+            },
+            {
+                "index": "0006485294",
+                "similarity": 0.4145
+            }
+        ]
+    },
+    {
+        "book_id": "0006254187",
+        "most_similar": [
+            {
+                "index": "0002118580",
+                "similarity": 1.0
+            },
+            {
+                "index": "0006550258",
+                "similarity": 0.5462
+            },
+            {
+                "index": "0002199009",
+                "similarity": 0.5431
+            }
+        ]
+    },
+    {
+        "book_id": "0006273637",
+        "most_similar": [
+            {
+                "index": "0002257378",
+                "similarity": 0.6601
+            },
+            {
+                "index": "0006470033",
+                "similarity": 0.6573
+            },
+            {
+                "index": "0006498159",
+                "similarity": 0.6257
+            }
+        ]
+    },
+    {
+        "book_id": "0006275192",
+        "most_similar": [
+            {
+                "index": "0002326833",
+                "similarity": 0.3996
+            },
+            {
+                "index": "0002257378",
+                "similarity": 0.3904
+            },
+            {
+                "index": "0006550258",
+                "similarity": 0.3833
+            }
+        ]
+    },
+    {
+        "book_id": "0006276199",
+        "most_similar": [
+            {
+                "index": "0006547168",
+                "similarity": 0.495
+            },
+            {
+                "index": "0002740958",
+                "similarity": 0.4793
+            },
+            {
+                "index": "0002006502",
+                "similarity": 0.4763
+            }
+        ]
+    },
+    {
+        "book_id": "000627658X",
+        "most_similar": [
+            {
+                "index": "0002197154",
+                "similarity": 0.2256
+            },
+            {
+                "index": "0006547613",
+                "similarity": 0.2175
+            },
+            {
+                "index": "000225929X",
+                "similarity": 0.2148
+            }
+        ]
+    },
+    {
+        "book_id": "0006278574",
+        "most_similar": [
+            {
+                "index": "0004705408",
+                "similarity": 0.5072
+            },
+            {
+                "index": "0004125576",
+                "similarity": 0.4869
+            },
+            {
+                "index": "0000913154",
+                "similarity": 0.4568
+            }
+        ]
+    },
+    {
+        "book_id": "0006278728",
+        "most_similar": [
+            {
+                "index": "0002326833",
+                "similarity": 0.4648
+            },
+            {
+                "index": "0002257378",
+                "similarity": 0.4541
+            },
+            {
+                "index": "0006470033",
+                "similarity": 0.4409
+            }
+        ]
+    },
+    {
+        "book_id": "0006279252",
+        "most_similar": [
+            {
+                "index": "000255755X",
+                "similarity": 1.0
+            },
+            {
+                "index": "0006473024",
+                "similarity": 1.0
+            },
+            {
+                "index": "0006543413",
+                "similarity": 1.0
+            }
+        ]
+    },
+    {
+        "book_id": "000628003X",
+        "most_similar": [
+            {
+                "index": "0002243806",
+                "similarity": 0.3302
+            },
+            {
+                "index": "0006497993",
+                "similarity": 0.3263
+            },
+            {
+                "index": "0001981625",
+                "similarity": 0.3229
+            }
+        ]
+    },
+    {
+        "book_id": "0006280323",
+        "most_similar": [
+            {
+                "index": "0006550258",
+                "similarity": 0.4479
+            },
+            {
+                "index": "0002199009",
+                "similarity": 0.4301
+            },
+            {
+                "index": "0002211890",
+                "similarity": 0.429
+            }
+        ]
+    },
+    {
+        "book_id": "0006280838",
+        "most_similar": [
+            {
+                "index": "0006550258",
+                "similarity": 0.6097
+            },
+            {
+                "index": "0006470033",
+                "similarity": 0.5984
+            },
+            {
+                "index": "0002199009",
+                "similarity": 0.5701
+            }
+        ]
+    },
+    {
+        "book_id": "0006281443",
+        "most_similar": [
+            {
+                "index": "0002199793",
+                "similarity": 0.5022
+            },
+            {
+                "index": "0002226162",
+                "similarity": 0.5013
+            },
+            {
+                "index": "0002199009",
+                "similarity": 0.4949
+            }
+        ]
+    },
+    {
+        "book_id": "0006345549",
+        "most_similar": [
+            {
+                "index": "0006543936",
+                "similarity": 0.5037
+            },
+            {
+                "index": "0006379702",
+                "similarity": 0.481
+            },
+            {
+                "index": "0006530826",
+                "similarity": 0.4508
+            }
+        ]
+    },
+    {
+        "book_id": "0006356702",
+        "most_similar": [
+            {
+                "index": "0002199009",
+                "similarity": 0.6545
+            },
+            {
+                "index": "0002551195",
+                "similarity": 0.5833
+            },
+            {
+                "index": "0006550258",
+                "similarity": 0.5676
+            }
+        ]
+    },
+    {
+        "book_id": "0006370039",
+        "most_similar": [
+            {
+                "index": "0002326833",
+                "similarity": 0.5845
+            },
+            {
+                "index": "0006380964",
+                "similarity": 0.5806
+            },
+            {
+                "index": "0002199009",
+                "similarity": 0.561
+            }
+        ]
+    },
+    {
+        "book_id": "0006374603",
+        "most_similar": [
+            {
+                "index": "0002224216",
+                "similarity": 0.557
+            },
+            {
+                "index": "0002199009",
+                "similarity": 0.5484
+            },
+            {
+                "index": "0006379834",
+                "similarity": 0.5333
+            }
+        ]
+    },
+    {
+        "book_id": "0006374999",
+        "most_similar": [
+            {
+                "index": "0002214067",
+                "similarity": 0.5937
+            },
+            {
+                "index": "0006550258",
+                "similarity": 0.5802
+            },
+            {
+                "index": "0002257378",
+                "similarity": 0.5586
+            }
+        ]
+    },
+    {
+        "book_id": "0006375952",
+        "most_similar": [
+            {
+                "index": "0004705408",
+                "similarity": 0.5198
+            },
+            {
+                "index": "0002326833",
+                "similarity": 0.4945
+            },
+            {
+                "index": "0002261820",
+                "similarity": 0.493
+            }
+        ]
+    },
+    {
+        "book_id": "0006376010",
+        "most_similar": [
+            {
+                "index": "0006498159",
+                "similarity": 0.4869
+            },
+            {
+                "index": "0002326833",
+                "similarity": 0.4865
+            },
+            {
+                "index": "0004705408",
+                "similarity": 0.4805
+            }
+        ]
+    },
+    {
+        "book_id": "0006377157",
+        "most_similar": [
+            {
+                "index": "0002257122",
+                "similarity": 0.2773
+            },
+            {
+                "index": "0006384684",
+                "similarity": 0.2425
+            },
+            {
+                "index": "0002234947",
+                "similarity": 0.238
+            }
+        ]
+    },
+    {
+        "book_id": "0006379095",
+        "most_similar": [
+            {
+                "index": "0000913154",
+                "similarity": 0.0
+            },
+            {
+                "index": "0001055607",
+                "similarity": 0.0
+            },
+            {
+                "index": "0001061127",
+                "similarity": 0.0
+            }
+        ]
+    },
+    {
+        "book_id": "0006379702",
+        "most_similar": [
+            {
+                "index": "0002251892",
+                "similarity": 0.6106
+            },
+            {
+                "index": "0006273637",
+                "similarity": 0.5839
+            },
+            {
+                "index": "0002326833",
+                "similarity": 0.5559
+            }
+        ]
+    },
+    {
+        "book_id": "0006379834",
+        "most_similar": [
+            {
+                "index": "0006391702",
+                "similarity": 0.5858
+            },
+            {
+                "index": "0001981625",
+                "similarity": 0.5605
+            },
+            {
+                "index": "0002326833",
+                "similarity": 0.559
+            }
+        ]
+    },
+    {
+        "book_id": "0006380158",
+        "most_similar": [
+            {
+                "index": "0006385583",
+                "similarity": 0.4637
+            },
+            {
+                "index": "000255710X",
+                "similarity": 0.427
+            },
+            {
+                "index": "0002326833",
+                "similarity": 0.4248
+            }
+        ]
+    },
+    {
+        "book_id": "0006380263",
+        "most_similar": [
+            {
+                "index": "000649840x",
+                "similarity": 0.275
+            },
+            {
+                "index": "0002244705",
+                "similarity": 0.2512
+            },
+            {
+                "index": "0006543936",
+                "similarity": 0.25
+            }
+        ]
+    },
+    {
+        "book_id": "0006380905",
+        "most_similar": [
+            {
+                "index": "0006552196",
+                "similarity": 0.4117
+            },
+            {
+                "index": "0006382649",
+                "similarity": 0.3374
+            },
+            {
+                "index": "000648185X",
+                "similarity": 0.3268
+            }
+        ]
+    },
+    {
+        "book_id": "0006380964",
+        "most_similar": [
+            {
+                "index": "0002326833",
+                "similarity": 0.6455
+            },
+            {
+                "index": "0002199009",
+                "similarity": 0.6389
+            },
+            {
+                "index": "0002551195",
+                "similarity": 0.6165
+            }
+        ]
+    },
+    {
+        "book_id": "0006382649",
+        "most_similar": [
+            {
+                "index": "0006552196",
+                "similarity": 0.4607
+            },
+            {
+                "index": "0006385583",
+                "similarity": 0.3587
+            },
+            {
+                "index": "0006384684",
+                "similarity": 0.3541
+            }
+        ]
+    },
+    {
+        "book_id": "0006382797",
+        "most_similar": [
+            {
+                "index": "0002326833",
+                "similarity": 0.691
+            },
+            {
+                "index": "0006498159",
+                "similarity": 0.6894
+            },
+            {
+                "index": "0006470033",
+                "similarity": 0.6833
+            }
+        ]
+    },
+    {
+        "book_id": "0006382991",
+        "most_similar": [
+            {
+                "index": "0006547486",
+                "similarity": 0.417
+            },
+            {
+                "index": "0002226162",
+                "similarity": 0.4128
+            },
+            {
+                "index": "0002197154",
+                "similarity": 0.4113
+            }
+        ]
+    },
+    {
+        "book_id": "0006383947",
+        "most_similar": [
+            {
+                "index": "0006380964",
+                "similarity": 0.3959
+            },
+            {
+                "index": "0002199009",
+                "similarity": 0.3936
+            },
+            {
+                "index": "0002326833",
+                "similarity": 0.3768
+            }
+        ]
+    },
+    {
+        "book_id": "0006383963",
+        "most_similar": [
+            {
+                "index": "0006482678",
+                "similarity": 0.6396
+            },
+            {
+                "index": "0006385389",
+                "similarity": 0.4682
+            },
+            {
+                "index": "0006384684",
+                "similarity": 0.4662
+            }
+        ]
+    },
+    {
+        "book_id": "0006384684",
+        "most_similar": [
+            {
+                "index": "0006383963",
+                "similarity": 0.4662
+            },
+            {
+                "index": "000648185X",
+                "similarity": 0.4662
+            },
+            {
+                "index": "0006482678",
+                "similarity": 0.4252
+            }
+        ]
+    },
+    {
+        "book_id": "0006384722",
+        "most_similar": [
+            {
+                "index": "0006470033",
+                "similarity": 0.5361
+            },
+            {
+                "index": "0002199009",
+                "similarity": 0.5329
+            },
+            {
+                "index": "0002257378",
+                "similarity": 0.5096
+            }
+        ]
+    },
+    {
+        "book_id": "0006384765",
+        "most_similar": [
+            {
+                "index": "0002326833",
+                "similarity": 0.588
+            },
+            {
+                "index": "0006470033",
+                "similarity": 0.5814
+            },
+            {
+                "index": "0006485294",
+                "similarity": 0.5338
+            }
+        ]
+    },
+    {
+        "book_id": "0006384803",
+        "most_similar": [
+            {
+                "index": "0006170056",
+                "similarity": 0.3367
+            },
+            {
+                "index": "000222674X",
+                "similarity": 0.2946
+            },
+            {
+                "index": "0002261022",
+                "similarity": 0.281
+            }
+        ]
+    },
+    {
+        "book_id": "0006385192",
+        "most_similar": [
+            {
+                "index": "0004701674",
+                "similarity": 0.3495
+            },
+            {
+                "index": "0002253178",
+                "similarity": 0.3351
+            },
+            {
+                "index": "0006513395",
+                "similarity": 0.3215
+            }
+        ]
+    },
+    {
+        "book_id": "0006385389",
+        "most_similar": [
+            {
+                "index": "0006383963",
+                "similarity": 0.4682
+            },
+            {
+                "index": "0006543936",
+                "similarity": 0.4602
+            },
+            {
+                "index": "0002251485",
+                "similarity": 0.4595
+            }
+        ]
+    },
+    {
+        "book_id": "0006385583",
+        "most_similar": [
+            {
+                "index": "0006547168",
+                "similarity": 0.6255
+            },
+            {
+                "index": "0002199009",
+                "similarity": 0.6124
+            },
+            {
+                "index": "0002326833",
+                "similarity": 0.5897
+            }
+        ]
+    },
+    {
+        "book_id": "0006385648",
+        "most_similar": [
+            {
+                "index": "0006470033",
+                "similarity": 0.4467
+            },
+            {
+                "index": "0006547168",
+                "similarity": 0.4313
+            },
+            {
+                "index": "0004705408",
+                "similarity": 0.4295
+            }
+        ]
+    },
+    {
+        "book_id": "0006385672",
+        "most_similar": [
+            {
+                "index": "0006514278",
+                "similarity": 0.3663
+            },
+            {
+                "index": "0002258560",
+                "similarity": 0.3537
+            },
+            {
+                "index": "0002199009",
+                "similarity": 0.3526
+            }
+        ]
+    },
+    {
+        "book_id": "0006385753",
+        "most_similar": [
+            {
+                "index": "0002554151",
+                "similarity": 0.4372
+            },
+            {
+                "index": "0006552196",
+                "similarity": 0.358
+            },
+            {
+                "index": "0002243792",
+                "similarity": 0.3552
+            }
+        ]
+    },
+    {
+        "book_id": "0006385923",
+        "most_similar": [
+            {
+                "index": "0004489640",
+                "similarity": 0.3706
+            },
+            {
+                "index": "0002243806",
+                "similarity": 0.3534
+            },
+            {
+                "index": "0006511767",
+                "similarity": 0.3501
+            }
+        ]
+    },
+    {
+        "book_id": "0006386075",
+        "most_similar": [
+            {
+                "index": "0006545726",
+                "similarity": 0.2954
+            },
+            {
+                "index": "0006476325",
+                "similarity": 0.2461
+            },
+            {
+                "index": "0002243806",
+                "similarity": 0.2361
+            }
+        ]
+    },
+    {
+        "book_id": "0006386512",
+        "most_similar": [
+            {
+                "index": "0002200813",
+                "similarity": 0.3162
+            },
+            {
+                "index": "0002200821",
+                "similarity": 0.3162
+            },
+            {
+                "index": "0006482678",
+                "similarity": 0.3099
+            }
+        ]
+    },
+    {
+        "book_id": "0006386601",
+        "most_similar": [
+            {
+                "index": "0006135889",
+                "similarity": 0.3585
+            },
+            {
+                "index": "0002554232",
+                "similarity": 0.3162
+            },
+            {
+                "index": "0001935968",
+                "similarity": 0.2309
+            }
+        ]
+    },
+    {
+        "book_id": "0006386725",
+        "most_similar": [
+            {
+                "index": "0006380964",
+                "similarity": 0.4962
+            },
+            {
+                "index": "0002199009",
+                "similarity": 0.4934
+            },
+            {
+                "index": "0001856367",
+                "similarity": 0.4879
+            }
+        ]
+    },
+    {
+        "book_id": "000638692X",
+        "most_similar": [
+            {
+                "index": "0006550258",
+                "similarity": 0.6608
+            },
+            {
+                "index": "0006498159",
+                "similarity": 0.6003
+            },
+            {
+                "index": "0002199009",
+                "similarity": 0.5973
+            }
+        ]
+    },
+    {
+        "book_id": "0006388264",
+        "most_similar": [
+            {
+                "index": "0006385583",
+                "similarity": 0.5412
+            },
+            {
+                "index": "0006547168",
+                "similarity": 0.5407
+            },
+            {
+                "index": "0006485200",
+                "similarity": 0.5191
+            }
+        ]
+    },
+    {
+        "book_id": "000638837X",
+        "most_similar": [
+            {
+                "index": "0002199793",
+                "similarity": 0.3817
+            },
+            {
+                "index": "0006498159",
+                "similarity": 0.3809
+            },
+            {
+                "index": "0006548253",
+                "similarity": 0.3646
+            }
+        ]
+    },
+    {
+        "book_id": "0006391702",
+        "most_similar": [
+            {
+                "index": "0006470033",
+                "similarity": 0.5976
+            },
+            {
+                "index": "0006379834",
+                "similarity": 0.5858
+            },
+            {
+                "index": "0002224216",
+                "similarity": 0.555
+            }
+        ]
+    },
+    {
+        "book_id": "0006391931",
+        "most_similar": [
+            {
+                "index": "0006550258",
+                "similarity": 0.5665
+            },
+            {
+                "index": "0006470033",
+                "similarity": 0.5584
+            },
+            {
+                "index": "0002257378",
+                "similarity": 0.5523
+            }
+        ]
+    },
+    {
+        "book_id": "0006392776",
+        "most_similar": [
+            {
+                "index": "000649840x",
+                "similarity": 0.3579
+            },
+            {
+                "index": "0006481760",
+                "similarity": 0.3503
+            },
+            {
+                "index": "0006379834",
+                "similarity": 0.3388
+            }
+        ]
+    },
+    {
+        "book_id": "0006470033",
+        "most_similar": [
+            {
+                "index": "0002326833",
+                "similarity": 0.7323
+            },
+            {
+                "index": "0006498159",
+                "similarity": 0.7076
+            },
+            {
+                "index": "0006548253",
+                "similarity": 0.7002
+            }
+        ]
+    },
+    {
+        "book_id": "0006472184",
+        "most_similar": [
+            {
+                "index": "0004133412",
+                "similarity": 0.3289
+            },
+            {
+                "index": "0006512143",
+                "similarity": 0.3113
+            },
+            {
+                "index": "0003277585",
+                "similarity": 0.2667
+            }
+        ]
+    },
+    {
+        "book_id": "0006473024",
+        "most_similar": [
+            {
+                "index": "000255755X",
+                "similarity": 1.0
+            },
+            {
+                "index": "0006279252",
+                "similarity": 1.0
+            },
+            {
+                "index": "0006543413",
+                "similarity": 1.0
+            }
+        ]
+    },
+    {
+        "book_id": "000647425X",
+        "most_similar": [
+            {
+                "index": "0006273637",
+                "similarity": 0.5715
+            },
+            {
+                "index": "0006550258",
+                "similarity": 0.528
+            },
+            {
+                "index": "0002257378",
+                "similarity": 0.5193
+            }
+        ]
+    },
+    {
+        "book_id": "0006476325",
+        "most_similar": [
+            {
+                "index": "0006513395",
+                "similarity": 0.3797
+            },
+            {
+                "index": "0006480985",
+                "similarity": 0.3645
+            },
+            {
+                "index": "0006497780",
+                "similarity": 0.3645
+            }
+        ]
+    },
+    {
+        "book_id": "0006479383",
+        "most_similar": [
+            {
+                "index": "0006552447",
+                "similarity": 0.4922
+            },
+            {
+                "index": "0002199009",
+                "similarity": 0.4819
+            },
+            {
+                "index": "0002118580",
+                "similarity": 0.466
+            }
+        ]
+    },
+    {
+        "book_id": "0006479839",
+        "most_similar": [
+            {
+                "index": "0006470033",
+                "similarity": 0.6428
+            },
+            {
+                "index": "0006498159",
+                "similarity": 0.6313
+            },
+            {
+                "index": "0002257378",
+                "similarity": 0.6207
+            }
+        ]
+    },
+    {
+        "book_id": "000648025X",
+        "most_similar": [
+            {
+                "index": "0002326833",
+                "similarity": 0.6577
+            },
+            {
+                "index": "0006470033",
+                "similarity": 0.646
+            },
+            {
+                "index": "0002257378",
+                "similarity": 0.6211
+            }
+        ]
+    },
+    {
+        "book_id": "0006480985",
+        "most_similar": [
+            {
+                "index": "0002214067",
+                "similarity": 0.4856
+            },
+            {
+                "index": "0006550576",
+                "similarity": 0.4716
+            },
+            {
+                "index": "0006497780",
+                "similarity": 0.4716
+            }
+        ]
+    },
+    {
+        "book_id": "0006481078",
+        "most_similar": [
+            {
+                "index": "0006273637",
+                "similarity": 0.4632
+            },
+            {
+                "index": "0006379702",
+                "similarity": 0.4564
+            },
+            {
+                "index": "0006482678",
+                "similarity": 0.4405
+            }
+        ]
+    },
+    {
+        "book_id": "0006481604",
+        "most_similar": [
+            {
+                "index": "0006512143",
+                "similarity": 0.276
+            },
+            {
+                "index": "0002253305",
+                "similarity": 0.2672
+            },
+            {
+                "index": "000599134X",
+                "similarity": 0.2474
+            }
+        ]
+    },
+    {
+        "book_id": "0006481760",
+        "most_similar": [
+            {
+                "index": "0002197154",
+                "similarity": 0.3768
+            },
+            {
+                "index": "0002258560",
+                "similarity": 0.3669
+            },
+            {
+                "index": "0006392776",
+                "similarity": 0.3503
+            }
+        ]
+    },
+    {
+        "book_id": "000648185X",
+        "most_similar": [
+            {
+                "index": "0002326833",
+                "similarity": 0.4961
+            },
+            {
+                "index": "0002251892",
+                "similarity": 0.4706
+            },
+            {
+                "index": "0006551912",
+                "similarity": 0.4706
+            }
+        ]
+    },
+    {
+        "book_id": "0006482678",
+        "most_similar": [
+            {
+                "index": "0006383963",
+                "similarity": 0.6396
+            },
+            {
+                "index": "0006379702",
+                "similarity": 0.519
+            },
+            {
+                "index": "0002251760",
+                "similarity": 0.4567
+            }
+        ]
+    },
+    {
+        "book_id": "000648302x",
+        "most_similar": [
+            {
+                "index": "0006550258",
+                "similarity": 0.4457
+            },
+            {
+                "index": "0002199009",
+                "similarity": 0.4394
+            },
+            {
+                "index": "0006382797",
+                "similarity": 0.4377
+            }
+        ]
+    },
+    {
+        "book_id": "0006485200",
+        "most_similar": [
+            {
+                "index": "0004708105",
+                "similarity": 0.6021
+            },
+            {
+                "index": "0006547168",
+                "similarity": 0.5833
+            },
+            {
+                "index": "0002261820",
+                "similarity": 0.5777
+            }
+        ]
+    },
+    {
+        "book_id": "0006485294",
+        "most_similar": [
+            {
+                "index": "0006470033",
+                "similarity": 0.6692
+            },
+            {
+                "index": "0002326833",
+                "similarity": 0.6458
+            },
+            {
+                "index": "0002257378",
+                "similarity": 0.6437
+            }
+        ]
+    },
+    {
+        "book_id": "0006485405",
+        "most_similar": [
+            {
+                "index": "0006550258",
+                "similarity": 0.4415
+            },
+            {
+                "index": "0006135889",
+                "similarity": 0.4279
+            },
+            {
+                "index": "0002199009",
+                "similarity": 0.418
+            }
+        ]
+    },
+    {
+        "book_id": "0006485936",
+        "most_similar": [
+            {
+                "index": "0006383963",
+                "similarity": 0.4261
+            },
+            {
+                "index": "0006482678",
+                "similarity": 0.3865
+            },
+            {
+                "index": "0002211890",
+                "similarity": 0.3841
+            }
+        ]
+    },
+    {
+        "book_id": "0006490603",
+        "most_similar": [
+            {
+                "index": "0002257378",
+                "similarity": 0.6075
+            },
+            {
+                "index": "0006552447",
+                "similarity": 0.5913
+            },
+            {
+                "index": "0006273637",
+                "similarity": 0.563
+            }
+        ]
+    },
+    {
+        "book_id": "0006492347",
+        "most_similar": [
+            {
+                "index": "0002326833",
+                "similarity": 0.5416
+            },
+            {
+                "index": "0006498159",
+                "similarity": 0.5151
+            },
+            {
+                "index": "0006470033",
+                "similarity": 0.505
+            }
+        ]
+    },
+    {
+        "book_id": "000649613X",
+        "most_similar": [
+            {
+                "index": "0001856367",
+                "similarity": 0.3544
+            },
+            {
+                "index": "0006551009",
+                "similarity": 0.3437
+            },
+            {
+                "index": "0002245663",
+                "similarity": 0.3344
+            }
+        ]
+    },
+    {
+        "book_id": "0006497780",
+        "most_similar": [
+            {
+                "index": "0002326833",
+                "similarity": 0.641
+            },
+            {
+                "index": "0002257378",
+                "similarity": 0.5948
+            },
+            {
+                "index": "0006550258",
+                "similarity": 0.5771
+            }
+        ]
+    },
+    {
+        "book_id": "0006497993",
+        "most_similar": [
+            {
+                "index": "0006385583",
+                "similarity": 0.4782
+            },
+            {
+                "index": "0002199009",
+                "similarity": 0.4724
+            },
+            {
+                "index": "0006497780",
+                "similarity": 0.4658
+            }
+        ]
+    },
+    {
+        "book_id": "0006498000",
+        "most_similar": [
+            {
+                "index": "0002257378",
+                "similarity": 0.5292
+            },
+            {
+                "index": "0002326833",
+                "similarity": 0.4983
+            },
+            {
+                "index": "0006485294",
+                "similarity": 0.474
+            }
+        ]
+    },
+    {
+        "book_id": "0006498159",
+        "most_similar": [
+            {
+                "index": "0002326833",
+                "similarity": 0.7211
+            },
+            {
+                "index": "0006470033",
+                "similarity": 0.7076
+            },
+            {
+                "index": "0006382797",
+                "similarity": 0.6894
+            }
+        ]
+    },
+    {
+        "book_id": "000649840x",
+        "most_similar": [
+            {
+                "index": "0006379834",
+                "similarity": 0.4892
+            },
+            {
+                "index": "0006374603",
+                "similarity": 0.4783
+            },
+            {
+                "index": "0006374999",
+                "similarity": 0.4641
+            }
+        ]
+    },
+    {
+        "book_id": "000649966X",
+        "most_similar": [
+            {
+                "index": "0006470033",
+                "similarity": 0.5555
+            },
+            {
+                "index": "0002326833",
+                "similarity": 0.5416
+            },
+            {
+                "index": "0002199009",
+                "similarity": 0.534
+            }
+        ]
+    },
+    {
+        "book_id": "0006510973",
+        "most_similar": [
+            {
+                "index": "0002199009",
+                "similarity": 0.3466
+            },
+            {
+                "index": "0006514588",
+                "similarity": 0.3257
+            },
+            {
+                "index": "0006380964",
+                "similarity": 0.3116
+            }
+        ]
+    },
+    {
+        "book_id": "0006511309",
+        "most_similar": [
+            {
+                "index": "0006550258",
+                "similarity": 0.604
+            },
+            {
+                "index": "0006547168",
+                "similarity": 0.5892
+            },
+            {
+                "index": "0002199009",
+                "similarity": 0.5696
+            }
+        ]
+    },
+    {
+        "book_id": "0006511767",
+        "most_similar": [
+            {
+                "index": "0006370039",
+                "similarity": 0.4639
+            },
+            {
+                "index": "0002326833",
+                "similarity": 0.4536
+            },
+            {
+                "index": "0006379834",
+                "similarity": 0.4475
+            }
+        ]
+    },
+    {
+        "book_id": "0006512143",
+        "most_similar": [
+            {
+                "index": "0006472184",
+                "similarity": 0.3113
+            },
+            {
+                "index": "0004133412",
+                "similarity": 0.3098
+            },
+            {
+                "index": "0006481604",
+                "similarity": 0.276
+            }
+        ]
+    },
+    {
+        "book_id": "0006513395",
+        "most_similar": [
+            {
+                "index": "0002326833",
+                "similarity": 0.5684
+            },
+            {
+                "index": "000648025X",
+                "similarity": 0.5401
+            },
+            {
+                "index": "0006380964",
+                "similarity": 0.5374
+            }
+        ]
+    },
+    {
+        "book_id": "0006513409",
+        "most_similar": [
+            {
+                "index": "0006135889",
+                "similarity": 0.239
+            },
+            {
+                "index": "0006386601",
+                "similarity": 0.1999
+            },
+            {
+                "index": "0001981307",
+                "similarity": 0.1906
+            }
+        ]
+    },
+    {
+        "book_id": "0006513492",
+        "most_similar": [
+            {
+                "index": "0002552256",
+                "similarity": 0.2638
+            },
+            {
+                "index": "000638692X",
+                "similarity": 0.2541
+            },
+            {
+                "index": "0002326833",
+                "similarity": 0.2487
+            }
+        ]
+    },
+    {
+        "book_id": "0006513549",
+        "most_similar": [
+            {
+                "index": "0006379834",
+                "similarity": 0.4962
+            },
+            {
+                "index": "0004705408",
+                "similarity": 0.4841
+            },
+            {
+                "index": "0002197154",
+                "similarity": 0.4594
+            }
+        ]
+    },
+    {
+        "book_id": "0006514278",
+        "most_similar": [
+            {
+                "index": "0002257378",
+                "similarity": 0.6157
+            },
+            {
+                "index": "0002199009",
+                "similarity": 0.6048
+            },
+            {
+                "index": "0006550258",
+                "similarity": 0.6044
+            }
+        ]
+    },
+    {
+        "book_id": "0006514480",
+        "most_similar": [
+            {
+                "index": "0002199009",
+                "similarity": 0.4818
+            },
+            {
+                "index": "0006470033",
+                "similarity": 0.4732
+            },
+            {
+                "index": "0006548253",
+                "similarity": 0.4666
+            }
+        ]
+    },
+    {
+        "book_id": "0006514588",
+        "most_similar": [
+            {
+                "index": "0006386725",
+                "similarity": 0.3678
+            },
+            {
+                "index": "0002199009",
+                "similarity": 0.3657
+            },
+            {
+                "index": "0002316196",
+                "similarity": 0.3642
+            }
+        ]
+    },
+    {
+        "book_id": "0006530540",
+        "most_similar": [
+            {
+                "index": "0002326833",
+                "similarity": 0.6123
+            },
+            {
+                "index": "0006498159",
+                "similarity": 0.5607
+            },
+            {
+                "index": "0006470033",
+                "similarity": 0.5567
+            }
+        ]
+    },
+    {
+        "book_id": "0006530826",
+        "most_similar": [
+            {
+                "index": "0006547168",
+                "similarity": 0.4762
+            },
+            {
+                "index": "0006383963",
+                "similarity": 0.4654
+            },
+            {
+                "index": "0006135889",
+                "similarity": 0.4629
+            }
+        ]
+    },
+    {
+        "book_id": "0006531407",
+        "most_similar": [
+            {
+                "index": "0002214067",
+                "similarity": 0.5669
+            },
+            {
+                "index": "0006550258",
+                "similarity": 0.5439
+            },
+            {
+                "index": "0002199009",
+                "similarity": 0.5392
+            }
+        ]
+    },
+    {
+        "book_id": "0006531520",
+        "most_similar": [
+            {
+                "index": "0006547168",
+                "similarity": 0.5735
+            },
+            {
+                "index": "0004708105",
+                "similarity": 0.5139
+            },
+            {
+                "index": "0006374603",
+                "similarity": 0.5078
+            }
+        ]
+    },
+    {
+        "book_id": "0006541593",
+        "most_similar": [
+            {
+                "index": "0006498000",
+                "similarity": 0.2881
+            },
+            {
+                "index": "0006356702",
+                "similarity": 0.2677
+            },
+            {
+                "index": "0006382649",
+                "similarity": 0.2622
+            }
+        ]
+    },
+    {
+        "book_id": "0006542549",
+        "most_similar": [
+            {
+                "index": "0001935968",
+                "similarity": 0.3892
+            },
+            {
+                "index": "0006379702",
+                "similarity": 0.3881
+            },
+            {
+                "index": "0006383963",
+                "similarity": 0.3739
+            }
+        ]
+    },
+    {
+        "book_id": "0006543413",
+        "most_similar": [
+            {
+                "index": "000255755X",
+                "similarity": 1.0
+            },
+            {
+                "index": "0006279252",
+                "similarity": 1.0
+            },
+            {
+                "index": "0006473024",
+                "similarity": 1.0
+            }
+        ]
+    },
+    {
+        "book_id": "0006543545",
+        "most_similar": [
+            {
+                "index": "0006135889",
+                "similarity": 0.3295
+            },
+            {
+                "index": "0002251760",
+                "similarity": 0.3287
+            },
+            {
+                "index": "0002554232",
+                "similarity": 0.3099
+            }
+        ]
+    },
+    {
+        "book_id": "0006543936",
+        "most_similar": [
+            {
+                "index": "0006379834",
+                "similarity": 0.5533
+            },
+            {
+                "index": "0006379702",
+                "similarity": 0.5241
+            },
+            {
+                "index": "0006345549",
+                "similarity": 0.5037
+            }
+        ]
+    },
+    {
+        "book_id": "0006544959",
+        "most_similar": [
+            {
+                "index": "0004705408",
+                "similarity": 0.458
+            },
+            {
+                "index": "0002192152",
+                "similarity": 0.4507
+            },
+            {
+                "index": "0006548105",
+                "similarity": 0.45
+            }
+        ]
+    },
+    {
+        "book_id": "0006545262",
+        "most_similar": [
+            {
+                "index": "0006550835",
+                "similarity": 0.5103
+            },
+            {
+                "index": "0006548253",
+                "similarity": 0.4859
+            },
+            {
+                "index": "0002199009",
+                "similarity": 0.4195
+            }
+        ]
+    },
+    {
+        "book_id": "0006545726",
+        "most_similar": [
+            {
+                "index": "0002199793",
+                "similarity": 0.4323
+            },
+            {
+                "index": "0006552447",
+                "similarity": 0.4317
+            },
+            {
+                "index": "0006280323",
+                "similarity": 0.4178
+            }
+        ]
+    },
+    {
+        "book_id": "0006547168",
+        "most_similar": [
+            {
+                "index": "0006385583",
+                "similarity": 0.6255
+            },
+            {
+                "index": "0002199009",
+                "similarity": 0.6014
+            },
+            {
+                "index": "0006511309",
+                "similarity": 0.5892
+            }
+        ]
+    },
+    {
+        "book_id": "0006547486",
+        "most_similar": [
+            {
+                "index": "0002000202",
+                "similarity": 0.4348
+            },
+            {
+                "index": "0002201410",
+                "similarity": 0.433
+            },
+            {
+                "index": "0006550258",
+                "similarity": 0.4267
+            }
+        ]
+    },
+    {
+        "book_id": "0006547613",
+        "most_similar": [
+            {
+                "index": "0006550258",
+                "similarity": 0.4734
+            },
+            {
+                "index": "0002233495",
+                "similarity": 0.4708
+            },
+            {
+                "index": "0002261820",
+                "similarity": 0.4635
+            }
+        ]
+    },
+    {
+        "book_id": "0006547745",
+        "most_similar": [
+            {
+                "index": "0006514278",
+                "similarity": 0.4159
+            },
+            {
+                "index": "0006550258",
+                "similarity": 0.4152
+            },
+            {
+                "index": "0002257378",
+                "similarity": 0.4071
+            }
+        ]
+    },
+    {
+        "book_id": "0006547753",
+        "most_similar": [
+            {
+                "index": "0006273637",
+                "similarity": 0.4297
+            },
+            {
+                "index": "0006470033",
+                "similarity": 0.4212
+            },
+            {
+                "index": "0002251760",
+                "similarity": 0.417
+            }
+        ]
+    },
+    {
+        "book_id": "0006548105",
+        "most_similar": [
+            {
+                "index": "0002199793",
+                "similarity": 0.5129
+            },
+            {
+                "index": "0002261820",
+                "similarity": 0.4982
+            },
+            {
+                "index": "0004722639",
+                "similarity": 0.4657
+            }
+        ]
+    },
+    {
+        "book_id": "0006548253",
+        "most_similar": [
+            {
+                "index": "0006470033",
+                "similarity": 0.7002
+            },
+            {
+                "index": "0006498159",
+                "similarity": 0.6731
+            },
+            {
+                "index": "0002257378",
+                "similarity": 0.6574
+            }
+        ]
+    },
+    {
+        "book_id": "000654861X",
+        "most_similar": [
+            {
+                "index": "0002199009",
+                "similarity": 0.4292
+            },
+            {
+                "index": "0006385583",
+                "similarity": 0.412
+            },
+            {
+                "index": "0002211890",
+                "similarity": 0.4043
+            }
+        ]
+    },
+    {
+        "book_id": "0006548830",
+        "most_similar": [
+            {
+                "index": "0002740958",
+                "similarity": 0.4463
+            },
+            {
+                "index": "0006379834",
+                "similarity": 0.4303
+            },
+            {
+                "index": "0006391702",
+                "similarity": 0.4228
+            }
+        ]
+    },
+    {
+        "book_id": "0006550258",
+        "most_similar": [
+            {
+                "index": "0002257378",
+                "similarity": 0.6915
+            },
+            {
+                "index": "0002326833",
+                "similarity": 0.6893
+            },
+            {
+                "index": "0002199009",
+                "similarity": 0.6856
+            }
+        ]
+    },
+    {
+        "book_id": "0006550576",
+        "most_similar": [
+            {
+                "index": "0006480985",
+                "similarity": 0.4716
+            },
+            {
+                "index": "0006497780",
+                "similarity": 0.4528
+            },
+            {
+                "index": "0006385583",
+                "similarity": 0.4253
+            }
+        ]
+    },
+    {
+        "book_id": "0006550789",
+        "most_similar": [
+            {
+                "index": "0006385583",
+                "similarity": 0.4066
+            },
+            {
+                "index": "0004723023",
+                "similarity": 0.401
+            },
+            {
+                "index": "0006552196",
+                "similarity": 0.3979
+            }
+        ]
+    },
+    {
+        "book_id": "0006550835",
+        "most_similar": [
+            {
+                "index": "0006548253",
+                "similarity": 0.552
+            },
+            {
+                "index": "0006545262",
+                "similarity": 0.5103
+            },
+            {
+                "index": "0002261804",
+                "similarity": 0.4959
+            }
+        ]
+    },
+    {
+        "book_id": "0006551009",
+        "most_similar": [
+            {
+                "index": "0002211890",
+                "similarity": 0.4824
+            },
+            {
+                "index": "0002740958",
+                "similarity": 0.4616
+            },
+            {
+                "index": "0004708105",
+                "similarity": 0.4539
+            }
+        ]
+    },
+    {
+        "book_id": "0006551289",
+        "most_similar": [
+            {
+                "index": "0006530826",
+                "similarity": 0.3127
+            },
+            {
+                "index": "0006513549",
+                "similarity": 0.3013
+            },
+            {
+                "index": "0004705408",
+                "similarity": 0.2987
+            }
+        ]
+    },
+    {
+        "book_id": "0006551742",
+        "most_similar": [
+            {
+                "index": "0004705408",
+                "similarity": 0.4024
+            },
+            {
+                "index": "0006278574",
+                "similarity": 0.3872
+            },
+            {
+                "index": "0006544959",
+                "similarity": 0.3833
+            }
+        ]
+    },
+    {
+        "book_id": "0006551785",
+        "most_similar": [
+            {
+                "index": "0002257378",
+                "similarity": 0.4965
+            },
+            {
+                "index": "0002326833",
+                "similarity": 0.4714
+            },
+            {
+                "index": "0006550258",
+                "similarity": 0.4642
+            }
+        ]
+    },
+    {
+        "book_id": "0006551912",
+        "most_similar": [
+            {
+                "index": "0006273637",
+                "similarity": 0.583
+            },
+            {
+                "index": "0002257378",
+                "similarity": 0.5736
+            },
+            {
+                "index": "0002326833",
+                "similarity": 0.5665
+            }
+        ]
+    },
+    {
+        "book_id": "0006552196",
+        "most_similar": [
+            {
+                "index": "0006385583",
+                "similarity": 0.4758
+            },
+            {
+                "index": "000184251X",
+                "similarity": 0.4724
+            },
+            {
+                "index": "0006382649",
+                "similarity": 0.4607
+            }
+        ]
+    },
+    {
+        "book_id": "0006552390",
+        "most_similar": [
+            {
+                "index": "0006382649",
+                "similarity": 0.2934
+            },
+            {
+                "index": "0006383963",
+                "similarity": 0.2804
+            },
+            {
+                "index": "0006485200",
+                "similarity": 0.2771
+            }
+        ]
+    },
+    {
+        "book_id": "0006552447",
+        "most_similar": [
+            {
+                "index": "0002199009",
+                "similarity": 0.6025
+            },
+            {
+                "index": "0002257378",
+                "similarity": 0.5942
+            },
+            {
+                "index": "0006273637",
+                "similarity": 0.593
+            }
+        ]
+    },
+    {
+        "book_id": "0006617999",
+        "most_similar": [
+            {
+                "index": "0004133412",
+                "similarity": 0.2057
+            },
+            {
+                "index": "0002006502",
+                "similarity": 0.2041
+            },
+            {
+                "index": "0002740230",
+                "similarity": 0.201
+            }
+        ]
+    },
+    {
+        "book_id": "0006618790",
+        "most_similar": [
+            {
+                "index": "0002326833",
+                "similarity": 0.507
+            },
+            {
+                "index": "0006550258",
+                "similarity": 0.4882
+            },
+            {
+                "index": "0006498159",
+                "similarity": 0.4643
+            }
+        ]
+    },
+    {
+        "book_id": "0006640672",
+        "most_similar": [
+            {
+                "index": "0006531520",
+                "similarity": 0.2754
+            },
+            {
+                "index": "0002226162",
+                "similarity": 0.2743
+            },
+            {
+                "index": "0006547168",
+                "similarity": 0.2572
+            }
+        ]
+    },
+    {
+        "book_id": "0006640680",
+        "most_similar": [
+            {
+                "index": "000255755X",
+                "similarity": 1.0
+            },
+            {
+                "index": "0006279252",
+                "similarity": 1.0
+            },
+            {
+                "index": "0006473024",
+                "similarity": 1.0
+            }
+        ]
+    }
 ]
