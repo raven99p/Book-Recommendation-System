@@ -3,15 +3,16 @@ import multiprocessing as mp
 import ast
 import math
 import json
-path = "C:\\Users\pauli\Work\Book Recommendation System\jaccard sim\clean_summaries.csv"
+path = "C:\\Users\pauli\Work\Book Recommendation System\jaccard sim\\valid_clean_summaries.csv"
 
 df = pd.read_csv(path, encoding='utf8')
 
 df['Summary'] = df['Summary'].apply(lambda x: ast.literal_eval(x))
-
-number_of_summaries = 1000
-data = df.Summary.values[:number_of_summaries]
-index_list = df.isbn.values[:number_of_summaries]
+print('eval done')
+# number_of_summaries = 15000
+# [:number_of_summaries]
+data = df.Summary.values
+index_list = df.isbn.values
 
 def truncate(number, digits) -> float:
     stepper = 10.0 ** digits
@@ -44,6 +45,7 @@ if __name__ == '__main__':
     group = []
     processes = []
     for x_index, x in enumerate(data):
+        print(x_index)
         for y_index, y in enumerate(data):
             if x_index != y_index:
                 sim = calculate_jaccard(x, y)
@@ -59,8 +61,8 @@ if __name__ == '__main__':
         pivot = book_index[0]["pivot"]
         for sim in book_index:
             temp_sim_books.append(
-                {"index": index_list[sim["index"]], "similarity": truncate(sim["similarity"], 4)})
-        grouped_by.append({"book_id": index_list[pivot], "most_similar": temp_sim_books})
+                {"isbn": index_list[sim["index"]], "similarity": truncate(sim["similarity"], 4)})
+        grouped_by.append({"pivot_isbn": index_list[pivot], "most_similar": temp_sim_books})
         temp_sim_books = []
     with open("C:\\Users\pauli\Work\Book Recommendation System\jaccard sim\similarities.json", 'w') as f:
                         json.dump(grouped_by, f)
