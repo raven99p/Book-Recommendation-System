@@ -1,9 +1,4 @@
 import pandas as pd
-import numpy as np
-import math
-import matplotlib.pyplot as plt
-from nltk.corpus import stopwords
-from nltk.tokenize import word_tokenize, wordpunct_tokenize
 import time
 
 start = time.time()
@@ -13,11 +8,9 @@ path_summaries = "C:\\Users\pauli\Work\Book Recommendation System\dataset\summar
 path_rating = "C:\\Users\pauli\Work\Book Recommendation System\dataset\data_v2.csv"
 pd.options.display.max_colwidth = 400
 
-
-
 summaries = pd.read_csv(path_summaries, usecols=['isbn', 'Summary', ], dtype={'id': int})
 
-ratings =  pd.read_csv(path_rating, usecols=['isbn', 'rating', ], dtype={'rating': int})
+ratings = pd.read_csv(path_rating, usecols=['isbn', 'rating', ], dtype={'rating': int})
 
 ratings = ratings.groupby('isbn').mean()
 
@@ -28,9 +21,6 @@ print('Joined in :: ',end - start, ' seconds')
 
 
 merged = merged[merged.rating >= 7.5]
-
-
-
 
 print('summaries', len(summaries))
 print('ratings', len(ratings))

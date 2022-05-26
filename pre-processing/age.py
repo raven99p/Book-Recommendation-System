@@ -1,37 +1,16 @@
 import pandas as pd
 import numpy as np
 import math
-import matplotlib.pyplot as plt
-path = "C:\\Users\pauli\Work\Book Recommendation System\dataset\\ratings_v1.csv"
+
+path = "C:\\Users\pauli\Work\Book Recommendation System\dataset\\ratings_v2.csv"
 pd.options.display.max_colwidth = 400
 
-df = pd.read_csv(path, usecols=['user_id',
-                                'location',
-                                'age',
-                                'isbn',
-                                'rating',
-                                'book_title',
-                                'book_author',
-                                'year_of_publication',
-                                'publisher',
-                                'img_s',
-                                'img_m',
-                                'img_l',
-                                'Summary',
-                                'Language',
-                                'Category',
-                                'city',
-                                'state',
-                                'country', ])
+df = pd.read_csv(path, dtype={'id': int})
 
-unique_age = df.age.values
+bins = [0, 22, 35, 42, 52, 62, 100]
+labels = ['teen', 'young_aduts', 'adults', 'middle_aged', 'older_udults', 'elderly']
+df['AgeGroup'] = pd.cut(df['age'], bins=bins, labels=labels, right=False)
+print(df[['age', 'AgeGroup']][:6])
 
-fig, ax = plt.subplots(1, 1)
-ax.hist(unique_age,  rwidth=0.5)
-
-ax.set_title("Age")
-
-ax.set_xlabel('Age')
-ax.set_ylabel('number of people')
-
-plt.show()
+df.to_csv(
+    "C:\\Users\pauli\Work\Book Recommendation System\dataset\\ratings_age_group.csv")
