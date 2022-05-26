@@ -1,7 +1,4 @@
 import pandas as pd
-import numpy as np
-import math
-import matplotlib.pyplot as plt
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize, wordpunct_tokenize
 path = "C:\\Users\pauli\Work\Book Recommendation System\dataset\Preprocessed_data.csv"
@@ -13,8 +10,7 @@ punctuation = [".", ";", ":",  "?", "(", ")", "[", "]", "\"",
 stopWordsEnglish.extend(punctuation)
 
 # nrows=1
-df = pd.read_csv(path, usecols=['isbn', 'Summary', 'Category'], dtype={'id': int})
-
+df = pd.read_csv(path, dtype={'id': int})
 
 # print(wordpunct_tokenize(df.Summary[:1][0]))
 # sentence = sorted(df['Summary'].apply(wordpunct_tokenize).values[0])
@@ -23,20 +19,18 @@ df = pd.read_csv(path, usecols=['isbn', 'Summary', 'Category'], dtype={'id': int
 # print(sentence)
 df['Summary'] = df['Summary'].apply(wordpunct_tokenize)
 
-df['Summary'] = df['Summary'].apply(lambda x: [item.lower(
-) for item in x if item.lower() not in stopWordsEnglish and not item.isnumeric()])
+df['Summary'] = df['Summary'].apply(lambda x: [item.lower() for item in x if item.lower() not in stopWordsEnglish and not item.isnumeric()])
 
 df['Summary'] = df['Summary'].apply(lambda x: sorted(x))
 
-
 df['Summary'] = df['Summary'].apply(lambda x: ' '.join(x))
-
 
 df = df.drop_duplicates()
 
+df = df[df.Category != '9']
 
 # df = df.sort_values(by=['isbn'])
 
 
 df.to_csv(
-    "C:\\Users\pauli\Work\Book Recommendation System\dataset\isbn_sum_cat.csv")
+    "C:\\Users\pauli\Work\Book Recommendation System\dataset\\ratings.csv")
