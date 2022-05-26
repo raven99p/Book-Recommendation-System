@@ -1,1 +1,4 @@
 /dataset
+/data
+*.csv
+*.json
