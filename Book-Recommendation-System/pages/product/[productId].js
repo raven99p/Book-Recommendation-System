@@ -39,6 +39,11 @@ export async function getServerSideProps(context) {
         },
       }
     );
+    const similarBooks = await axios.post(
+      "http://127.0.0.1:5000/findSimilarBooks",
+      { isbn: productId }
+    );
+    console.log('SIMILAR BOOKS LIST', similarBooks.data)
     if (response?.data?.product) {
       return {
         props: {
@@ -47,6 +52,7 @@ export async function getServerSideProps(context) {
             loggedIn: response?.data?.loggedIn ?? null,
             username: response?.data?.username ?? null,
           },
+          similarBookList: similarBooks.data.message
         },
       };
     }
@@ -70,9 +76,10 @@ export async function getServerSideProps(context) {
     }
   }
 }
-function Product({ product, user }) {
+function Product({ product, user,similarBookList }) {
   console.log(user.loggedIn);
   console.log(product);
+  const [simBooks, setSimBooks] = useState(similarBookList);
   const [isLoggedIn, setIsLoggedIn] = useState(user.loggedIn);
   const [productAmount, setProductAmount] = useState(1);
   const [openSnackbar, setOpenSnackbar] = useState(false);
@@ -440,7 +447,7 @@ function Product({ product, user }) {
             <Divider />
             <Typography variant="h4">Similar Products:</Typography>
             <Grid container spacing={2}>
-              {[1, 2, 3].map(() => {
+              {simBooks.map((item) => {
                 return (
                   <Grid item xs={12} md={4}>
                     <Card sx={{ maxWidth: "80%", borderRadius: "10px" }}>
@@ -448,19 +455,19 @@ function Product({ product, user }) {
                         component="img"
                         width="20"
                         height="200"
-                        image={product.ImageL}
+                        image={item.ImageL}
                         alt="image of book cover"
                       />
                       <CardContent>
-                        <Typography>{product.category}</Typography>
+                        <Typography>{item.category}</Typography>
                         <Typography gutterBottom variant="h5" component="div">
-                          {product.title}
+                          {item.title}
                         </Typography>
                         <Typography variant="body2" color="text.secondary">
-                          {product.summary}
+                          {item.summary}
                         </Typography>
                         <Typography style={{ marginTop: "1em" }}>
-                          {product.price}&euro;
+                          {item.price}&euro;
                         </Typography>
                       </CardContent>
                       <CardActions
