@@ -1,0 +1,29 @@
+Create a table with 
+
+user id | age | city | avg_rating_romance | avg_rating_scifi etc
+
+
+
+userId 	    Age    Country     avg_romance_rating 	avg_scifi_rating
+    1 	    20     Greece      3.50 	            2.40
+    3 	    25     Brazil      3.65 	            3.14
+    6 	    26     Canada      2.90 	            2.75
+    7 	    56     Albania     2.93 	            3.36
+    12 	    45     Italy       2.89 	            2.62
+
+
+
+Logged in User with reviews 
+
+    add a new row on above clustering table 
+
+    get user with common ratings in cluster 
+    and return their books
+
+Logged in User without reviews 
+    params : age, country, overall liked category in cart
+
+    get closest user from table above based on age and country and get their highest rated books with the category
+
+
+
