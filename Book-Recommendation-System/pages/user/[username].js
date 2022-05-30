@@ -14,7 +14,7 @@ import {
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import axios from "axios";
-
+import Link from "next/link";
 export async function getServerSideProps(context) {
   const nameInURL = context.params.username;
   // console.log(context);
@@ -94,12 +94,9 @@ export default function profile({ username, firstName, lastName, email }) {
                     {username ?? "johndoe"}
                   </TableCell>
                   <TableCell style={{ borderBottom: "none" }}>
-                    <Button
-                      onClick={() => router.push("/updateUsername")}
-                      variant="contained"
-                    >
-                      Change
-                    </Button>
+                    <Link href="/user/updateUsername">
+                      <Button variant="contained">Change</Button>
+                    </Link>
                   </TableCell>
                 </TableRow>
               </TableBody>

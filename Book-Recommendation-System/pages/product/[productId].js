@@ -18,7 +18,7 @@ import {
   Typography,
 } from "@mui/material";
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import RemoveIcon from "@mui/icons-material/Remove";
 import AddIcon from "@mui/icons-material/Add";
@@ -53,6 +53,7 @@ export async function getServerSideProps(context) {
             username: response?.data?.username ?? null,
           },
           similarBookList: similarBooks.data.message,
+          key: productId,
         },
       };
     }
@@ -77,8 +78,6 @@ export async function getServerSideProps(context) {
   }
 }
 function Product({ product, user, similarBookList }) {
-  console.log(user.loggedIn);
-  console.log(product);
   const [simBooks, setSimBooks] = useState(similarBookList);
   const [isLoggedIn, setIsLoggedIn] = useState(user.loggedIn);
   const [productAmount, setProductAmount] = useState(1);
@@ -88,6 +87,7 @@ function Product({ product, user, similarBookList }) {
   const [reviewBody, setReviewBody] = useState("");
   const [disableAddToCard, setDisableAddToCard] = useState(false);
   const [disableSubmitReview, setDisableSubmitReview] = useState(false);
+  const [testState, setTestState] = useState(product.isbn);
   const ratingLabels = {
     0: "",
     1: "Poor",
@@ -96,6 +96,27 @@ function Product({ product, user, similarBookList }) {
     4: "Very Good",
     5: "Excellent",
   };
+  useEffect(() => {
+    if (window.localStorage) {
+      const myLocalStorage = window.localStorage;
+      let trackedProducts = JSON.parse(
+        myLocalStorage.getItem("ReadersCoveTracker")
+      );
+      if (!!trackedProducts) {
+        if (!(product.isbn in trackedProducts)) {
+          console.log("here");
+          trackedProducts.push(product.isbn);
+        }
+      } else {
+        trackedProducts = [product.isbn];
+      }
+      myLocalStorage.setItem(
+        "ReadersCoveTracker",
+        JSON.stringify(trackedProducts)
+      );
+    }
+  }, []);
+
   const handleChangeProductAmount = (e) => {
     if (e.target.value !== "") {
       let onlyNums = e.target.value.replace(/[^0-9]/g, "");
@@ -116,7 +137,7 @@ function Product({ product, user, similarBookList }) {
           title: product.title,
           amount: productAmount,
           ImageS: product.ImageS,
-          price: product.price,
+          price: product.price * productAmount,
         });
       } else {
         cart = [
@@ -125,7 +146,7 @@ function Product({ product, user, similarBookList }) {
             title: product.title,
             amount: productAmount,
             ImageS: product.ImageS,
-            price: product.price,
+            price: product.price * productAmount,
           },
         ];
       }
@@ -172,6 +193,7 @@ function Product({ product, user, similarBookList }) {
     >
       <Container style={{ marginTop: "5em", marginBottom: "5em" }}>
         <Paper elevation={3} sx={{ pb: "3em" }}>
+          <Typography variant="h4">{testState}</Typography>
           <Grid container>
             <Grid item xs={1} md={1} />
             <Grid item xs={10} md={6}>
@@ -474,14 +496,16 @@ function Product({ product, user, similarBookList }) {
                         <CardActions
                           sx={{ display: "flex", justifyContent: "center" }}
                         >
-                          <Button
-                            variant="contained"
-                            fullWidth
-                            size="small"
-                            sx={{ borderRadius: "20px" }}
-                          >
-                            View
-                          </Button>
+                          <Link href={`/product/${item.isbn}`} passHref replace>
+                            <Button
+                              variant="contained"
+                              fullWidth
+                              size="small"
+                              sx={{ borderRadius: "20px" }}
+                            >
+                              View
+                            </Button>
+                          </Link>
                         </CardActions>
                       </Card>
                     </Grid>

@@ -64,7 +64,7 @@ export default function header({ user, changeUserState, isAdmin }) {
           <span>
             <Typography variant="h6" noWrap>
               {"Welcome to "}
-              <Link color="inherit" href="/index">
+              <Link color="inherit" href="/">
                 <a style={{ textDecoration: "none", color: "white" }}>
                   Reader's Cove
                 </a>
@@ -79,51 +79,59 @@ export default function header({ user, changeUserState, isAdmin }) {
             />
           </span>
           {console.log(userState)}
-          {userState && (
-            <Box style={{ marginLeft: "35%" }}>
-              <Button
-                color="inherit"
-                aria-controls="simple-menu"
-                aria-haspopup="true"
-                onClick={handleClick}
-                style={{ textTransform: "none" }}
-                startIcon={<Avatar />}
-                endIcon={<ArrowDropDownIcon />}
-              >
-                {userState.username}
-              </Button>
-              <Menu
-                id="simple-menu"
-                anchorEl={anchorEl}
-                keepMounted
-                open={Boolean(anchorEl)}
-                onClose={handleClose}
-              >
+
+          <Box style={{ marginLeft: "35%" }}>
+            <Button
+              color="inherit"
+              aria-controls="simple-menu"
+              aria-haspopup="true"
+              onClick={handleClick}
+              style={{ textTransform: "none" }}
+              startIcon={<Avatar />}
+              endIcon={<ArrowDropDownIcon />}
+            >
+              {userState?.username ?? "Profile"}
+            </Button>
+            <Menu
+              id="simple-menu"
+              anchorEl={anchorEl}
+              keepMounted
+              open={Boolean(anchorEl)}
+              onClose={handleClose}
+            >
+              <MenuItem>
+                <Link href={`/shop`} passHref>
+                  <a style={{ textDecoration: "none" }}>Home</a>
+                </Link>
+              </MenuItem>
+              <MenuItem>
+                <Badge
+                  badgeContent={numberOfItemsInCart}
+                  color="primary"
+                  anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
+                >
+                  <Link href={`/user/cart`} passHref>
+                    <a style={{ textDecoration: "none" }}>Cart</a>
+                  </Link>
+                </Badge>
+              </MenuItem>
+              {!userState && (
                 <MenuItem>
-                  <Link href={`/shop`} passHref>
-                    <a style={{ textDecoration: "none" }}>Home</a>
+                  <Link href="/login" passHref>
+                    <a style={{ textDecoration: "none" }}>Login</a>
                   </Link>
                 </MenuItem>
-                <MenuItem>
-                  <Badge
-                    badgeContent={numberOfItemsInCart}
-                    color="primary"
-                    anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
-                  >
-                    <Link href={`/user/${userState.username}`} passHref>
-                      <a style={{ textDecoration: "none" }}>Cart</a>
-                    </Link>
-                  </Badge>
-                </MenuItem>
+              )}
+              {userState && (
                 <MenuItem>
                   <Link href={`/user/${userState.username}`} passHref>
                     <a style={{ textDecoration: "none" }}>Profile</a>
                   </Link>
                 </MenuItem>
-                <MenuItem onClick={handleLogout}>Logout</MenuItem>
-              </Menu>
-            </Box>
-          )}
+              )}
+              {userState && <MenuItem onClick={handleLogout}>Logout</MenuItem>}
+            </Menu>
+          </Box>
         </Toolbar>
       </AppBar>
     </div>
