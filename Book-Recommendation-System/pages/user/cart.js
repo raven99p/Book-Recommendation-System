@@ -23,13 +23,11 @@ function Cart() {
     );
   }, []);
 
-  const removeFromCart = (product) => {
+  const removeFromCart = (isbnToRemove) => {
     if (window) {
       const myLocalStorage = window.localStorage;
       let cart = JSON.parse(myLocalStorage.getItem("ReadersCoveCart"));
-      cart = cart.filter((book) => {
-        book.isbn !== product.isbn;
-      });
+      cart = cart.filter((book) => book.isbn !== isbnToRemove);
       myLocalStorage.setItem("ReadersCoveCart", JSON.stringify(cart));
       setCartProducts(cart);
     }
@@ -98,7 +96,9 @@ function Cart() {
                             {row.price}&euro;
                           </TableCell>
                           <TableCell align="center">
-                            <IconButton onClick={(row) => removeFromCart(row)}>
+                            <IconButton
+                              onClick={() => removeFromCart(row.isbn)}
+                            >
                               <CloseIcon sx={{ color: "red" }} />
                             </IconButton>
                           </TableCell>
@@ -112,11 +112,10 @@ function Cart() {
                         <TableCell align="center"></TableCell>
                         <TableCell align="center"></TableCell>
                         <TableCell align="center">
-                          {
-                            cartProducts.reduce(
-                              (prev, curr) => prev.price + curr.price
-                            ).price
-                          }
+                          {cartProducts.reduce((acc, curr) => {
+                            console.log(acc);
+                            return acc + curr.price;
+                          }, 0)}
                           &euro;
                         </TableCell>
                         <TableCell align="center"></TableCell>

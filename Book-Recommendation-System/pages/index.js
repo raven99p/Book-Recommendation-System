@@ -124,58 +124,63 @@ export default function Index({ books }) {
             <Box m="3em" display="flex" gap="4em" flexWrap="wrap">
               {books.map((book) => {
                 return (
-                  <Card
-                    sx={{
-                      width: "29%",
-                      borderRadius: "10px",
-                      display: "flex",
-                      flexDirection: "column",
-                      justifyContent: "space-between",
-                    }}
-                  >
-                    <CardMedia
-                      component="img"
-                      width="20"
-                      height="200"
-                      image={book.ImageM}
-                      alt="image of book cover"
-                    />
-                    <CardContent
+                  <Link href={`/product/${book.isbn}`}>
+                    <Card
                       sx={{
+                        width: "29%",
+                        borderRadius: "10px",
                         display: "flex",
                         flexDirection: "column",
                         justifyContent: "space-between",
+                        cursor: "pointer",
                       }}
                     >
-                      <Typography>{book.category}</Typography>
-                      <Typography gutterBottom variant="h6" component="div">
-                        {book.title}
-                      </Typography>
-                      <Typography variant="body2" color="text.secondary">
-                        {book.summary?.slice(0, 100)}...
-                      </Typography>
-                      <Typography style={{ marginTop: "1em", color: "green" }}>
-                        {book.price}&euro;
-                      </Typography>
-                    </CardContent>
-                    <CardActions
-                      sx={{
-                        display: "flex",
-                        justifyContent: "center",
-                      }}
-                    >
-                      <Link href={`/product/${book.isbn}`}>
-                        <Button
-                          variant="contained"
-                          fullWidth
-                          size="small"
-                          sx={{ borderRadius: "20px", bottom: "0" }}
+                      <CardMedia
+                        component="img"
+                        width="20"
+                        height="200"
+                        image={book.ImageM}
+                        alt="image of book cover"
+                      />
+                      <CardContent
+                        sx={{
+                          display: "flex",
+                          flexDirection: "column",
+                          justifyContent: "space-between",
+                        }}
+                      >
+                        <Typography>{book.category}</Typography>
+                        <Typography gutterBottom variant="h6" component="div">
+                          {book.title}
+                        </Typography>
+                        <Typography variant="body2" color="text.secondary">
+                          {book.summary?.slice(0, 100)}...
+                        </Typography>
+                        <Typography
+                          style={{ marginTop: "1em", color: "green" }}
                         >
-                          View
-                        </Button>
-                      </Link>
-                    </CardActions>
-                  </Card>
+                          {book.price}&euro;
+                        </Typography>
+                      </CardContent>
+                      <CardActions
+                        sx={{
+                          display: "flex",
+                          justifyContent: "center",
+                        }}
+                      >
+                        <Link href={`/product/${book.isbn}`}>
+                          <Button
+                            variant="contained"
+                            fullWidth
+                            size="small"
+                            sx={{ borderRadius: "20px", bottom: "0" }}
+                          >
+                            View
+                          </Button>
+                        </Link>
+                      </CardActions>
+                    </Card>
+                  </Link>
                 );
               })}
             </Box>

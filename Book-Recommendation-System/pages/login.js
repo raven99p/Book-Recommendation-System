@@ -42,7 +42,7 @@ export default function SignIn() {
       );
       if (success) {
         console.log(success.status);
-        window.location = `/user/${success.data.username}`;
+        window.location = `/`;
         // router.push('/user/userHome');
       }
     } catch (err) {
