@@ -43,7 +43,7 @@ export async function getServerSideProps(context) {
       "http://127.0.0.1:5000/findSimilarBooks",
       { isbn: productId }
     );
-    console.log('SIMILAR BOOKS LIST', similarBooks.data)
+    console.log("SIMILAR BOOKS LIST", similarBooks.data);
     if (response?.data?.product) {
       return {
         props: {
@@ -52,7 +52,7 @@ export async function getServerSideProps(context) {
             loggedIn: response?.data?.loggedIn ?? null,
             username: response?.data?.username ?? null,
           },
-          similarBookList: similarBooks.data.message
+          similarBookList: similarBooks.data.message,
         },
       };
     }
@@ -76,7 +76,7 @@ export async function getServerSideProps(context) {
     }
   }
 }
-function Product({ product, user,similarBookList }) {
+function Product({ product, user, similarBookList }) {
   console.log(user.loggedIn);
   console.log(product);
   const [simBooks, setSimBooks] = useState(similarBookList);
@@ -447,45 +447,49 @@ function Product({ product, user,similarBookList }) {
             <Divider />
             <Typography variant="h4">Similar Products:</Typography>
             <Grid container spacing={2}>
-              {simBooks.map((item) => {
-                return (
-                  <Grid item xs={12} md={4}>
-                    <Card sx={{ maxWidth: "80%", borderRadius: "10px" }}>
-                      <CardMedia
-                        component="img"
-                        width="20"
-                        height="200"
-                        image={item.ImageL}
-                        alt="image of book cover"
-                      />
-                      <CardContent>
-                        <Typography>{item.category}</Typography>
-                        <Typography gutterBottom variant="h5" component="div">
-                          {item.title}
-                        </Typography>
-                        <Typography variant="body2" color="text.secondary">
-                          {item.summary}
-                        </Typography>
-                        <Typography style={{ marginTop: "1em" }}>
-                          {item.price}&euro;
-                        </Typography>
-                      </CardContent>
-                      <CardActions
-                        sx={{ display: "flex", justifyContent: "center" }}
-                      >
-                        <Button
-                          variant="contained"
-                          fullWidth
-                          size="small"
-                          sx={{ borderRadius: "20px" }}
+              {simBooks.length != 0 ? (
+                simBooks.map((item) => {
+                  return (
+                    <Grid item xs={12} md={4}>
+                      <Card sx={{ maxWidth: "80%", borderRadius: "10px" }}>
+                        <CardMedia
+                          component="img"
+                          width="20"
+                          height="200"
+                          image={item.ImageL}
+                          alt="image of book cover"
+                        />
+                        <CardContent>
+                          <Typography>{item.category}</Typography>
+                          <Typography gutterBottom variant="h5" component="div">
+                            {item.title}
+                          </Typography>
+                          <Typography variant="body2" color="text.secondary">
+                            {item.summary}
+                          </Typography>
+                          <Typography style={{ marginTop: "1em" }}>
+                            {item.price}&euro;
+                          </Typography>
+                        </CardContent>
+                        <CardActions
+                          sx={{ display: "flex", justifyContent: "center" }}
                         >
-                          View
-                        </Button>
-                      </CardActions>
-                    </Card>
-                  </Grid>
-                );
-              })}
+                          <Button
+                            variant="contained"
+                            fullWidth
+                            size="small"
+                            sx={{ borderRadius: "20px" }}
+                          >
+                            View
+                          </Button>
+                        </CardActions>
+                      </Card>
+                    </Grid>
+                  );
+                })
+              ) : (
+                <div>There are no similar books worth recommending</div>
+              )}
             </Grid>
           </Box>
         </Paper>

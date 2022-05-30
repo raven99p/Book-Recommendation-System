@@ -13,7 +13,7 @@ export default async function getFrontPageBooks(req, res) {
         await client.connect();
         const db = client.db("ecommerce");
         const books = db.collection("Books");
-        const bookProducts = await books.find().limit(9).toArray();
+        const bookProducts = await books.find({averageRating: {$gte: 7.5}}).limit(9).toArray();
         if (bookProducts) {
           console.log("sending book products");
           res.status(200).json({ books: bookProducts });
