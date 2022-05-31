@@ -1,5 +1,11 @@
 import {
   Button,
+  Card,
+  CardActions,
+  CardContent,
+  CardMedia,
+  Divider,
+  Grid,
   Paper,
   Table,
   TableBody,
@@ -14,13 +20,41 @@ import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import CloseIcon from "@mui/icons-material/Close";
 import IconButton from "@mui/material/IconButton";
+import axios from "axios";
 
 function Cart() {
   const [cartProducts, setCartProducts] = useState();
+  const [recommendedBooks, setRecommendedBooks] = useState([]);
   useEffect(() => {
     setCartProducts(
       window ? JSON.parse(window.localStorage.getItem("ReadersCoveCart")) : null
     );
+  }, []);
+
+  useEffect(() => {
+    if (window.localStorage) {
+      async function getCartRecommendations() {
+        try {
+          const myLocalStorage = window.localStorage;
+          const response = await axios.post(
+            "http://localhost:3000/api/getCartRecommendations",
+            {
+              trackedBooks: JSON.parse(
+                myLocalStorage.getItem("ReadersCoveTracker")
+              ),
+            },
+            {
+              withCredentials: true,
+            }
+          );
+          console.log("Recommended", response.data);
+          setRecommendedBooks(response.data);
+        } catch (err) {
+          setRecommendedBooks([]);
+        }
+      }
+      getCartRecommendations();
+    }
   }, []);
 
   const removeFromCart = (isbnToRemove) => {
@@ -140,6 +174,51 @@ function Cart() {
                 <Typography variant="h5">No Items In Cart</Typography>
               </Box>
             )}
+            <Divider sx={{ my: "3em" }} />
+            <Box display="flex" flexDirection="column" rowGap="3em">
+              <Typography variant="h4">Users Like You Also Liked: </Typography>
+              <Grid container spacing={2}>
+                {recommendedBooks.map((product) => {
+                  return (
+                    <Grid item xs={12} md={4}>
+                      <Card sx={{ maxWidth: "80%", borderRadius: "10px" }}>
+                        <CardMedia
+                          component="img"
+                          width="20"
+                          height="200"
+                          image={product.ImageL}
+                          alt="image of book cover"
+                        />
+                        <CardContent>
+                          <Typography>{product.category}</Typography>
+                          <Typography gutterBottom variant="h5" component="div">
+                            {product.title}
+                          </Typography>
+                          <Typography variant="body2" color="text.secondary">
+                            {product.summary}
+                          </Typography>
+                          <Typography style={{ marginTop: "1em" }}>
+                            {product.price}&euro;
+                          </Typography>
+                        </CardContent>
+                        <CardActions
+                          sx={{ display: "flex", justifyContent: "center" }}
+                        >
+                          <Button
+                            variant="contained"
+                            fullWidth
+                            size="small"
+                            sx={{ borderRadius: "20px" }}
+                          >
+                            View
+                          </Button>
+                        </CardActions>
+                      </Card>
+                    </Grid>
+                  );
+                })}
+              </Grid>
+            </Box>
           </Paper>
         </Box>
       </Container>
