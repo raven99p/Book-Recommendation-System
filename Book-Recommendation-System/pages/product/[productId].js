@@ -25,6 +25,7 @@ import AddIcon from "@mui/icons-material/Add";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import ShoppingCartCheckoutIcon from "@mui/icons-material/ShoppingCartCheckout";
 import Link from "next/link";
+
 export async function getServerSideProps(context) {
   const { productId } = context.params;
   console.log(context.req.headers);
@@ -96,6 +97,7 @@ function Product({ product, user, similarBookList }) {
     4: "Very Good",
     5: "Excellent",
   };
+
   useEffect(() => {
     if (window.localStorage) {
       const myLocalStorage = window.localStorage;
@@ -105,11 +107,14 @@ function Product({ product, user, similarBookList }) {
       if (!!trackedProducts) {
         if (!(product.isbn in trackedProducts)) {
           console.log("here");
-          trackedProducts.push(product.isbn);
+          console.log(trackedProducts);
+          trackedProducts.push(product.isbn.toString());
         }
       } else {
-        trackedProducts = [product.isbn];
+        trackedProducts = [product.isbn.toString()];
+        console.log(trackedProducts);
       }
+
       myLocalStorage.setItem(
         "ReadersCoveTracker",
         JSON.stringify(trackedProducts)
@@ -193,7 +198,6 @@ function Product({ product, user, similarBookList }) {
     >
       <Container style={{ marginTop: "5em", marginBottom: "5em" }}>
         <Paper elevation={3} sx={{ pb: "3em" }}>
-          <Typography variant="h4">{testState}</Typography>
           <Grid container>
             <Grid item xs={1} md={1} />
             <Grid item xs={10} md={6}>
@@ -277,17 +281,20 @@ function Product({ product, user, similarBookList }) {
                         )
                       }
                     >
-                      <RemoveIcon fontSize="small" />
+                      <RemoveIcon fontSize="small" sx={{ color: "blue" }} />
                     </IconButton>
                     <Input
-                      sx={{ textAlign: "right" }}
-                      value={productAmount}
-                      disabled
-                      style={{
-                        width: "1.5em",
-                        alignText: "right",
-                        color: "red",
+                      sx={{
+                        textAlign: "right",
+                        color: "black",
+                        width: "1rem",
+                        marginX: "1em",
                       }}
+                      value={productAmount}
+                      variant="standard"
+                      disabled
+                      color="primary"
+                      disableUnderline
                       onChange={(e) => handleChangeProductAmount(e)}
                     />
                     <IconButton
@@ -297,7 +304,7 @@ function Product({ product, user, similarBookList }) {
                         )
                       }
                     >
-                      <AddIcon fontSize="small" />
+                      <AddIcon fontSize="small" sx={{ color: "blue" }} />
                     </IconButton>
                   </Box>
                 </Box>
