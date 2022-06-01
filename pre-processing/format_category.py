@@ -9,7 +9,7 @@ df = pd.read_csv(path)
 
 
 
-df.Category = df.Category.apply(lambda x: x.split('\'')[1])
+
 
 print(df.Category[:5])
 

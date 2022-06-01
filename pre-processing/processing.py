@@ -1,17 +1,18 @@
-import pandas as pd
 from pprint import pprint
-from nltk.corpus import stopwords
-from nltk.tokenize import wordpunct_tokenize
-
 import pandas as pd
 import numpy as np
-import math
-import matplotlib.pyplot as plt
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize, wordpunct_tokenize
-import time
 
-pd.options.display.max_colwidth = 400
+
+def clustering(df) -> pd.DataFrame():
+    # user_id, ageGroup, location, isbn, categories of user,
+
+    # categorise based on what they like
+
+    #
+
+    return clustered_df
 
 
 def summary(df):
@@ -80,39 +81,44 @@ def pre_process(df) -> pd.DataFrame():
     """
     # Remove rows that contain 9 in some cells (probably error code)
     df = df[(df['Language'] != '9') & (df['Category'] != '9')]
+    # drop rows that contain NaN
+    df.dropna(inplace=True)
 
     df.age = df['age'].apply(pd.to_numeric)  # TODO : Make age integer
     # Normalise age
     bins = [0, 22, 35, 42, 52, 62, 100]
     labels = ['teen', 'young_aduts', 'adults', 'middle_aged', 'older_udults', 'elderly']
     df['AgeGroup'] = pd.cut(df['age'], bins=bins, labels=labels, right=False)
-    # print(df[['age', 'AgeGroup']][:6])
+
     ratings = df.groupby('isbn').mean()
-
-    # drop rows that contain NaN
-    df.dropna(inplace=True)
-    # Group the different categories every user has reviewed by user id
-    df_category_group = df.groupby('user_id')['Category'].apply(lambda x: list(set(list(x)))).to_frame()
-    # make the user id a column of the dataframe
-    df_category_group["user_id"] = df_category_group.index
-    # change the name to id so that there is not a conflict in the merging below
-    df_category_group.index.name = 'id'
-    # do a left join with the table of users we have
-    merged = pd.merge(df_category_group, df, on='user_id', how='left')
-    # remove the duplicate column
-    merged = merged.drop(columns=['Category_y'])
-    # rename one of the columns
-    merged = merged.rename(columns={"Category_x": "category"})
     #
-    merged = merged.drop_duplicates(subset=['user_id'], ignore_index=True)
+    df["Category"] = df["Category"].apply(lambda x: x.split('\'')[1])
 
-    print(merged)
-    exit()
+
+    # # Group the different categories every user has reviewed by user id
+    # df_category_group = df.groupby('user_id')['Category'].apply(lambda x: list(set(list(x)))).to_frame()
+    # # make the user id a column of the dataframe
+    # df_category_group["user_id"] = df_category_group.index
+    # # change the name to id so that there is not a conflict in the merging below
+    # df_category_group.index.name = 'id'
+    # # do a left join with the table of users we have
+    # merged = pd.merge(df_category_group, df, on='user_id', how='left')
+    #
+    # # remove the duplicate column
+    # merged = merged.drop(columns=['Category_y'])
+    # # rename one of the columns
+    # merged = merged.rename(columns={"Category_x": "category"})
+    #
+    # merged = merged.drop_duplicates(subset=['user_id'], ignore_index=True)
+
+    print(df)
+    df.to_csv(r"..\dataset\formatted_reviews.csv")
     return df
 
 
 def main():
-    path = 'C:\\Users\\k\\Desktop\\CEID\\10th Semester\\Book-Recommendation-System\\dataset\\preprocessed_data.csv'
+    #
+    path = r"C:\Users\k\Desktop\CEID\10th Semester\Book-Recommendation-System\dataset\preprocessed_data.csv"
     # Load the file
     df = pd.read_csv(path, usecols=['user_id',
                                     'location',
@@ -134,6 +140,8 @@ def main():
                                     'country', ])
 
     pre_processed_df = pre_process(df)
+    # get the books that each person has rated
+    #
     pprint(pre_processed_df)
 
 

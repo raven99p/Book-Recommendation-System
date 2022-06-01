@@ -1,6 +1,4 @@
 import pandas as pd
-import numpy as np
-import math
 from kmodes.kmodes import KModes
 path = "C:\\Users\pauli\Work\Book Recommendation System\dataset\\KmeansReady.csv"
 pd.options.display.max_colwidth = 400
