@@ -21,8 +21,9 @@ import Image from "next/image";
 import CloseIcon from "@mui/icons-material/Close";
 import IconButton from "@mui/material/IconButton";
 import axios from "axios";
-
+import { useRouter } from "next/router";
 function Cart() {
+  const router = useRouter();
   const [cartProducts, setCartProducts] = useState();
   const [recommendedBooks, setRecommendedBooks] = useState([]);
   useEffect(() => {
@@ -163,7 +164,11 @@ function Cart() {
                   mt="3em"
                   columnGap="3em"
                 >
-                  <Button variant="contained" color="error">
+                  <Button
+                    variant="contained"
+                    color="error"
+                    onClick={() => router.back()}
+                  >
                     Back
                   </Button>
                   <Button variant="contained">Procced to Checkout</Button>

@@ -52,72 +52,79 @@ export default function SignIn() {
     console.log(success);
   }
   return (
-    <Container component="main" maxWidth="xs">
-      <CssBaseline />
-      <div style={{ textAlign: "center" }}>
-        <Typography component="h1" variant="h4">
-          Welcome
-        </Typography>
-        {wrongCreds && (
-          <Box style={{ display: "flex", paddingLeft: "20%" }}>
-            <Typography variant="subtitle1" style={{ color: "red" }}>
-              Username or password Incorrect..
-            </Typography>
-          </Box>
-        )}
-        <form method="post" onSubmit={handleSignIn}>
-          <TextField
-            variant="outlined"
-            margin="normal"
-            required
-            fullWidth
-            id="email"
-            label="Email Address"
-            name="email"
-            autoComplete="email"
-            autoFocus
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          <TextField
-            variant="outlined"
-            margin="normal"
-            required
-            fullWidth
-            name="password"
-            label="Password"
-            type="password"
-            id="password"
-            autoComplete="current-password"
-            onChange={(e) => setPassword(e.target.value)}
-          />
+    <div
+      style={{
+        display: "flex",
+        backgroundImage: `url(/login.jpg)`,
+        marginTop: "-10em",
+      }}
+    >
+      <Container component="main" maxWidth="xs" sx={{ height: "100vh" }}>
+        <CssBaseline />
+        <div style={{ textAlign: "center", marginTop: "10em" }}>
+          <Typography component="h1" variant="h4" color="white">
+            Welcome
+          </Typography>
+          {wrongCreds && (
+            <Box style={{ display: "flex", paddingLeft: "20%" }}>
+              <Typography variant="subtitle1" style={{ color: "red" }}>
+                Username or password Incorrect..
+              </Typography>
+            </Box>
+          )}
+          <form method="post" onSubmit={handleSignIn}>
+            <TextField
+              variant="outlined"
+              sx={{ background: "white", borderRadius: "10px" }}
+              margin="normal"
+              required
+              fullWidth
+              id="email"
+              label="Email Address"
+              name="email"
+              autoComplete="email"
+              autoFocus
+              onChange={(e) => setEmail(e.target.value)}
+            />
+            <TextField
+              variant="outlined"
+              sx={{ background: "white", borderRadius: "10px" }}
+              margin="normal"
+              required
+              fullWidth
+              name="password"
+              label="Password"
+              type="password"
+              id="password"
+              autoComplete="current-password"
+              onChange={(e) => setPassword(e.target.value)}
+            />
 
-          <Button
-            type="submit"
-            fullWidth
-            variant="contained"
-            color="primary"
-            onClick={handleSignIn}
-            sx={{
-              paddingTop: "1em",
-              borderRadius: "20px",
-              marginTop: "1em",
-              marginBottom: "1em",
-            }}
-          >
-            Sign In
-          </Button>
-          <Grid container alignItems="center" justifyContent="center">
-            <Grid item>
-              <Link href="/register" variant="body2">
-                Don&apos;t have an account? Sign Up
-              </Link>
+            <Button
+              type="submit"
+              fullWidth
+              variant="contained"
+              color="primary"
+              onClick={handleSignIn}
+              sx={{
+                paddingTop: "1em",
+                borderRadius: "20px",
+                marginTop: "1em",
+                marginBottom: "1em",
+              }}
+            >
+              Sign In
+            </Button>
+            <Grid container alignItems="center" justifyContent="center">
+              <Grid item>
+                <Link href="/register" variant="body2" sx={{ color: "white" }}>
+                  Don&apos;t have an account? Sign Up
+                </Link>
+              </Grid>
             </Grid>
-          </Grid>
-        </form>
-      </div>
-      <Box mt={8}>
-        <Copyright />
-      </Box>
-    </Container>
+          </form>
+        </div>
+      </Container>
+    </div>
   );
 }

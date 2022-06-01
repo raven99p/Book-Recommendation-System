@@ -72,11 +72,14 @@ export default function header({ user, changeUserState, isAdmin }) {
             </Typography>
           </span>
           <span style={{ marginLeft: "31%" }}>
-            <Image
-              src="/logoWhite.png"
-              width={userState ? 500 : 100}
-              height={userState ? 500 : 100}
-            />
+            <Link href="/">
+              <Image
+                src="/logoWhite.png"
+                width={userState ? 500 : 100}
+                height={userState ? 500 : 100}
+                style={{ cursor: "pointer" }}
+              />
+            </Link>
           </span>
           {console.log(userState)}
 
