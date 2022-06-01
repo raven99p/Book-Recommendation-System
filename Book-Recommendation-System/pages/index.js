@@ -20,6 +20,7 @@ import axios from "axios";
 import Link from "next/link";
 import { debounce } from "lodash";
 import Image from "next/image";
+import DoubleArrowIcon from "@mui/icons-material/DoubleArrow";
 export async function getServerSideProps(context) {
   try {
     const response = await axios.post(
@@ -96,18 +97,25 @@ export default function Index({ books }) {
                   flexWrap="nowrap"
                   my="1em"
                   mx="1em"
-                  columnGap=".5em"
                   sx={{ cursor: "pointer" }}
+                  justifyContent="space-between"
                 >
-                  <Image
-                    src={option.ImageS}
-                    alt="image of book"
-                    width="40"
-                    height="50"
+                  <Box display="flex" columnGap="1em" alignItems="center">
+                    <Image
+                      src={option.ImageS}
+                      alt="image of book"
+                      width="40"
+                      height="50"
+                    />
+                    <Typography variant="body2" sx={{ textAlign: "left" }}>
+                      {option.title}
+                    </Typography>
+                  </Box>
+                  <DoubleArrowIcon
+                    color="primary"
+                    size="small"
+                    sx={{ position: "relative", float: "right" }}
                   />
-                  <Typography variant="body2" sx={{ textAlign: "left" }}>
-                    {option.title}
-                  </Typography>
                 </Box>
               </Link>
             )}
