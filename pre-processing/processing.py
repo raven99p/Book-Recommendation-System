@@ -89,32 +89,36 @@ def pre_process(df) -> pd.DataFrame():
     bins = [0, 22, 35, 42, 52, 62, 100]
     labels = ['teen', 'young_aduts', 'adults', 'middle_aged', 'older_udults', 'elderly']
     df['AgeGroup'] = pd.cut(df['age'], bins=bins, labels=labels, right=False)
+
     ratings = df.groupby('isbn').mean()
-
+    #
     df["Category"] = df["Category"].apply(lambda x: x.split('\'')[1])
-    # Group the different categories every user has reviewed by user id
-    df_category_group = df.groupby('user_id')['Category'].apply(lambda x: list(set(list(x)))).to_frame()
-    # make the user id a column of the dataframe
-    df_category_group["user_id"] = df_category_group.index
-    # change the name to id so that there is not a conflict in the merging below
-    df_category_group.index.name = 'id'
-    # do a left join with the table of users we have
-    merged = pd.merge(df_category_group, df, on='user_id', how='left')
 
-    # remove the duplicate column
-    merged = merged.drop(columns=['Category_y'])
-    # rename one of the columns
-    merged = merged.rename(columns={"Category_x": "category"})
 
-    merged = merged.drop_duplicates(subset=['user_id'], ignore_index=True)
+    # # Group the different categories every user has reviewed by user id
+    # df_category_group = df.groupby('user_id')['Category'].apply(lambda x: list(set(list(x)))).to_frame()
+    # # make the user id a column of the dataframe
+    # df_category_group["user_id"] = df_category_group.index
+    # # change the name to id so that there is not a conflict in the merging below
+    # df_category_group.index.name = 'id'
+    # # do a left join with the table of users we have
+    # merged = pd.merge(df_category_group, df, on='user_id', how='left')
+    #
+    # # remove the duplicate column
+    # merged = merged.drop(columns=['Category_y'])
+    # # rename one of the columns
+    # merged = merged.rename(columns={"Category_x": "category"})
+    #
+    # merged = merged.drop_duplicates(subset=['user_id'], ignore_index=True)
 
-    print(merged)
-    df.to_csv("..\dataset\grouped.csv")
+    print(df)
+    df.to_csv(r"..\dataset\formatted_reviews.csv")
     return df
 
 
 def main():
-    path = 'C:\\Users\\k\\Desktop\\CEID\\10th Semester\\Book-Recommendation-System\\dataset\\preprocessed_data.csv'
+    #
+    path = r"C:\Users\k\Desktop\CEID\10th Semester\Book-Recommendation-System\dataset\preprocessed_data.csv"
     # Load the file
     df = pd.read_csv(path, usecols=['user_id',
                                     'location',
