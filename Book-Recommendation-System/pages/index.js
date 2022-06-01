@@ -18,6 +18,8 @@ import {
 import CircularProgress from "@mui/material/CircularProgress";
 import axios from "axios";
 import Link from "next/link";
+import { debounce } from "lodash";
+import Image from "next/image";
 export async function getServerSideProps(context) {
   try {
     const response = await axios.post(
@@ -36,30 +38,18 @@ export async function getServerSideProps(context) {
 
 export default function Index({ books }) {
   const [open, setOpen] = React.useState(false);
-  const [options, setOptions] = React.useState([]);
-  const loading = open && options.length === 0;
-  const [partialTitle, setpartialTitle] = useState("");
-  useEffect(() => {
-    if (!open) {
-      return undefined;
+  const loading = open && autocompleteOptions.length === 0;
+  const [autocompleteOptions, setAutocompleteOptions] = useState([]);
+  const fetchNewOptions = async (inputValue) => {
+    console.log(inputValue);
+    if (inputValue.length > 3) {
+      const newOptionsResponse = await axios.post(
+        "http://localhost:3000/api/getNewOptions",
+        { inputValue }
+      );
+      setAutocompleteOptions(newOptionsResponse.data);
     }
-    const getBooksAutoComplete = async () => {
-      try {
-        const response = await axios.post(
-          "http://localhost:3000/api/getBooksAutoComplete",
-          {
-            partialTitle,
-          }
-        );
-        if (response.status === 200) {
-          console.log(response.data);
-        }
-      } catch (err) {
-        console.log(err);
-      }
-    };
-    return () => {};
-  }, [open]);
+  };
 
   return (
     <div
@@ -91,16 +81,39 @@ export default function Index({ books }) {
             isOptionEqualToValue={(option, value) =>
               option.title === value.title
             }
-            open={open}
-            onOpen={() => {
-              setOpen(true);
-            }}
-            onClose={() => {
-              setOpen(false);
-            }}
-            onInputChange={(e) => setpartialTitle(e.target.value)}
+            // open={open}
+            // onOpen={() => {
+            //   setOpen(true);
+            // }}
+            // onClose={() => {
+            //   setOpen(false);
+            // }}
+            renderOption={(props, option) => (
+              <Link href={`/product/${option.isbn}`}>
+                <Box
+                  display="flex"
+                  flexDirection="row"
+                  flexWrap="nowrap"
+                  my="1em"
+                  mx="1em"
+                  columnGap=".5em"
+                  sx={{ cursor: "pointer" }}
+                >
+                  <Image
+                    src={option.ImageS}
+                    alt="image of book"
+                    width="40"
+                    height="50"
+                  />
+                  <Typography variant="body2" sx={{ textAlign: "left" }}>
+                    {option.title}
+                  </Typography>
+                </Box>
+              </Link>
+            )}
+            onInputChange={(e, inputValue) => fetchNewOptions(inputValue)}
             getOptionLabel={(option) => option.title}
-            options={options}
+            options={autocompleteOptions}
             loading={loading}
             renderInput={(params) => (
               <TextField
