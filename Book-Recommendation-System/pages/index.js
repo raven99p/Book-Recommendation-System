@@ -216,7 +216,7 @@ export default function Index({ books }) {
             </Box>
             <Box display="flex" justifyContent="center">
               <Pagination
-                count={10}
+                count={30}
                 color="primary"
                 onChange={(e, newPage) => {
                   getNewFrontPageBooks(newPage);
