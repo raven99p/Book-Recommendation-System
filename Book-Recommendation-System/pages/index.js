@@ -39,6 +39,7 @@ export async function getServerSideProps(context) {
 
 export default function Index({ books }) {
   const [open, setOpen] = React.useState(false);
+  const [frontPageBooks, setFrontPageBooks] = useState(books);
   const loading = open && autocompleteOptions.length === 0;
   const [autocompleteOptions, setAutocompleteOptions] = useState([]);
   const fetchNewOptions = async (inputValue) => {
@@ -51,7 +52,15 @@ export default function Index({ books }) {
       setAutocompleteOptions(newOptionsResponse.data);
     }
   };
-
+  const getNewFrontPageBooks = async (newPage) => {
+    const newFrontBooksResponse = await axios.post(
+      "http://localhost:3000/api/getNewFrontPageBooks",
+      { page: newPage }
+    );
+    if (!!newFrontBooksResponse.data) {
+      setFrontPageBooks(newFrontBooksResponse.data);
+    }
+  };
   return (
     <div
       style={{
@@ -143,7 +152,7 @@ export default function Index({ books }) {
           />
           <Paper elevation={3} sx={{ pb: "3em" }}>
             <Box m="3em" display="flex" gap="4em" flexWrap="wrap">
-              {books.map((book) => {
+              {frontPageBooks.map((book) => {
                 return (
                   <Link href={`/product/${book.isbn}`}>
                     <Card
@@ -206,7 +215,13 @@ export default function Index({ books }) {
               })}
             </Box>
             <Box display="flex" justifyContent="center">
-              <Pagination count={10} color="primary" />
+              <Pagination
+                count={10}
+                color="primary"
+                onChange={(e, newPage) => {
+                  getNewFrontPageBooks(newPage);
+                }}
+              />
             </Box>
           </Paper>
         </Box>
