@@ -6,6 +6,7 @@ import {
   CardMedia,
   Divider,
   Grid,
+  Modal,
   Paper,
   Table,
   TableBody,
@@ -13,6 +14,7 @@ import {
   TableContainer,
   TableHead,
   TableRow,
+  TextField,
   Typography,
 } from "@mui/material";
 import { Box, Container } from "@mui/system";
@@ -26,6 +28,7 @@ function Cart() {
   const router = useRouter();
   const [cartProducts, setCartProducts] = useState();
   const [recommendedBooks, setRecommendedBooks] = useState([]);
+  const [openModal, setOpenModal] = useState(false);
   useEffect(() => {
     setCartProducts(
       window ? JSON.parse(window.localStorage.getItem("ReadersCoveCart")) : null
@@ -94,6 +97,53 @@ function Cart() {
           >
             {cartProducts?.length > 0 ? (
               <>
+                <Modal open={openModal} onClose={() => setOpenModal(false)}>
+                  <Container
+                    maxWidth="small"
+                    sx={{ width: "50rem", mt: "3em" }}
+                  >
+                    <Paper>
+                      <Box
+                        display="flex"
+                        flexDirection="column"
+                        padding="3em"
+                        textAlign="center"
+                        rowGap="2em"
+                      >
+                        <Typography variant="h6">
+                          Please fill out your Billing Information:
+                        </Typography>
+                        <TextField label="Email Adress" />
+                        <TextField label="Country" />
+                        <TextField label="Address" />
+                        <TextField label="Phone Number" />
+                        <TextField label="ZIP Code" />
+                      </Box>
+                      <Box
+                        sx={{
+                          display: "flex",
+                          flexDirection: "row",
+                          flexWrap: "wrap",
+                          justifyContent: "flex-end",
+                          columnGap: "3em",
+                          paddingRight: "3em",
+                          paddingBottom: "3em",
+                        }}
+                      >
+                        <Button
+                          color="error"
+                          variant="contained"
+                          onClick={() => setOpenModal(false)}
+                        >
+                          Cancel
+                        </Button>
+                        <Button variant="contained" color="primary">
+                          Pay
+                        </Button>
+                      </Box>
+                    </Paper>
+                  </Container>
+                </Modal>
                 <TableContainer component={Paper}>
                   <Table
                     sx={{ minWidth: { sx: "30rem", md: "60rem" } }}
@@ -171,7 +221,12 @@ function Cart() {
                   >
                     Back
                   </Button>
-                  <Button variant="contained">Procced to Checkout</Button>
+                  <Button
+                    variant="contained"
+                    onClick={() => setOpenModal(true)}
+                  >
+                    Procced to Checkout
+                  </Button>
                 </Box>{" "}
               </>
             ) : (
