@@ -22,6 +22,8 @@ export default async function processedUpload(req, res) {
             email: req.body.email,
             firstName: req.body.firstName,
             lastName: req.body.lastName,
+            age: req.body.age,
+            country: req.body.country,
           });
           //   console.log(result);
           if (result.insertedId) {

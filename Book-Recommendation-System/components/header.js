@@ -60,8 +60,17 @@ export default function header({ user, changeUserState, isAdmin }) {
         position="static"
         style={{ marginBottom: "10%", background: "#112" }}
       >
-        <Toolbar style={{ height: 95, background: "#112" }}>
-          <span>
+        <Toolbar
+          style={{
+            height: 95,
+            background: "#112",
+            display: "flex",
+            flexDirection: "row",
+            flexWrap: "nowrap",
+            justifyContent: "space-between",
+          }}
+        >
+          <Box sx={{ display: { xs: "none", md: "inline" } }}>
             <Typography variant="h6" noWrap>
               {"Welcome to "}
               <Link color="inherit" href="/">
@@ -70,20 +79,20 @@ export default function header({ user, changeUserState, isAdmin }) {
                 </a>
               </Link>{" "}
             </Typography>
-          </span>
-          <span style={{ marginLeft: "31%" }}>
+          </Box>
+          <span>
             <Link href="/">
               <Image
                 src="/logoWhite.png"
-                width={userState ? 500 : 100}
-                height={userState ? 500 : 100}
+                width={100}
+                height={100}
                 style={{ cursor: "pointer" }}
               />
             </Link>
           </span>
           {console.log(userState)}
 
-          <Box style={{ marginLeft: "35%" }}>
+          <Box>
             <Button
               color="inherit"
               aria-controls="simple-menu"

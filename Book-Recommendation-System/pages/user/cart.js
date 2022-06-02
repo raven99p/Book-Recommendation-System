@@ -8,6 +8,7 @@ import {
   Grid,
   Modal,
   Paper,
+  Rating,
   Table,
   TableBody,
   TableCell,
@@ -51,7 +52,7 @@ function Cart() {
               withCredentials: true,
             }
           );
-          console.log("Recommended", response.data);
+          // console.log("Recommended", response.data);
           setRecommendedBooks(response.data);
         } catch (err) {
           setRecommendedBooks([]);
@@ -198,7 +199,7 @@ function Cart() {
                         <TableCell align="center"></TableCell>
                         <TableCell align="center">
                           {cartProducts.reduce((acc, curr) => {
-                            console.log(acc);
+                            // console.log(acc);
                             return acc + curr.price;
                           }, 0)}
                           &euro;
@@ -236,12 +237,20 @@ function Cart() {
             )}
             <Divider sx={{ my: "3em" }} />
             <Box display="flex" flexDirection="column" rowGap="3em">
-              <Typography variant="h4">Users Like You Also Liked: </Typography>
+              <Typography variant="h4">
+                Based On Your Recent Searches:{" "}
+              </Typography>
               <Grid container spacing={2}>
                 {recommendedBooks.map((product) => {
                   return (
                     <Grid item xs={12} md={4}>
-                      <Card sx={{ maxWidth: "80%", borderRadius: "10px" }}>
+                      <Card
+                        sx={{
+                          maxWidth: "80%",
+                          borderRadius: "10px",
+                          height: "35em",
+                        }}
+                      >
                         <CardMedia
                           component="img"
                           width="20"
@@ -252,10 +261,30 @@ function Cart() {
                         <CardContent>
                           <Typography>{product.category}</Typography>
                           <Typography gutterBottom variant="h5" component="div">
-                            {product.title}
+                            {product.title.length > 35 ? (
+                              <span>{product.title.slice(0, 35)}...</span>
+                            ) : (
+                              <span>{product.title}</span>
+                            )}
                           </Typography>
+                          <Box
+                            sx={{
+                              display: "flex",
+                              columnGap: ".5em",
+                              mb: ".5em",
+                              alignItems: "center",
+                            }}
+                          >
+                            <Rating
+                              value={product.averageRating}
+                              size="small"
+                            />
+                            <Typography variant="subtitle1">
+                              ({product.averageRating})
+                            </Typography>
+                          </Box>
                           <Typography variant="body2" color="text.secondary">
-                            {product.summary}
+                            {product.summary.slice(0, 100)}...
                           </Typography>
                           <Typography style={{ marginTop: "1em" }}>
                             {product.price}&euro;

@@ -176,6 +176,7 @@ function Product({ product, user, similarBookList }) {
           reviewBody,
           username: user.username,
           isbn: product.isbn,
+          category: product.category,
         },
         { withCredentials: true }
       );
