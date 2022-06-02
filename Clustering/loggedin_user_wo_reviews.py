@@ -1,34 +1,3 @@
-import pandas as pd
-import json
-import math
-
-path_reviews = 'C:\\Users\pauli\Work\Book Recommendation System\Clustering\dataset\\formatted_reviews.csv'
-path_cluster_table = 'C:\\Users\pauli\Work\Book Recommendation System\Clustering\dataset\\cluster_table.json'
-path_books = 'C:\\Users\pauli\Work\Book Recommendation System\Book-wp\\books_complete_rating_5.csv'
-
-
-def truncate(number, digits) -> float:
-    stepper = 10.0 ** digits
-    return math.trunc(stepper * number) / stepper
-
-unique_categories = ['Fiction',
-                     'Juvenile Fiction',
-                     'Biography & Autobiography',
-                     'Humor',
-                     'History',
-                     'Religion',
-                     'Juvenile Nonfiction',
-                     'Social Science',
-                     'Body, Mind & Spirit',
-                     'Business & Economics',
-                     'Family & Relationships',
-                     'Self-Help',
-                     'Health & Fitness',
-                     'Cooking ',
-                     'Travel']
-
-
-
 
 def get_books_logged_user_no_reviews(age, country, category):
 

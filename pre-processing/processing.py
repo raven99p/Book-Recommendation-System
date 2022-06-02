@@ -1,19 +1,10 @@
+import json
 from pprint import pprint
 import pandas as pd
 import numpy as np
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize, wordpunct_tokenize
-
-
-def clustering(df) -> pd.DataFrame():
-    # user_id, ageGroup, location, isbn, categories of user,
-
-    # categorise based on what they like
-
-    #
-
-    return clustered_df
-
+from collections import defaultdict
 
 def summary(df):
     """
@@ -94,7 +85,6 @@ def pre_process(df) -> pd.DataFrame():
     #
     df["Category"] = df["Category"].apply(lambda x: x.split('\'')[1])
 
-
     # # Group the different categories every user has reviewed by user id
     # df_category_group = df.groupby('user_id')['Category'].apply(lambda x: list(set(list(x)))).to_frame()
     # # make the user id a column of the dataframe
@@ -111,8 +101,32 @@ def pre_process(df) -> pd.DataFrame():
     #
     # merged = merged.drop_duplicates(subset=['user_id'], ignore_index=True)
 
+
     print(df)
     df.to_csv(r"..\dataset\formatted_reviews.csv")
+    return df
+
+
+def remove_countries(df, min_reviews=15) -> pd.DataFrame():
+    df2 = df.groupby('country').size().sort_values(ascending=False)
+
+    df2 = df2[df2 > 15]
+    countries_remaining = list(df2.index)
+    df = df[df["country"].isin(countries_remaining)]
+
+    d = defaultdict(lambda: len(d))  # late binding allows d not to be defined yet
+    country_ids = [d[x] for x in countries_remaining]
+
+    countries_encode_dict = dict(zip(countries_remaining, country_ids))
+
+    with open(r'..\datasetcountry_encode.json', 'w') as fp:
+        json.dump(countries_encode_dict, fp)
+
+    df["country"] = df["country"].map(countries_encode_dict)
+    print(df)
+    df.to_csv(
+        r"C:\Users\k\Desktop\CEID\10th Semester\Book-Recommendation-System\dataset\formatted_reviews_less_countries.csv")
+
     return df
 
 
@@ -140,15 +154,15 @@ def main():
                                     'country', ])
 
     pre_processed_df = pre_process(df)
-    # get the books that each person has rated
-    #
-    pprint(pre_processed_df)
+
+    less_countries_df = remove_countries(pre_processed_df)
+    pprint(less_countries_df)
 
 
 if __name__ == '__main__':
     # Add options to display as needed
     print("test")
     with pd.option_context('max_colwidth', 400,
-                           'display.max_columns', 10,
+                           'display.max_columns', None,
                            ):
         main()
