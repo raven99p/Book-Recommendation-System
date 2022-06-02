@@ -4,12 +4,13 @@ import time
 from pprint import pprint
 import numpy as np
 import pandas as pd
-import helper as utils
+from pymongo import MongoClient
 from sklearn.cluster import KMeans
 import asyncio
 from datetime import datetime
-from pymongo import MongoClient
 import hashlib
+
+
 from bson.json_util import dumps
 
 
@@ -28,9 +29,8 @@ def parse_json(data):
 
 
 def get_books_logged_user_no_reviews(reviews, age, country, category):
-
-    country_path = r"C:\\Users\\pauli\Work\Book Recommendation System\\Clustering\\dataset\\country_encode.json"
-    path_cluster_table = r"C:\\Users\\pauli\Work\Book Recommendation System\\Clustering\\dataset\\cluster_table.json"
+    country_path = r"..\dataset\country_encode.json"
+    path_cluster_table = r"..\dataset\cluster_table.json"
 
     with open(country_path) as f:
         country_codes = json.load(f)
@@ -42,11 +42,11 @@ def get_books_logged_user_no_reviews(reviews, age, country, category):
     ct = ct[ct.country == country_codes[country]]
 
     # get top 100 users with most liked category = category
-    
+
     ct = ct.sort_values(by=category, ascending=False)
     ct = ct[:100]
 
-    ct = ct.iloc[(ct['age']-age).abs().argsort()[:5]]
+    ct = ct.iloc[(ct['age'] - age).abs().argsort()[:5]]
     # get closest 5 based on age
 
     print(ct.user_id.values)
@@ -84,7 +84,8 @@ def add_cluster_row(user_data, categories) -> None:
     @return: Nothing
     """
     # Open the cluster_table json in a dataframe
-    users_data_dir = "C:\\Users\\pauli\Work\Book Recommendation System\\Clustering\\dataset\\cluster_table.json"
+    users_data_dir = r"..\dataset\cluster_table.json"
+    temp = r"..\dataset\cluster_table_tmp.json"
     cluster_table = pd.read_json(users_data_dir)
 
     # Check if user exists in table
@@ -92,12 +93,24 @@ def add_cluster_row(user_data, categories) -> None:
     if len(cluster_table[cluster_table.user_id == user_data["user_id"]]) != 0:
         # If yes, update the average value
         # category_name = utils.get_substring_between_substrings(user_data['category'], 'avg_','_rating')
-        old_average = cluster_table[f"{user_data['category']}"]
-        old_size = cluster_table[f"num_of_{user_data['category']}_ratings"]
+        old_average = float(cluster_table.loc[cluster_table["user_id"] == user_data["user_id"],
+                                        [f"{user_data['category']}"]].values[0])
+
+        new_size = int(cluster_table.loc[cluster_table["user_id"] == user_data["user_id"],
+                                     [f"num_of_{user_data['category']}_ratings"]].values[0]) + 1
+
         new_average = old_average + \
-            ((user_data['category'] - old_average) / old_size)
-        cluster_table[f"{user_data['category']}"] = new_average
-        cluster_table.to_json(users_data_dir, orient="records")
+                      ((user_data['rating'] - old_average) / new_size)
+
+        print(f"{old_average=}\n{new_size=}\n{new_average=}")
+
+        cluster_table.loc[cluster_table["user_id"] == user_data["user_id"],
+                          [f"{user_data['category']}"]] = new_average
+
+        cluster_table.loc[cluster_table["user_id"] == user_data["user_id"],
+                          [f"num_of_{user_data['category']}_ratings"]] = new_size
+
+        cluster_table.to_json(temp, orient="records")
     # User does not exist in table
     else:
 
@@ -118,10 +131,11 @@ def add_cluster_row(user_data, categories) -> None:
                 user_obj[f"num_of_{category}_ratings"] = 0
         # add the user dict to the big table
         user_obj_df = pd.DataFrame(user_obj, index=[0])
-        print(user_obj_df)
+
         # cluster_table = pd.concat([cluster_table, user_obj_df], ignore_index = True)
         cluster_table = cluster_table.append(user_obj, ignore_index=True)
         cluster_table.to_json(users_data_dir, orient="records")
+
 
 def add_review(user_data) -> None:
     """! Adds a row of the new review given as a dictionary.
@@ -136,13 +150,11 @@ def add_review(user_data) -> None:
     @return: Nothing
     """
     # Path to reviews csv
-    users_data_dir = "C:\\Users\\pauli\Work\Book Recommendation System\\Clustering\\dataset\\formatted_reviews_less_countries.csv"
+    users_data_dir = r"..\dataset\formatted_reviews_less_countries.csv"
     # Create the dataframe of the reviews
-    reviews = pd.read_csv(users_data_dir)
+    reviews = pd.read_csv(users_data_dir, low_memory=False)
     # Create a dataframe for the new review from the user data dictionary
-    print(user_data)
     new_review = pd.DataFrame(user_data, index=[0])
-
     # Concatenate the two to add the new review
     reviews = pd.concat([reviews, new_review], ignore_index=True, axis=0)
     # Save the reviews csv back.
@@ -191,7 +203,7 @@ def create_cluster(num_of_clusters=5):
     @return: A list of the user_ids of the cluster
     """
     # Load the cluster table
-    users_data_dir = "C:\\Users\\pauli\Work\Book Recommendation System\\Clustering\\dataset\\cluster_table.json"
+    users_data_dir = r"..\dataset\cluster_table.json"
     cluster_table = pd.read_json(users_data_dir)
 
     columns_to_cluster = [
@@ -205,10 +217,10 @@ def create_cluster(num_of_clusters=5):
     clusters = []
     # made json file a list of lists
     for id in cluster_ids:
-        clusters.append([cluster_table[index:index+1].user_id.values[0]
-                        for index, elem in enumerate(predictions) if elem == id])
+        clusters.append([cluster_table[index:index + 1].user_id.values[0]
+                         for index, elem in enumerate(predictions) if elem == id])
 
-    with open(r"C:\\Users\\pauli\Work\Book Recommendation System\\Clustering\\dataset\\clusters.json", 'w') as f:
+    with open(r"..\dataset\clusters.json", 'w') as f:
         json.dump(clusters, f, default=np_encoder, indent=4)
 
     # return list_of_user_ids
@@ -216,8 +228,7 @@ def create_cluster(num_of_clusters=5):
 
 # TODO: Finish this
 def get_user_cluster(user_id=56193):
-
-    clusters_path = r"C:\\Users\\pauli\Work\Book Recommendation System\\Clustering\\dataset\\clusters.json"
+    clusters_path = r"..\dataset\clusters.json"
 
     list_of_user_ids = []
     # Read json file as list of lists
@@ -241,7 +252,7 @@ def is_user_in_table(user_id, clustering_table) -> bool:
 
 
 def get_cluster_books(reviews, user_id=56193, age=40, country='canada', category='Humor'):
-    cluster_table_dir = "C:\\Users\\pauli\Work\Book Recommendation System\\Clustering\\dataset\\cluster_table.json"
+    cluster_table_dir = r"..\dataset\cluster_table.json"
     cluster_table = pd.read_json(cluster_table_dir)
 
     # print('user id :: ', user_id)
@@ -258,7 +269,7 @@ def get_cluster_books(reviews, user_id=56193, age=40, country='canada', category
         books_that_i_havent_read = [x for x in reviews_of_cluster if x not in my_reviews]
         # print(books_that_i_havent_read)
         client = MongoClient(
-        'mongodb://localhost:27017/?readPreference=primary&appname=MongoDB%20Compass&directConnection=true&ssl=false')
+            'mongodb://localhost:27017/?readPreference=primary&appname=MongoDB%20Compass&directConnection=true&ssl=false')
         db = client.ecommerce
         books = db.Books
 
@@ -328,16 +339,27 @@ def create_table(df, num_of_users=None):
         # add the user dict to the big table
         clustering_table.append(user_obj)
     # pprint(clustering_table[0])
-    with open(r"C:\\Users\\pauli\Work\Book Recommendation System\\Clustering\\dataset\\cluster_table.json", 'w') as f:
+    with open(r"..\dataset\cluster_table.json", 'w') as f:
         json.dump(clustering_table, f, default=np_encoder, indent=4)
 
 
 def main():
+    users_data_dir = r"..\dataset\formatted_reviews_less_countries.csv"
+    # users_data = pd.read_csv(users_data_dir, low_memory=False)
+    # users_num = None
+    # create_table(users_data, users_num)
 
-    users_data_dir = r"C:\\Users\\pauli\Work\Book Recommendation System\\Clustering\\dataset\\formatted_reviews_less_countries.csv"
-    users_data = pd.read_csv(users_data_dir)
-    users_num = None
-    create_table(users_data, users_num)
+    user_data = {
+        "user_id": 999999,
+        "age": 40,
+        "country": 0,
+        "isbn": "0609804618",
+        "category": "Humor",
+        "rating": 10
+    }
+    update_tables(user_data)
+    create_cluster()
+
     # print("Done")
     # # create_cluster()
     # # num_of_clusters=20
