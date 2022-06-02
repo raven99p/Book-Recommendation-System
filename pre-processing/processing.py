@@ -103,7 +103,7 @@ def pre_process(df) -> pd.DataFrame():
 
 
     print(df)
-    df.to_csv(r"..\dataset\formatted_reviews.csv")
+    df.to_csv(r"C:\\Users\\pauli\Work\Book Recommendation System\\Clustering\dataset\\formatted_reviews.csv")
     return df
 
 
@@ -119,20 +119,20 @@ def remove_countries(df, min_reviews=15) -> pd.DataFrame():
 
     countries_encode_dict = dict(zip(countries_remaining, country_ids))
 
-    with open(r'..\datasetcountry_encode.json', 'w') as fp:
+    with open(r"C:\\Users\\pauli\Work\Book Recommendation System\\Clustering\\dataset\\country_encode.json", 'w') as fp:
         json.dump(countries_encode_dict, fp)
 
     df["country"] = df["country"].map(countries_encode_dict)
     print(df)
-    df.to_csv(
-        r"C:\Users\k\Desktop\CEID\10th Semester\Book-Recommendation-System\dataset\formatted_reviews_less_countries.csv")
+    # df.to_csv(
+    #     r"C:\\Users\\pauli\Work\Book Recommendation System\\Clustering\\dataset\\formatted_reviews_less_countries.csv")
 
     return df
 
 
 def main():
     #
-    path = r"C:\Users\k\Desktop\CEID\10th Semester\Book-Recommendation-System\dataset\preprocessed_data.csv"
+    path = r"C:\\Users\\pauli\Work\Book Recommendation System\data\\original_ratings.csv"
     # Load the file
     df = pd.read_csv(path, usecols=['user_id',
                                     'location',

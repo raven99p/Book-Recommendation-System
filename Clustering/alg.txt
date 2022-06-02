@@ -15,15 +15,18 @@ userId         Age    Country     avg_romance_rating     avg_scifi_rating
 
 Logged in User with reviews but not added to cluster table
 
-    1. add a new row on above clustering table
-    2. Cluster above rows
+    1. Add a new row to clustering table
+    2. Cluster clustering table
+
     3. Get 4 most similar users with the new user
     4. get their books that the new user hasn't read
 
 Logged in User with reviews but already added to cluster table
-    1. cluster rows
-    2. get 4 most similar users with the user
-    3. get their books that the user hasn't read
+    1. Update the user row in the clustering table
+    2. Cluster clustering table
+    
+    3. Get 4 most similar users with the new user
+    4. get their books that the new user hasn't read
 
 
 Logged in User without reviews
