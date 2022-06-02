@@ -29,23 +29,35 @@ def findSimilarBooksClicks():
 
 @app.route('/addReview', methods=["POST"])
 def addReview():
-    # user_data = {"user_id": int,
-    #                          "age": float,
-    #                          "country": int code,
-    #                          "isbn": string,
-    #                          "category": string,
-    #                          "rating": float}
+    # user_data = {
+    # "user_id": int,
+    # "age": float,
+    # "country": int code,
+    # "isbn": string,
+    # "category": string,
+    # "rating": float}
+
     data = request.get_json()
-    # print(data)
+   
     clustering.update_tables(data)
     clustering.create_cluster()
-    # create review
 
-    #update cluster table 
+    return jsonify({'message': 'ok'})
 
 
-    #cluster
+@app.route('/recommendMeBooks', methods=["POST"])
+def recommendMeBooks():
+    # user_data = {
+    # "user_id": int,
+    # "age": float,
+    # "country": int code,
+    # "category": string}
+
+    data = request.get_json()
     
-    # print(data['isbn_list'])
-    # similar_book_list = get_similar_books_with_clicks(data['isbn_list'])
-    return jsonify({'message': 'similar_book_list'})
+    books = clustering.get_cluster_books(data)
+
+    return jsonify({'message': books})
+
+
+

@@ -29,8 +29,8 @@ def parse_json(data):
 
 
 def get_books_logged_user_no_reviews(reviews, age, country, category):
-    country_path = r"..\dataset\country_encode.json"
-    path_cluster_table = r"..\dataset\cluster_table.json"
+    country_path = r"C:\\Users\\pauli\Work\Book Recommendation System\\Clustering\dataset\\country_encode.json"
+    path_cluster_table = r"C:\\Users\\pauli\Work\Book Recommendation System\\Clustering\dataset\\cluster_table.json"
 
     with open(country_path) as f:
         country_codes = json.load(f)
@@ -49,12 +49,12 @@ def get_books_logged_user_no_reviews(reviews, age, country, category):
     ct = ct.iloc[(ct['age'] - age).abs().argsort()[:5]]
     # get closest 5 based on age
 
-    print(ct.user_id.values)
+    # print(ct.user_id.values)
 
     # get the books that the users have read
     reviews = reviews[reviews.user_id.isin(ct.user_id.values)]
 
-    print(reviews.isbn.unique())
+    # print(reviews.isbn.unique())
 
     # get unique book information
     # books = books[books.isbn.isin(reviews.isbn.unique())].sort_values(by='averageRating', ascending=False)[:5]
@@ -65,7 +65,7 @@ def get_books_logged_user_no_reviews(reviews, age, country, category):
 
     top_5_books = books.find({"isbn": {"$in": list(reviews.isbn.unique())}}).limit(
         3).sort("averageRating", -1)
-    print(parse_json(top_5_books))
+    # print(parse_json(top_5_books))
 
     return parse_json(top_5_books)
 
@@ -84,8 +84,7 @@ def add_cluster_row(user_data, categories) -> None:
     @return: Nothing
     """
     # Open the cluster_table json in a dataframe
-    users_data_dir = r"..\dataset\cluster_table.json"
-    temp = r"..\dataset\cluster_table_tmp.json"
+    users_data_dir = r"C:\\Users\\pauli\Work\Book Recommendation System\\Clustering\dataset\\cluster_table.json"
     cluster_table = pd.read_json(users_data_dir)
 
     # Check if user exists in table
@@ -110,7 +109,7 @@ def add_cluster_row(user_data, categories) -> None:
         cluster_table.loc[cluster_table["user_id"] == user_data["user_id"],
                           [f"num_of_{user_data['category']}_ratings"]] = new_size
 
-        cluster_table.to_json(temp, orient="records")
+        cluster_table.to_json(users_data_dir, orient="records")
     # User does not exist in table
     else:
 
@@ -150,7 +149,7 @@ def add_review(user_data) -> None:
     @return: Nothing
     """
     # Path to reviews csv
-    users_data_dir = r"..\dataset\formatted_reviews_less_countries.csv"
+    users_data_dir = r"C:\\Users\\pauli\Work\Book Recommendation System\\Clustering\dataset\\formatted_reviews_less_countries.csv"
     # Create the dataframe of the reviews
     reviews = pd.read_csv(users_data_dir, low_memory=False)
     # Create a dataframe for the new review from the user data dictionary
@@ -203,7 +202,7 @@ def create_cluster(num_of_clusters=5):
     @return: A list of the user_ids of the cluster
     """
     # Load the cluster table
-    users_data_dir = r"..\dataset\cluster_table.json"
+    users_data_dir = r"C:\\Users\\pauli\Work\Book Recommendation System\\Clustering\dataset\\cluster_table.json"
     cluster_table = pd.read_json(users_data_dir)
 
     columns_to_cluster = [
@@ -220,7 +219,7 @@ def create_cluster(num_of_clusters=5):
         clusters.append([cluster_table[index:index + 1].user_id.values[0]
                          for index, elem in enumerate(predictions) if elem == id])
 
-    with open(r"..\dataset\clusters.json", 'w') as f:
+    with open(r"C:\\Users\\pauli\Work\Book Recommendation System\\Clustering\dataset\\clusters.json", 'w') as f:
         json.dump(clusters, f, default=np_encoder, indent=4)
 
     # return list_of_user_ids
@@ -228,7 +227,7 @@ def create_cluster(num_of_clusters=5):
 
 # TODO: Finish this
 def get_user_cluster(user_id=56193):
-    clusters_path = r"..\dataset\clusters.json"
+    clusters_path = r"C:\\Users\\pauli\Work\Book Recommendation System\\Clustering\dataset\\clusters.json"
 
     list_of_user_ids = []
     # Read json file as list of lists
@@ -251,10 +250,10 @@ def is_user_in_table(user_id, clustering_table) -> bool:
         # return user_id in clustering_table.user_id
 
 
-def get_cluster_books(reviews, user_id=56193, age=40, country='canada', category='Humor'):
-    cluster_table_dir = r"..\dataset\cluster_table.json"
+def get_cluster_books(user_id=56193, age=40, country='canada', category='Humor'):
+    cluster_table_dir = r"C:\\Users\\pauli\Work\Book Recommendation System\\Clustering\dataset\\cluster_table.json"
     cluster_table = pd.read_json(cluster_table_dir)
-
+    reviews = pd.read_csv("C:\\Users\\pauli\Work\Book Recommendation System\\Clustering\dataset\\formatted_reviews_less_countries.csv")
     # print('user id :: ', user_id)
     # print(cluster_table[cluster_table.user_id == user_id])
     # print(is_user_in_table(user_id, cluster_table))
@@ -276,12 +275,15 @@ def get_cluster_books(reviews, user_id=56193, age=40, country='canada', category
         top_5_books = books.find({"isbn": {"$in": books_that_i_havent_read}}).limit(
             3).sort("averageRating", -1)
         # print(parse_json(top_5_books))
+        print('GOT BOOKS FROM CLUSTER')
         return parse_json(top_5_books)
 
     else:
-        books = get_books_logged_user_no_reviews(reviews, age, country, category)
-
-    return books
+        print('GOT BOOKS FROM SIMILAR USERS')
+        top_5_books = get_books_logged_user_no_reviews(reviews, age, country, category)
+    print('PRINTING BOOKS IN FUNCTION')
+    print(top_5_books)
+    return top_5_books
 
 
 def create_table(df, num_of_users=None):
@@ -339,12 +341,12 @@ def create_table(df, num_of_users=None):
         # add the user dict to the big table
         clustering_table.append(user_obj)
     # pprint(clustering_table[0])
-    with open(r"..\dataset\cluster_table.json", 'w') as f:
+    with open(r"C:\\Users\\pauli\Work\Book Recommendation System\\Clustering\dataset\\cluster_table.json", 'w') as f:
         json.dump(clustering_table, f, default=np_encoder, indent=4)
 
 
 def main():
-    users_data_dir = r"..\dataset\formatted_reviews_less_countries.csv"
+    users_data_dir = r"C:\\Users\\pauli\Work\Book Recommendation System\\Clustering\dataset\\formatted_reviews_less_countries.csv"
     # users_data = pd.read_csv(users_data_dir, low_memory=False)
     # users_num = None
     # create_table(users_data, users_num)
@@ -357,8 +359,8 @@ def main():
         "category": "Humor",
         "rating": 10
     }
-    update_tables(user_data)
-    create_cluster()
+    # update_tables(user_data)
+    # create_cluster()
 
     # print("Done")
     # # create_cluster()
@@ -366,7 +368,7 @@ def main():
     # # print("Done2")
     # # get_user_cluster()
     # # print("Done3")
-    # get_cluster_books(users_data)
+    get_cluster_books(user_data)
     print("Done4")
 
 
