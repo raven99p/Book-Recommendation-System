@@ -84,8 +84,8 @@ export default function header({ user, changeUserState, isAdmin }) {
             <Link href="/">
               <Image
                 src="/logoWhite.png"
-                width={userState ? 500 : 100}
-                height={userState ? 500 : 100}
+                width={100}
+                height={100}
                 style={{ cursor: "pointer" }}
               />
             </Link>
