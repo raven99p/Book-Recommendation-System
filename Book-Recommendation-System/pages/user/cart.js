@@ -51,7 +51,7 @@ function Cart() {
               withCredentials: true,
             }
           );
-          console.log("Recommended", response.data);
+          // console.log("Recommended", response.data);
           setRecommendedBooks(response.data);
         } catch (err) {
           setRecommendedBooks([]);
@@ -198,7 +198,7 @@ function Cart() {
                         <TableCell align="center"></TableCell>
                         <TableCell align="center">
                           {cartProducts.reduce((acc, curr) => {
-                            console.log(acc);
+                            // console.log(acc);
                             return acc + curr.price;
                           }, 0)}
                           &euro;
@@ -236,7 +236,9 @@ function Cart() {
             )}
             <Divider sx={{ my: "3em" }} />
             <Box display="flex" flexDirection="column" rowGap="3em">
-              <Typography variant="h4">Users Like You Also Liked: </Typography>
+              <Typography variant="h4">
+                Based On Your Recent Searches:{" "}
+              </Typography>
               <Grid container spacing={2}>
                 {recommendedBooks.map((product) => {
                   return (
