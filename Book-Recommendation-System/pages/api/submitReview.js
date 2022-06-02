@@ -10,7 +10,10 @@ export default async function submitReview(req, res) {
         const client = new MongoClient(process.env.MONGO_URI);
         await client.connect();
         const db = client.db("ecommerce");
+        const users = db.collection("Users");
         const reviews = db.collection("Reviews");
+        let user = await users.findOne({ username: req.body.username });
+
         let result = await reviews.findOne({
           username: req.body.username,
           isbn: req.body.isbn,
@@ -21,6 +24,8 @@ export default async function submitReview(req, res) {
         } else {
           result = await reviews.insertOne({
             isbn: req.body.isbn,
+            age: user.age,
+            category: req.body.category,
             username: req.body.username,
             reviewBody: req.body.reviewBody,
             reviewRating: req.body.ratingValue,
