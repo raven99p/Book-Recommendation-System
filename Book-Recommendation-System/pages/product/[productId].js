@@ -44,7 +44,7 @@ export async function getServerSideProps(context) {
       "http://127.0.0.1:5000/findSimilarBooks",
       { isbn: productId }
     );
-    console.log("SIMILAR BOOKS LIST", similarBooks.data);
+    // console.log("SIMILAR BOOKS LIST", similarBooks.data);
     if (response?.data?.product) {
       return {
         props: {
@@ -142,6 +142,7 @@ function Product({ product, user, similarBookList }) {
           title: product.title,
           amount: productAmount,
           ImageS: product.ImageS,
+          category: product.category,
           price: product.price * productAmount,
         });
       } else {
@@ -151,6 +152,7 @@ function Product({ product, user, similarBookList }) {
             title: product.title,
             amount: productAmount,
             ImageS: product.ImageS,
+            category: product.category,
             price: product.price * productAmount,
           },
         ];
@@ -224,6 +226,9 @@ function Product({ product, user, similarBookList }) {
                 sx={{ padding: { xs: "3em", md: "0em" } }}
               >
                 <Typography variant="h4">{product.title}</Typography>
+                <Typography variant="subtitle1" color="gray">
+                  {product.category}
+                </Typography>
                 <Box
                   display="flex"
                   flexDirection="row"

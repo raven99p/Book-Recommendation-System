@@ -25,8 +25,35 @@ import CloseIcon from "@mui/icons-material/Close";
 import IconButton from "@mui/material/IconButton";
 import axios from "axios";
 import { useRouter } from "next/router";
-function Cart() {
+
+async function getServerSideProps(context) {
+  try {
+    const userResponse = await axios.post(
+      "http://localhost:3000/api/getUserName",
+      {},
+      {
+        withCredentials: true,
+        headers: {
+          Cookie: context.req.headers.cookie,
+        },
+      }
+    );
+    return {
+      props: {
+        username: userResponse.data.username,
+      },
+    };
+  } catch (err) {
+    return {
+      props: {
+        username: null,
+      },
+    };
+  }
+}
+function Cart({ username }) {
   const router = useRouter();
+  const [userSimBooks, setUserSimBooks] = useState([]);
   const [cartProducts, setCartProducts] = useState();
   const [recommendedBooks, setRecommendedBooks] = useState([]);
   const [openModal, setOpenModal] = useState(false);
@@ -59,6 +86,33 @@ function Cart() {
         }
       }
       getCartRecommendations();
+    }
+  }, []);
+
+  useEffect(() => {
+    if (window.localStorage && username !== null) {
+      async function getUserSimBooks() {
+        try {
+          const myLocalStorage = window.localStorage;
+          let cart = myLocalStorage.getItem("ReadersCoveCart");
+          let source;
+          try {
+            source = JSON.parse(cart);
+            console.log("sending cart");
+          } catch (err) {
+            console.log("err");
+          }
+          const simBooksResponse = await axios.post(
+            "http://localhost:3000/api/getUserSimilarBooks",
+            { username, source },
+            { withCredentials: true }
+          );
+          setUserSimBooks(simBooksResponse.data);
+        } catch (error) {
+          console.log(error);
+        }
+      }
+      getUserSimBooks();
     }
   }, []);
 
@@ -234,6 +288,92 @@ function Cart() {
               <Box textAlign="center">
                 <Typography variant="h5">No Items In Cart</Typography>
               </Box>
+            )}
+            {userSimBooks.length > 0 ? (
+              <>
+                <Divider />
+                <Box display="flex" flexDirection="column" rowGap="3em">
+                  <Typography variant="h4">
+                    Based On Your Recent Searches:{" "}
+                  </Typography>
+                  <Grid container spacing={2}>
+                    {userSimBooks.map((product) => {
+                      return (
+                        <Grid item xs={12} md={4}>
+                          <Card
+                            sx={{
+                              maxWidth: "80%",
+                              borderRadius: "10px",
+                              height: "35em",
+                            }}
+                          >
+                            <CardMedia
+                              component="img"
+                              width="20"
+                              height="200"
+                              image={product.ImageL}
+                              alt="image of book cover"
+                            />
+                            <CardContent>
+                              <Typography>{product.category}</Typography>
+                              <Typography
+                                gutterBottom
+                                variant="h5"
+                                component="div"
+                              >
+                                {product.title.length > 35 ? (
+                                  <span>{product.title.slice(0, 35)}...</span>
+                                ) : (
+                                  <span>{product.title}</span>
+                                )}
+                              </Typography>
+                              <Box
+                                sx={{
+                                  display: "flex",
+                                  columnGap: ".5em",
+                                  mb: ".5em",
+                                  alignItems: "center",
+                                }}
+                              >
+                                <Rating
+                                  value={product.averageRating}
+                                  size="small"
+                                />
+                                <Typography variant="subtitle1">
+                                  ({product.averageRating})
+                                </Typography>
+                              </Box>
+                              <Typography
+                                variant="body2"
+                                color="text.secondary"
+                              >
+                                {product.summary.slice(0, 100)}...
+                              </Typography>
+                              <Typography style={{ marginTop: "1em" }}>
+                                {product.price}&euro;
+                              </Typography>
+                            </CardContent>
+                            <CardActions
+                              sx={{ display: "flex", justifyContent: "center" }}
+                            >
+                              <Button
+                                variant="contained"
+                                fullWidth
+                                size="small"
+                                sx={{ borderRadius: "20px" }}
+                              >
+                                View
+                              </Button>
+                            </CardActions>
+                          </Card>
+                        </Grid>
+                      );
+                    })}
+                  </Grid>
+                </Box>
+              </>
+            ) : (
+              <></>
             )}
             <Divider sx={{ my: "3em" }} />
             <Box display="flex" flexDirection="column" rowGap="3em">

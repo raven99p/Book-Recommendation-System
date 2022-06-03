@@ -1,3 +1,4 @@
+import axios from "axios";
 import { MongoClient } from "mongodb";
 
 export default async function submitReview(req, res) {
@@ -11,34 +12,32 @@ export default async function submitReview(req, res) {
         await client.connect();
         const db = client.db("ecommerce");
         const users = db.collection("Users");
-        const reviews = db.collection("Reviews");
+        // const reviews = db.collection("Reviews");
         let user = await users.findOne({ username: req.body.username });
 
-        let result = await reviews.findOne({
-          username: req.body.username,
-          isbn: req.body.isbn,
-        });
-        if (result) {
-          res.status(200);
-          res.json({ message: "Review Already Exists" });
-        } else {
-          result = await reviews.insertOne({
-            isbn: req.body.isbn,
-            age: user.age,
-            category: req.body.category,
-            username: req.body.username,
-            reviewBody: req.body.reviewBody,
-            reviewRating: req.body.ratingValue,
-          });
-          //   console.log(result);
-          if (result.insertedId) {
-            res.status(200);
-            res.send();
-          } else {
-            res.status(500);
-            res.send();
+        console.log(user._id.toString());
+        const addReviewResponse = await axios.post(
+          "http://localhost:5000/addReview",
+          {
+            user_data: {
+              user_id: user._id.toString(),
+              age: user.age,
+              country: user.country,
+              isbn: req.body.isbn,
+              category: req.body.catergory,
+              rating: req.body.ratingValue,
+            },
           }
-        }
+        );
+        console.log(addReviewResponse.data);
+        res.status(200).send();
+        // # user_data = {
+        //   # "user_id": int,
+        //   # "age": float,
+        //   # "country": int code,
+        //   # "isbn": string,
+        //   # "category": string,
+        //   # "rating": float}
       }
     } else {
       res.status(405);
