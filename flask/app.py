@@ -38,7 +38,6 @@ def addReview():
     # "rating": float}
 
     data = request.get_json()
-   
     clustering.update_tables(data)
     clustering.create_cluster()
 
@@ -54,8 +53,10 @@ def recommendMeBooks():
     # "category": string}
 
     data = request.get_json()
-    
-    books = clustering.get_cluster_books(data)
+    print('DATA----------------')
+    print(data)
+    print('DATA----------------')
+    books = clustering.get_cluster_books(data["user_id"], data["age"], data["country"], data["category"])
 
     return jsonify({'message': books})
 

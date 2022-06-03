@@ -39,7 +39,7 @@ def get_books_logged_user_no_reviews(reviews, age, country, category):
     # books = pd.read_csv(path_books)
     ct = pd.read_json(path_cluster_table)
     # Get all users with the same country TODO ENCODE COUNTRY
-    ct = ct[ct.country == country_codes[country]]
+    ct = ct[ct.country == country]
 
     # get top 100 users with most liked category = category
 
@@ -190,6 +190,7 @@ def update_tables(user_data) -> None:
                          'Travel']
     # Check if user is in cluster
     add_review(user_data)
+    # print(user_data)
     if user_data["category"] in top_15_categories:
         add_cluster_row(user_data, top_15_categories)
 
@@ -206,8 +207,9 @@ def create_cluster(num_of_clusters=5):
     cluster_table = pd.read_json(users_data_dir)
 
     columns_to_cluster = [
-        col for col in cluster_table.columns if "user_id" not in col or "num_of_" not in col]
+        col for col in cluster_table.columns if "user_id" not in col and "num_of_" not in col]
 
+    # print(columns_to_cluster)
     list_of_user_ids = []
     X = cluster_table[columns_to_cluster].values
     kmeans_1 = KMeans(n_clusters=num_of_clusters)
@@ -254,19 +256,19 @@ def get_cluster_books(user_id=56193, age=40, country='canada', category='Humor')
     cluster_table_dir = r"C:\\Users\\pauli\Work\Book Recommendation System\\Clustering\dataset\\cluster_table.json"
     cluster_table = pd.read_json(cluster_table_dir)
     reviews = pd.read_csv("C:\\Users\\pauli\Work\Book Recommendation System\\Clustering\dataset\\formatted_reviews_less_countries.csv")
-    # print('user id :: ', user_id)
+    print('user id :: ', user_id)
     # print(cluster_table[cluster_table.user_id == user_id])
-    # print(is_user_in_table(user_id, cluster_table))
+    print('IS USER IN CLUSTERS :: ', is_user_in_table(float(user_id), cluster_table))
     books = []
-    if is_user_in_table(user_id, cluster_table):
+    if is_user_in_table(float(user_id), cluster_table):
         print('user has reviews')
-        group = get_user_cluster(user_id)
+        group = get_user_cluster(int(user_id))
         # get all reviews from the cluster
         reviews_of_cluster = reviews[reviews.user_id.isin(group)].isbn.unique()
-        my_reviews = reviews[reviews.user_id == user_id].isbn.unique()
+        my_reviews = reviews[reviews.user_id == float(user_id)].isbn.unique()
 
         books_that_i_havent_read = [x for x in reviews_of_cluster if x not in my_reviews]
-        # print(books_that_i_havent_read)
+        print(books_that_i_havent_read)
         client = MongoClient(
             'mongodb://localhost:27017/?readPreference=primary&appname=MongoDB%20Compass&directConnection=true&ssl=false')
         db = client.ecommerce

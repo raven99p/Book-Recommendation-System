@@ -15,18 +15,17 @@ export default async function submitReview(req, res) {
         // const reviews = db.collection("Reviews");
         let user = await users.findOne({ username: req.body.username });
 
-        console.log(user._id.toString());
+        console.log(user.userId);
+        
         const addReviewResponse = await axios.post(
           "http://localhost:5000/addReview",
           {
-            user_data: {
-              user_id: user._id.toString(),
-              age: user.age,
-              country: user.country,
-              isbn: req.body.isbn,
-              category: req.body.catergory,
-              rating: req.body.ratingValue,
-            },
+            user_id: user.userId,
+            age: user.age,
+            country: user.country,
+            isbn: req.body.isbn,
+            category: req.body.category,
+            rating: parseFloat(req.body.ratingValue) * 2,
           }
         );
         console.log(addReviewResponse.data);

@@ -22,16 +22,14 @@ export default async function getUserSimilarBooks(req, res) {
         var mostCommonCategory = _.head(
           _(categories).countBy().entries().maxBy(_.last)
         );
-        console.log("This is the most common: ", result);
+        
         const simBooksResponse = await axios.post(
           "http://localhost:5000/recommendMeBooks",
           {
-            user_data: {
-              user_id: user._id.toString(),
-              age: user.age,
-              country: user.country,
-              category: mostCommonCategory,
-            },
+            user_id: user.userId.toString(),
+            age: user.age,
+            country: user.country,
+            category: mostCommonCategory,
           }
         );
         console.log(simBooksResponse.data);

@@ -25,8 +25,9 @@ import CloseIcon from "@mui/icons-material/Close";
 import IconButton from "@mui/material/IconButton";
 import axios from "axios";
 import { useRouter } from "next/router";
+import Link from "next/link";
 
-async function getServerSideProps(context) {
+export async function getServerSideProps(context) {
   try {
     const userResponse = await axios.post(
       "http://localhost:3000/api/getUserName",
@@ -38,6 +39,7 @@ async function getServerSideProps(context) {
         },
       }
     );
+    console.log("THIS IS THE USERNAME", userResponse.data.username);
     return {
       props: {
         username: userResponse.data.username,
@@ -57,6 +59,7 @@ function Cart({ username }) {
   const [cartProducts, setCartProducts] = useState();
   const [recommendedBooks, setRecommendedBooks] = useState([]);
   const [openModal, setOpenModal] = useState(false);
+  console.log("USERNAME ROOT :: ", username);
   useEffect(() => {
     setCartProducts(
       window ? JSON.parse(window.localStorage.getItem("ReadersCoveCart")) : null
@@ -91,6 +94,7 @@ function Cart({ username }) {
 
   useEffect(() => {
     if (window.localStorage && username !== null) {
+      // console.log('USERNAME USEEFFECT :: ', username)
       async function getUserSimBooks() {
         try {
           const myLocalStorage = window.localStorage;
@@ -294,7 +298,7 @@ function Cart({ username }) {
                 <Divider />
                 <Box display="flex" flexDirection="column" rowGap="3em">
                   <Typography variant="h4">
-                    Based On Your Recent Searches:{" "}
+                    Users like you also liked:{" "}
                   </Typography>
                   <Grid container spacing={2}>
                     {userSimBooks.map((product) => {
@@ -356,14 +360,20 @@ function Cart({ username }) {
                             <CardActions
                               sx={{ display: "flex", justifyContent: "center" }}
                             >
-                              <Button
-                                variant="contained"
-                                fullWidth
-                                size="small"
-                                sx={{ borderRadius: "20px" }}
+                              <Link
+                                href={`/product/${product.isbn}`}
+                                passHref
+                                replace
                               >
-                                View
-                              </Button>
+                                <Button
+                                  variant="contained"
+                                  fullWidth
+                                  size="small"
+                                  sx={{ borderRadius: "20px" }}
+                                >
+                                  View
+                                </Button>
+                              </Link>
                             </CardActions>
                           </Card>
                         </Grid>
@@ -377,9 +387,7 @@ function Cart({ username }) {
             )}
             <Divider sx={{ my: "3em" }} />
             <Box display="flex" flexDirection="column" rowGap="3em">
-              <Typography variant="h4">
-                Based On Your Recent Searches:{" "}
-              </Typography>
+              <Typography variant="h4">Similar Products: </Typography>
               <Grid container spacing={2}>
                 {recommendedBooks.map((product) => {
                   return (
@@ -433,14 +441,16 @@ function Cart({ username }) {
                         <CardActions
                           sx={{ display: "flex", justifyContent: "center" }}
                         >
-                          <Button
-                            variant="contained"
-                            fullWidth
-                            size="small"
-                            sx={{ borderRadius: "20px" }}
-                          >
-                            View
-                          </Button>
+                          <Link href={`/product/${product.isbn}`} passHref replace>
+                            <Button
+                              variant="contained"
+                              fullWidth
+                              size="small"
+                              sx={{ borderRadius: "20px" }}
+                            >
+                              View
+                            </Button>
+                          </Link>
                         </CardActions>
                       </Card>
                     </Grid>

@@ -171,6 +171,7 @@ function Product({ product, user, similarBookList }) {
   };
   const handleReviewSubmit = async () => {
     try {
+      console.log(product)
       const response = await axios.post(
         "/api/submitReview",
         {
@@ -416,59 +417,7 @@ function Product({ product, user, similarBookList }) {
                   </Box>
                 </Box>
                 <Divider />
-                <Box display="flex" flexDirection="column" rowGap="3em">
-                  <Typography variant="h4">
-                    Users Like You Also Liked:{" "}
-                  </Typography>
-                  <Grid container spacing={2}>
-                    {[1, 2, 3].map(() => {
-                      return (
-                        <Grid item xs={12} md={4}>
-                          <Card sx={{ maxWidth: "80%", borderRadius: "10px" }}>
-                            <CardMedia
-                              component="img"
-                              width="20"
-                              height="200"
-                              image={product.ImageL}
-                              alt="image of book cover"
-                            />
-                            <CardContent>
-                              <Typography>{product.category}</Typography>
-                              <Typography
-                                gutterBottom
-                                variant="h5"
-                                component="div"
-                              >
-                                {product.title}
-                              </Typography>
-                              <Typography
-                                variant="body2"
-                                color="text.secondary"
-                              >
-                                {product.summary}
-                              </Typography>
-                              <Typography style={{ marginTop: "1em" }}>
-                                {product.price}&euro;
-                              </Typography>
-                            </CardContent>
-                            <CardActions
-                              sx={{ display: "flex", justifyContent: "center" }}
-                            >
-                              <Button
-                                variant="contained"
-                                fullWidth
-                                size="small"
-                                sx={{ borderRadius: "20px" }}
-                              >
-                                View
-                              </Button>
-                            </CardActions>
-                          </Card>
-                        </Grid>
-                      );
-                    })}
-                  </Grid>
-                </Box>
+                
                 <Divider />
               </>
             )}

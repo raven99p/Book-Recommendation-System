@@ -16,7 +16,9 @@ export default async function processedUpload(req, res) {
           res.status(406);
           res.json({ message: "Username Already Exists" });
         } else {
+          const lastId = await users.find().sort({userId: -1}).limit(1).toArray();
           result = await users.insertOne({
+            userId: lastId[0].userId + 1,
             username: req.body.username,
             passwordHash: req.body.password,
             email: req.body.email,
@@ -25,7 +27,7 @@ export default async function processedUpload(req, res) {
             age: req.body.age,
             country: req.body.country,
           });
-          //   console.log(result);
+            console.log(result);
           if (result.insertedId) {
             res.status(200);
             res.send();
