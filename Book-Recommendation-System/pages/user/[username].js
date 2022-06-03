@@ -14,18 +14,24 @@ import {
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import axios from "axios";
-
+import Link from "next/link";
 export async function getServerSideProps(context) {
   const nameInURL = context.params.username;
-
+  // console.log(context);
   try {
     const response = await axios.post(
       "http://localhost:3000/api/checkUserExists",
       {
         email: nameInURL,
+      },
+      {
+        withCredentials: true,
+        headers: {
+          Cookie: context.req.headers.cookie,
+        },
       }
     );
-    console.log("Normal");
+    // console.log("Normal");
     console.log(response.data);
     return {
       props: {
@@ -33,8 +39,8 @@ export async function getServerSideProps(context) {
       },
     };
   } catch (err) {
-    console.log("Diddddddddddddddddddddddddddddddd");
-    console.log(err);
+    // console.log("Diddddddddddddddddddddddddddddddd");
+    console.log(err.response);
     return {
       redirect: {
         destination: "/login",
@@ -42,8 +48,6 @@ export async function getServerSideProps(context) {
       },
     };
   }
-
-  return { props: { username: context.params.username } };
 }
 export default function profile({ username, firstName, lastName, email }) {
   const router = useRouter();
@@ -90,12 +94,9 @@ export default function profile({ username, firstName, lastName, email }) {
                     {username ?? "johndoe"}
                   </TableCell>
                   <TableCell style={{ borderBottom: "none" }}>
-                    <Button
-                      onClick={() => router.push("/user/updateUsername")}
-                      variant="contained"
-                    >
-                      Change
-                    </Button>
+                    <Link href="/user/updateUsername">
+                      <Button variant="contained">Change</Button>
+                    </Link>
                   </TableCell>
                 </TableRow>
               </TableBody>
@@ -108,7 +109,7 @@ export default function profile({ username, firstName, lastName, email }) {
               }}
             >
               <Button
-                onClick={() => router.push("/user/updatePassword")}
+                onClick={() => router.push("/updatePassword")}
                 variant="contained"
               >
                 Change Password

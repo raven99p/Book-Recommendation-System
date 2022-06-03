@@ -16,7 +16,11 @@ export default async function login(req, res) {
         // const secretKey = await generateSecret('HS256');
         const { payload } = await jwtDecrypt(jwt, secretKey);
         if (payload.username) {
-          res.setHeader("Set-Cookie", `ReadersCove= ; Expires=${new Date(0)};`);
+          const date = new Date().toUTCString();
+          res.setHeader(
+            "Set-Cookie",
+            `ReadersCove=null; HttpOnly; Path=/; Expires=${date};`
+          );
           res.status(200);
           res.json({ message: "ok" });
         } else {

@@ -1,0 +1,38 @@
+Create a table with 
+
+user id | age | city | avg_rating_romance | avg_rating_scifi etc
+
+
+
+userId         Age    Country     avg_romance_rating     avg_scifi_rating
+    1         20     Greece      3.50                 2.40
+    3         25     Brazil      3.65                 3.14
+    6         26     Canada      2.90                 2.75
+    7         56     Albania     2.93                 3.36
+    12        45     Italy       2.89                 2.62
+
+
+
+Logged in User with reviews but not added to cluster table
+
+    1. Add a new row to clustering table
+    2. Cluster clustering table
+
+    3. Get 4 most similar users with the new user
+    4. get their books that the new user hasn't read
+
+Logged in User with reviews but already added to cluster table
+    1. Update the user row in the clustering table
+    2. Cluster clustering table
+    
+    3. Get 4 most similar users with the new user
+    4. get their books that the new user hasn't read
+
+
+Logged in User without reviews
+    params : age, country, overall liked category in cart
+    (age, country, category)
+
+    Get all users within the same country
+    Get 5 closest users based on age, and most liked category = category
+    Get their books and return the 3 highest rated books

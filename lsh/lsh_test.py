@@ -13,7 +13,7 @@ path = "C:\\Users\pauli\Work\Book Recommendation System\dataset\summaries_v4.csv
 
 df = pd.read_csv(path)
 
-number_of_summaries = 16
+number_of_summaries = 5
 data = df.Summary.values[:number_of_summaries]
 index_list = df.isbn.values[:number_of_summaries]
 

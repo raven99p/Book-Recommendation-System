@@ -22,7 +22,7 @@ export default async function processedUpload(req, res) {
           await client.connect();
           const db = client.db("ecommerce");
           const users = db.collection("Users");
-          const entries = db.collection("Entries");
+          const reviews = db.collection("Reviews");
           if (req.body.username) {
             console.log("Data");
             const result = await users.findOne({ username: req.body.username });
@@ -36,13 +36,13 @@ export default async function processedUpload(req, res) {
                 { username: payload.username },
                 { $set: { username: req.body.username } }
               );
-              const entriesResult = await entries.updateMany(
+              const reviewsResult = await reviews.updateMany(
                 { username: payload.username },
                 { $set: { username: req.body.username } }
               );
               if (
                 userResult.modifiedCount > 0 ||
-                entriesResult.modifiedCount > 0
+                reviewsResult.modifiedCount > 0
               ) {
                 res.status(200);
                 res.json({ message: "OK" });

@@ -1,1 +1,5 @@
 /dataset
+/data
+*.csv
+*.json
+Clustering/__pycache__/
