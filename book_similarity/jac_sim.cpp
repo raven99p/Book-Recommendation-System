@@ -4,9 +4,10 @@
 #include <unordered_set>
 #include <vector>
 #include <iomanip>
+#include <thread>
+#include <mutex>
 
-using namespace std;
-
+std::mutex mtx;  // Mutex for synchronized writing to the result vectors
 
 double calculateJaccardSimilarity(const std::vector<std::string>& wordTokens1, const std::vector<std::string>& wordTokens2) {
     std::unordered_set<std::string> set1(wordTokens1.begin(), wordTokens1.end());
@@ -24,6 +25,19 @@ double calculateJaccardSimilarity(const std::vector<std::string>& wordTokens1, c
 
     double jaccardScore = static_cast<double>(intersection.size()) / unionSet.size();
     return jaccardScore;
+}
+
+void calculateSimilarities(const std::vector<std::vector<std::string>>& summaries, const std::vector<std::string>& isbns, std::vector<std::string>& isbns1, std::vector<std::string>& isbns2, std::vector<double>& similarities, size_t start, size_t end) {
+    for (size_t i = start; i < end; ++i) {
+        for (size_t j = i + 1; j < summaries.size(); ++j) {
+            double similarity = calculateJaccardSimilarity(summaries[i], summaries[j]);
+
+            std::lock_guard<std::mutex> lock(mtx);  // Lock the mutex to avoid concurrent writes
+            isbns1.push_back(isbns[i]);
+            isbns2.push_back(isbns[j]);
+            similarities.push_back(similarity);
+        }
+    }
 }
 
 void writeToCSV(const std::string& filename, const std::vector<std::string>& isbns1, const std::vector<std::string>& isbns2, const std::vector<double>& similarities) {
@@ -45,7 +59,7 @@ void writeToCSV(const std::string& filename, const std::vector<std::string>& isb
 }
 
 int main() {
-    std::ifstream file("book_summaries.csv");  // Replace with your CSV file path
+    std::ifstream file("your_data.csv");  // Replace with your CSV file path
     if (!file.is_open()) {
         std::cerr << "Failed to open the file." << std::endl;
         return 1;
@@ -82,18 +96,22 @@ int main() {
     std::vector<std::string> isbns1, isbns2;
     std::vector<double> similarities;
 
-    int counter = 0;
+    const size_t numThreads = std::thread::hardware_concurrency();  // Get the number of available threads
+    const size_t chunkSize = summaries.size() / numThreads;         // Divide the work among the threads
 
-    // Perform Jaccard similarity calculations
-    for (size_t i = 0; i < summaries.size(); ++i) {
-        for (size_t j = i + 1; j < summaries.size(); ++j) {
-            double similarity = calculateJaccardSimilarity(summaries[i], summaries[j]);
-            counter = counter + 1;
-            std::cout << "Counter:: " << counter << std::endl;
-            isbns1.push_back(isbns[i]);
-            isbns2.push_back(isbns[j]);
-            similarities.push_back(similarity);
-        }
+    std::vector<std::thread> threads;
+
+    // Create and start the threads
+    for (size_t i = 0; i < numThreads; ++i) {
+        size_t start = i * chunkSize;
+        size_t end = (i == numThreads - 1) ? summaries.size() : start + chunkSize;
+
+        threads.emplace_back(calculateSimilarities, std::ref(summaries), std::ref(isbns), std::ref(isbns1), std::ref(isbns2), std::ref(similarities), start, end);
+    }
+
+    // Join the threads
+    for (auto& thread : threads) {
+        thread.join();
     }
 
     // Store the results in a CSV file
