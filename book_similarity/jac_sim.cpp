@@ -3,6 +3,10 @@
 #include <sstream>
 #include <unordered_set>
 #include <vector>
+#include <iomanip>
+
+using namespace std;
+
 
 double calculateJaccardSimilarity(const std::vector<std::string>& wordTokens1, const std::vector<std::string>& wordTokens2) {
     std::unordered_set<std::string> set1(wordTokens1.begin(), wordTokens1.end());
@@ -20,6 +24,24 @@ double calculateJaccardSimilarity(const std::vector<std::string>& wordTokens1, c
 
     double jaccardScore = static_cast<double>(intersection.size()) / unionSet.size();
     return jaccardScore;
+}
+
+void writeToCSV(const std::string& filename, const std::vector<std::string>& isbns1, const std::vector<std::string>& isbns2, const std::vector<double>& similarities) {
+    std::ofstream file(filename);
+    if (!file.is_open()) {
+        std::cerr << "Failed to open the file." << std::endl;
+        return;
+    }
+
+    // Write the header
+    file << "ISBN1,ISBN2,Similarity\n";
+
+    // Write the data
+    for (size_t i = 0; i < isbns1.size(); ++i) {
+        file << isbns1[i] << "," << isbns2[i] << "," << std::fixed << std::setprecision(6) << similarities[i] << "\n";
+    }
+
+    file.close();
 }
 
 int main() {
@@ -57,6 +79,9 @@ int main() {
 
     file.close();
 
+    std::vector<std::string> isbns1, isbns2;
+    std::vector<double> similarities;
+
     int counter = 0;
 
     // Perform Jaccard similarity calculations
@@ -64,9 +89,17 @@ int main() {
         for (size_t j = i + 1; j < summaries.size(); ++j) {
             double similarity = calculateJaccardSimilarity(summaries[i], summaries[j]);
             counter = counter + 1;
-            std::cout << "Counter " << counter << std::endl;
+            std::cout << "Counter:: " << counter << std::endl;
+            isbns1.push_back(isbns[i]);
+            isbns2.push_back(isbns[j]);
+            similarities.push_back(similarity);
         }
     }
+
+    // Store the results in a CSV file
+    writeToCSV("similarity_results.csv", isbns1, isbns2, similarities);
+
+    std::cout << "Similarity results have been written to similarity_results.csv" << std::endl;
 
     return 0;
 }
