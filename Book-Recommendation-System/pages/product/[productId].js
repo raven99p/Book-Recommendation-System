@@ -25,25 +25,43 @@ import AddIcon from "@mui/icons-material/Add";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import ShoppingCartCheckoutIcon from "@mui/icons-material/ShoppingCartCheckout";
 import Link from "next/link";
+import { MongoClient } from "mongodb";
 
 export async function getServerSideProps(context) {
   const { productId } = context.params;
   console.log(context.req.headers);
   try {
-    const response = await axios.post(
-      "http://localhost:3000/api/getProductDetails",
-      { productId },
-      {
-        withCredentials: true,
-        headers: {
-          Cookie: context.req?.headers?.cookie ?? null,
+    const client = new MongoClient(process.env.MONGO_URI);
+    await client.connect();
+    const db = client.db("ecommerce");
+    const books = db.collection("Books");
+    const book = await books.findOne({
+      isbn: productId,
+    });
+    if (book) {
+      return {
+        props: {
+          product: JSON.stringify(book),
+          user: { loggedIn: false },
+          key: productId,
+          similarBookList: [],
         },
-      }
-    );
-    const similarBooks = await axios.post(
-      "http://127.0.0.1:5000/findSimilarBooks",
-      { isbn: productId }
-    );
+      };
+    } else {
+      return {
+        props: {
+          product: null,
+          user: { loggedIn: false },
+          key: productId,
+          similarBookList: [],
+        },
+      };
+    }
+    // const similarBooks = await axios.post(
+    //   "http://127.0.0.1:5000/findSimilarBooks",
+    //   { isbn: productId }
+    // );
+    const similarBooks = undefined;
     // console.log("SIMILAR BOOKS LIST", similarBooks.data);
     if (response?.data?.product) {
       return {
@@ -53,7 +71,7 @@ export async function getServerSideProps(context) {
             loggedIn: response?.data?.loggedIn ?? null,
             username: response?.data?.username ?? null,
           },
-          similarBookList: similarBooks.data.message,
+          similarBookList: similarBooks?.data?.message ?? null,
           key: productId,
         },
       };
@@ -80,6 +98,7 @@ export async function getServerSideProps(context) {
 }
 function Product({ product, user, similarBookList }) {
   const [simBooks, setSimBooks] = useState(similarBookList);
+  const [book, setBook] = useState(JSON.parse(product));
   const [isLoggedIn, setIsLoggedIn] = useState(user.loggedIn);
   const [productAmount, setProductAmount] = useState(1);
   const [openSnackbar, setOpenSnackbar] = useState(false);
@@ -88,14 +107,19 @@ function Product({ product, user, similarBookList }) {
   const [reviewBody, setReviewBody] = useState("");
   const [disableAddToCard, setDisableAddToCard] = useState(false);
   const [disableSubmitReview, setDisableSubmitReview] = useState(false);
-  const [testState, setTestState] = useState(product.isbn);
+  const [testState, setTestState] = useState(book.isbn);
   const ratingLabels = {
     0: "",
     1: "Poor",
-    2: "OK",
-    3: "Good",
-    4: "Very Good",
-    5: "Excellent",
+    2: "Poor",
+    3: "OK",
+    4: "OK",
+    5: "Good",
+    6: "Good",
+    7: "Very Good",
+    8: "Very Good",
+    9: "Excellent",
+    10: "Excellent",
   };
 
   useEffect(() => {
@@ -105,13 +129,13 @@ function Product({ product, user, similarBookList }) {
         myLocalStorage.getItem("ReadersCoveTracker")
       );
       if (!!trackedProducts) {
-        if (!(product.isbn in trackedProducts)) {
+        if (!(book.isbn in trackedProducts)) {
           console.log("here");
           console.log(trackedProducts);
-          trackedProducts.push(product.isbn.toString());
+          trackedProducts.push(book.isbn.toString());
         }
       } else {
-        trackedProducts = [product.isbn.toString()];
+        trackedProducts = [book.isbn.toString()];
         console.log(trackedProducts);
       }
 
@@ -138,22 +162,22 @@ function Product({ product, user, similarBookList }) {
       let cart = JSON.parse(myLocalStorage.getItem("ReadersCoveCart"));
       if (cart) {
         cart.push({
-          isbn: product.isbn,
-          title: product.title,
+          isbn: book.isbn,
+          title: book.title,
           amount: productAmount,
-          ImageS: product.ImageS,
-          category: product.category,
-          price: product.price * productAmount,
+          ImageS: book.ImageS,
+          category: book.category,
+          price: book.price * productAmount,
         });
       } else {
         cart = [
           {
-            isbn: product.isbn,
-            title: product.title,
+            isbn: book.isbn,
+            title: book.title,
             amount: productAmount,
-            ImageS: product.ImageS,
-            category: product.category,
-            price: product.price * productAmount,
+            ImageS: book.ImageS,
+            category: book.category,
+            price: book.price * productAmount,
           },
         ];
       }
@@ -171,15 +195,15 @@ function Product({ product, user, similarBookList }) {
   };
   const handleReviewSubmit = async () => {
     try {
-      console.log(product)
+      console.log(product);
       const response = await axios.post(
         "/api/submitReview",
         {
           ratingValue,
           reviewBody,
           username: user.username,
-          isbn: product.isbn,
-          category: product.category,
+          isbn: book.isbn,
+          category: book.category,
         },
         { withCredentials: true }
       );
@@ -195,23 +219,26 @@ function Product({ product, user, similarBookList }) {
     <div
       style={{
         display: "flex",
-        backgroundImage: `url(/aboutBG.jpg)`,
-        marginTop: "-10em",
         gap: "5em",
+        backgroundImage: `url(/aboutBG.jpg)`,
+        backgroundSize: "cover",
+        backgroundRepeat: "no-repeat",
       }}
     >
+      <div style={{}} />
       <Container style={{ marginTop: "5em", marginBottom: "5em" }}>
         <Paper elevation={3} sx={{ pb: "3em" }}>
           <Grid container>
             <Grid item xs={1} md={1} />
             <Grid item xs={10} md={6}>
               <Box marginTop="3em" marginBottom="3em">
-                <Image
+                {console.log(book.ImageM)}
+                <img
                   style={{ borderRadius: "10px" }}
                   width={400}
                   height={500}
                   alt="Image of product"
-                  src={`${product.ImageL}`}
+                  src={`${book.ImageL}`}
                 />
               </Box>
             </Grid>
@@ -226,9 +253,9 @@ function Product({ product, user, similarBookList }) {
                 marginBottom="2em"
                 sx={{ padding: { xs: "3em", md: "0em" } }}
               >
-                <Typography variant="h4">{product.title}</Typography>
+                <Typography variant="h4">{book.title}</Typography>
                 <Typography variant="subtitle1" color="gray">
-                  {product.category}
+                  {book.category}
                 </Typography>
                 <Box
                   display="flex"
@@ -236,14 +263,10 @@ function Product({ product, user, similarBookList }) {
                   flexWrap="nowrap"
                   columnGap="2em"
                 >
-                  <Rating
-                    value={product.averageRating}
-                    readOnly
-                    precision={0.5}
-                  />
+                  <Rating value={book.averageRating} readOnly precision={0.5} />
                   <Typography variant="h6">
-                    {`${product.averageRating}      ${
-                      ratingLabels[`${Math.round(product.averageRating)}`]
+                    {`${book.averageRating.toFixed(2)}      ${
+                      ratingLabels[`${Math.round(book.averageRating)}`]
                     }`}
                   </Typography>
                 </Box>
@@ -252,7 +275,7 @@ function Product({ product, user, similarBookList }) {
                   justifyContent="space-between"
                   alignItems="center"
                 >
-                  {product?.stock > 0 ? (
+                  {book?.stock > 0 ? (
                     <Typography variant="subtitle1" color="green">
                       Available Now!
                     </Typography>
@@ -263,14 +286,14 @@ function Product({ product, user, similarBookList }) {
                   )}
                   <Box display="flex" flexDirection="column">
                     <Typography variant="subtitle1" color="gray">
-                      By: {product.author}
+                      By: {book.author}
                     </Typography>
                     <Typography variant="subtitle1" color="gray">
-                      Published: {product.YOP}
+                      Published: {book.YOP}
                     </Typography>
                   </Box>
                 </Box>
-                <Typography variant="h6">{product.summary}</Typography>
+                <Typography variant="h6">{book.summary}</Typography>
                 <Box
                   marginTop="1em"
                   display="flex"
@@ -278,7 +301,7 @@ function Product({ product, user, similarBookList }) {
                   justifyContent="space-between"
                 >
                   <Typography variant="h6" color="green">
-                    {product.price}&euro;
+                    {book.price}&euro;
                   </Typography>
                   <Box>
                     <IconButton
@@ -292,15 +315,14 @@ function Product({ product, user, similarBookList }) {
                     </IconButton>
                     <Input
                       sx={{
-                        textAlign: "right",
                         color: "black",
                         width: "1rem",
                         marginX: "1em",
                       }}
                       value={productAmount}
                       variant="standard"
-                      disabled
                       color="primary"
+                      disabled
                       disableUnderline
                       onChange={(e) => handleChangeProductAmount(e)}
                     />
@@ -417,7 +439,7 @@ function Product({ product, user, similarBookList }) {
                   </Box>
                 </Box>
                 <Divider />
-                
+
                 <Divider />
               </>
             )}
@@ -431,16 +453,16 @@ function Product({ product, user, similarBookList }) {
             <Divider />
             <Typography variant="h4">Similar Products:</Typography>
             <Grid container spacing={2}>
-              {simBooks.length != 0 ? (
-                simBooks.map((item) => {
+              {simBooks !== null && simBooks?.length !== 0 ? (
+                simBooks?.map((item) => {
                   return (
                     <Grid item xs={12} md={4}>
                       <Card sx={{ maxWidth: "80%", borderRadius: "10px" }}>
                         <CardMedia
                           component="img"
-                          width="20"
-                          height="200"
-                          image={item.ImageL}
+                          image={
+                            "http://images.amazon.com/images/P/0674637526.01.LZZZZZZZ.jpg"
+                          }
                           alt="image of book cover"
                         />
                         <CardContent>
@@ -474,7 +496,17 @@ function Product({ product, user, similarBookList }) {
                   );
                 })
               ) : (
-                <div>There are no similar books worth recommending</div>
+                <Box
+                  sx={{
+                    display: "flex",
+                    alignItems: "center",
+                    textAlign: "center",
+                    fontWeight: "Bold",
+                    fontSize: 25,
+                  }}
+                >
+                  There are no similar books worth recommending
+                </Box>
               )}
             </Grid>
           </Box>

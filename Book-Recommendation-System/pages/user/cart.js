@@ -227,11 +227,7 @@ function Cart({ username }) {
                           }}
                         >
                           <TableCell component="th" scope="row">
-                            <Image
-                              src={`${row.ImageS}`}
-                              width="30"
-                              height="40"
-                            />
+                            <img src={`${row.ImageS}`} width="30" height="40" />
                           </TableCell>
                           <TableCell align="center">{row.isbn}</TableCell>
                           <TableCell align="center">{row.title}</TableCell>
@@ -441,7 +437,11 @@ function Cart({ username }) {
                         <CardActions
                           sx={{ display: "flex", justifyContent: "center" }}
                         >
-                          <Link href={`/product/${product.isbn}`} passHref replace>
+                          <Link
+                            href={`/product/${product.isbn}`}
+                            passHref
+                            replace
+                          >
                             <Button
                               variant="contained"
                               fullWidth

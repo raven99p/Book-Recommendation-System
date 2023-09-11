@@ -56,10 +56,7 @@ export default function header({ user, changeUserState, isAdmin }) {
   };
   return (
     <div style={{ flexGrow: 1 }}>
-      <AppBar
-        position="static"
-        style={{ marginBottom: "10%", background: "#112" }}
-      >
+      <AppBar position="static" style={{ background: "#112" }}>
         <Toolbar
           style={{
             height: 95,
@@ -80,16 +77,16 @@ export default function header({ user, changeUserState, isAdmin }) {
               </Link>{" "}
             </Typography>
           </Box>
-          <span>
+          <Box
+            sx={{
+              marginLeft: { xs: "0em", md: "-6em", lg: "-6em" },
+              cursor: "pointer",
+            }}
+          >
             <Link href="/">
-              <Image
-                src="/logoWhite.png"
-                width={100}
-                height={100}
-                style={{ cursor: "pointer" }}
-              />
+              <Image src="/logoWhite.png" width={100} height={100} />
             </Link>
-          </span>
+          </Box>
           {console.log(userState)}
 
           <Box>

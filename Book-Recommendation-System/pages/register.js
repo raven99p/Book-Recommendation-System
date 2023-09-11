@@ -8,7 +8,7 @@ import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import axios from "axios";
 import { useRouter } from "next/router";
-import { Autocomplete } from "@mui/material";
+import { Autocomplete, Paper } from "@mui/material";
 
 function Copyright() {
   return (
@@ -96,132 +96,152 @@ export default function SignIn() {
   }
 
   return (
-    <Container component="main" maxWidth="xs">
-      <CssBaseline />
-      <div>
-        <Typography component="h1" variant="h5" style={{ textAlign: "center" }}>
-          Sign Up
-        </Typography>
-        {usernameError && (
+    <div
+      style={{
+        display: "flex",
+        backgroundImage: `url(/aboutBG.jpg)`,
+        backgroundSize: "cover",
+        backgroundRepeat: "no-repeat",
+        height: "100vh",
+        gap: "5em",
+      }}
+    >
+      <Container component="main" maxWidth="xs" sx={{ mt: "2em" }}>
+        <CssBaseline />
+        <Paper sx={{ padding: "2em" }}>
           <Typography
             component="h1"
-            variant="subtitle1"
-            style={{ textAlign: "center", color: "red" }}
+            variant="h5"
+            style={{ textAlign: "center" }}
           >
-            Username already exists, try again..
+            Sign Up
           </Typography>
-        )}
-        <form method="post" onSubmit={handleRegister}>
-          <TextField
-            variant="outlined"
-            margin="normal"
-            required
-            fullWidth
-            id="email"
-            label="Email Address"
-            name="email"
-            autoComplete="email"
-            autoFocus
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          <TextField
-            variant="outlined"
-            margin="normal"
-            required
-            fullWidth
-            name="Username"
-            label="Username"
-            type="text"
-            id="Username"
-            onChange={(e) => handleUsernameEntry(e.target.value)}
-          />
-          <TextField
-            // helperText={"}
-            error={!!passwordError}
-            helperText={
-              passwordError
-                ? "Your password must be more than 8 characters and must contain at least one Capital letter, one number and a special character"
-                : ""
-            }
-            variant="outlined"
-            margin="normal"
-            required
-            fullWidth
-            name="password"
-            label="Password"
-            type="password"
-            id="password"
-            autoComplete="current-password"
-            onChange={(e) => handlePasswordEntry(e.target.value)}
-          />
-          <TextField
-            variant="outlined"
-            margin="normal"
-            required
-            fullWidth
-            name="firstName"
-            label="First Name"
-            type="text"
-            id="firstName"
-            onChange={(e) => handleFirstNameEntry(e.target.value)}
-          />
-          <TextField
-            variant="outlined"
-            margin="normal"
-            required
-            fullWidth
-            name="lasName"
-            label="Last Name"
-            type="text"
-            id="lastName"
-            onChange={(e) => handleLastNameEntry(e.target.value)}
-          />
-          <TextField
-            variant="outlined"
-            margin="normal"
-            required
-            fullWidth
-            name="Age"
-            label="Age"
-            type="number"
-            id="age"
-            onChange={(e) => handleAgeEntry(parseInt(e.target.value))}
-          />
-          <Autocomplete
-            isOptionEqualToValue={(option, value) => option.name === value.name}
-            renderInput={(params) => (
-              <TextField
-                {...params}
-                sx={{ mb: "3em", mt: "1em" }}
-                label="Country"
-              />
-            )}
-            autoComplete
-            options={countries}
-            getOptionLabel={(option) => option.name}
-            // renderOption={(props, option) => (
-            //   <Typography variant="body1" sx={{ padding: "1em" }}>
-            //     {option.name}
-            //   </Typography>
-            // )}
-            onChange={(_, newValue) => setCountry(newValue.id)}
-            required
-          />
-          <Button
-            type="submit"
-            fullWidth
-            variant="contained"
-            color="primary"
-            onClick={handleRegister}
-          >
-            Sign Up!
-          </Button>
-        </form>
-      </div>
-      <Box mt={8}>
-        <Copyright />
-      </Box>
-    </Container>
+          {usernameError && (
+            <Typography
+              component="h1"
+              variant="subtitle1"
+              style={{ textAlign: "center", color: "red" }}
+            >
+              Username already exists, try again..
+            </Typography>
+          )}
+          <form method="post" onSubmit={handleRegister}>
+            <TextField
+              variant="standard"
+              sx={{
+                backgroundColor: "white",
+              }}
+              margin="normal"
+              required
+              fullWidth
+              id="email"
+              label="Email Address"
+              name="email"
+              autoComplete="email"
+              autoFocus
+              onChange={(e) => setEmail(e.target.value)}
+            />
+            <TextField
+              variant="outlined"
+              margin="normal"
+              required
+              fullWidth
+              name="Username"
+              label="Username"
+              type="text"
+              id="Username"
+              onChange={(e) => handleUsernameEntry(e.target.value)}
+            />
+            <TextField
+              // helperText={"}
+              error={!!passwordError}
+              helperText={
+                passwordError
+                  ? "Your password must be more than 8 characters and must contain at least one Capital letter, one number and a special character"
+                  : ""
+              }
+              variant="outlined"
+              margin="normal"
+              required
+              fullWidth
+              name="password"
+              label="Password"
+              type="password"
+              id="password"
+              autoComplete="current-password"
+              onChange={(e) => handlePasswordEntry(e.target.value)}
+            />
+            <TextField
+              variant="outlined"
+              margin="normal"
+              required
+              fullWidth
+              name="firstName"
+              label="First Name"
+              type="text"
+              id="firstName"
+              onChange={(e) => handleFirstNameEntry(e.target.value)}
+            />
+            <TextField
+              variant="outlined"
+              margin="normal"
+              required
+              fullWidth
+              name="lasName"
+              label="Last Name"
+              type="text"
+              id="lastName"
+              onChange={(e) => handleLastNameEntry(e.target.value)}
+            />
+            <TextField
+              variant="outlined"
+              margin="normal"
+              required
+              fullWidth
+              name="Age"
+              label="Age"
+              type="number"
+              id="age"
+              onChange={(e) => handleAgeEntry(parseInt(e.target.value))}
+            />
+            <Autocomplete
+              isOptionEqualToValue={(option, value) =>
+                option.name === value.name
+              }
+              renderInput={(params) => (
+                <TextField
+                  {...params}
+                  sx={{ mb: "3em", mt: "1em" }}
+                  label="Country"
+                />
+              )}
+              autoComplete
+              options={countries}
+              getOptionLabel={(option) => option.name}
+              // renderOption={(props, option) => (
+              //   <Typography variant="body1" sx={{ padding: "1em" }}>
+              //     {option.name}
+              //   </Typography>
+              // )}
+              onChange={(_, newValue) => setCountry(newValue.id)}
+              required
+            />
+            <Button
+              type="submit"
+              fullWidth
+              variant="contained"
+              color="primary"
+              onClick={handleRegister}
+            >
+              Sign Up!
+            </Button>
+          </form>
+        </Paper>
+        <Box mt={8}>
+          <Copyright />
+        </Box>
+      </Container>
+    </div>
   );
 }
 

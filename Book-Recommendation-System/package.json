@@ -12,6 +12,7 @@
     "axios": "^0.21.1",
     "clsx": "latest",
     "cookies": "^0.8.0",
+    "cross-env": "^7.0.3",
     "eslint-cli": "^1.1.1",
     "jose": "^3.15.4",
     "lodash": "^4.17.21",
@@ -30,10 +31,10 @@
     "recharts": "^2.1.2"
   },
   "engines": {
-    "node": "16.x"
+    "node": "18.x"
   },
   "scripts": {
-    "dev": "next",
+    "dev": "cross-env NODE_OPTIONS='--openssl-legacy-provider' next dev",
     "build": "next build",
     "start": "next start -p $PORT",
     "post-update": "echo \"codesandbox preview only, need an update\" && yarn upgrade --latest"

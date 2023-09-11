@@ -21,29 +21,58 @@ import Link from "next/link";
 import { debounce } from "lodash";
 import Image from "next/image";
 import DoubleArrowIcon from "@mui/icons-material/DoubleArrow";
+import { MongoClient } from "mongodb";
+
 export async function getServerSideProps(context) {
   try {
-    const response = await axios.post(
-      "http://localhost:3000/api/getFrontPageBooks"
-    );
-    console.log(response.data);
-    return {
-      props: {
-        books: response.data.books,
-      },
-    };
+    try {
+      const client = new MongoClient(process.env.MONGO_URI);
+      await client.connect();
+      const db = client.db("ecommerce");
+      const books = db.collection("Books");
+      const bookProducts = await books
+        .find({ averageRating: { $gte: 7.5 } })
+        .limit(9)
+        .sort({ averageRating: -1 })
+        .toArray();
+      console.log(bookProducts);
+      if (bookProducts) {
+        return {
+          props: {
+            books: JSON.stringify(bookProducts),
+          },
+        };
+      } else {
+        return {
+          props: {
+            books: [],
+          },
+        };
+      }
+    } catch (err) {
+      return {
+        props: {
+          books: [],
+        },
+      };
+    }
   } catch (err) {
     console.log(err);
+    return {
+      props: {
+        books: [],
+      },
+    };
   }
 }
 
 export default function Index({ books }) {
   const [open, setOpen] = React.useState(false);
-  const [frontPageBooks, setFrontPageBooks] = useState(books);
+  const [frontPageBooks, setFrontPageBooks] = useState(JSON.parse(books));
   const loading = open && autocompleteOptions.length === 0;
   const [autocompleteOptions, setAutocompleteOptions] = useState([]);
   const fetchNewOptions = async (inputValue) => {
-    console.log(inputValue);
+    // console.log(inputValue);
     if (inputValue.length > 3) {
       const newOptionsResponse = await axios.post(
         "http://localhost:3000/api/getNewOptions",
@@ -66,7 +95,9 @@ export default function Index({ books }) {
       style={{
         display: "flex",
         backgroundImage: `url(/aboutBG.jpg)`,
-        marginTop: "-10em",
+        backgroundSize: "cover",
+        backgroundRepeat: "no-repeat",
+        marginTop: "-20em",
         gap: "5em",
       }}
     >
@@ -110,7 +141,7 @@ export default function Index({ books }) {
                   justifyContent="space-between"
                 >
                   <Box display="flex" columnGap="1em" alignItems="center">
-                    <Image
+                    <img
                       src={option.ImageS}
                       alt="image of book"
                       width="40"
@@ -154,7 +185,7 @@ export default function Index({ books }) {
             <Box m="3em" display="flex" gap="4em" flexWrap="wrap">
               {frontPageBooks.map((book) => {
                 return (
-                  <Link href={`/product/${book.isbn}`}>
+                  <Link key={book.isbn} href={`/product/${book.isbn}`}>
                     <Card
                       sx={{
                         width: "29%",
